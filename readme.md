@@ -4,3 +4,5 @@ This is the backend of clinic management system
 
 1. ASP.NET CORE
 2. C#
+3. Entityframework
+4. Sql Server
