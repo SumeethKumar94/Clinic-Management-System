@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sreehari.prathap\\Desktop\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
+    "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sreehari.prathap\\Desktop\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
+    "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sreehari.prathap\\Desktop\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "projectUniqueName": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
         "projectName": "ClinicManagementSystem",
-        "projectPath": "C:\\Users\\sreehari.prathap\\Desktop\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\sreehari.prathap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sreehari.prathap\\Desktop\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
+        "projectPath": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\nikhil.nandagopan\\.nuget\\packages\\",
+        "outputPath": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sreehari.prathap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikhil.nandagopan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,30 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
