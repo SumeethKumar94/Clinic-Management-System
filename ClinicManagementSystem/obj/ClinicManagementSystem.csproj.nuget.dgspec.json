@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
+    "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
   },
   "projects": {
-    "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
+    "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
         "projectName": "ClinicManagementSystem",
-        "projectPath": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\nikhil.nandagopan\\.nuget\\packages\\",
-        "outputPath": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\sumeeth.s\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nikhil.nandagopan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sumeeth.s\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +42,7 @@
           "dependencies": {
             "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
-              "version": "[5.2.7, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

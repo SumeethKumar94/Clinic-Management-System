@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Microsoft.AspNet.Cors/5.2.7": {
+      "Microsoft.AspNet.Cors/5.0.0": {
         "type": "package",
         "compile": {
           "lib/net45/System.Web.Cors.dll": {}
@@ -11,23 +11,19 @@
           "lib/net45/System.Web.Cors.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.7": {
+      "Microsoft.AspNet.WebApi.Client/5.0.0": {
         "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.1",
-          "Newtonsoft.Json.Bson": "1.0.1"
-        },
         "compile": {
-          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+          "lib/net45/System.Net.Http.Formatting.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+          "lib/net45/System.Net.Http.Formatting.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Core/5.2.7": {
+      "Microsoft.AspNet.WebApi.Core/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.7"
+          "Microsoft.AspNet.WebApi.Client": "5.0.0"
         },
         "compile": {
           "lib/net45/System.Web.Http.dll": {}
@@ -36,11 +32,11 @@
           "lib/net45/System.Web.Http.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Cors/5.2.7": {
+      "Microsoft.AspNet.WebApi.Cors/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNet.Cors": "5.2.7",
-          "Microsoft.AspNet.WebApi.Core": "[5.2.7, 5.3.0)"
+          "Microsoft.AspNet.Cors": "5.0.0",
+          "Microsoft.AspNet.WebApi.Core": "5.0.0"
         },
         "compile": {
           "lib/net45/System.Web.Http.Cors.dll": {}
@@ -1489,59 +1485,57 @@
     }
   },
   "libraries": {
-    "Microsoft.AspNet.Cors/5.2.7": {
-      "sha512": "r7qTj8SKzHT32F2mbB3qgE+6VUd2xILkGaq4LtMW+KP3dDAQmI//j+8Ku01I3D1GKZvB9PU8HTJPkaw7sxSLtQ==",
+    "Microsoft.AspNet.Cors/5.0.0": {
+      "sha512": "jNwFhEnm0jRlaRCgHEk52hJQltVoM2Bllysv2NtPYrgsVWyS3r5BOtCXkM/lEZ5AdUUBOvha+4QAVcVp1MZp5g==",
       "type": "package",
-      "path": "microsoft.aspnet.cors/5.2.7",
+      "path": "microsoft.aspnet.cors/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/System.Web.Cors.dll",
-        "microsoft.aspnet.cors.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.cors.5.0.0.nupkg.sha512",
         "microsoft.aspnet.cors.nuspec"
       ]
     },
-    "Microsoft.AspNet.WebApi.Client/5.2.7": {
-      "sha512": "/76fAHknzvFqbznS6Uj2sOyE9rJB3PltY+f53TH8dX9RiGhk02EhuFCWljSj5nnqKaTsmma8DFR50OGyQ4yJ1g==",
+    "Microsoft.AspNet.WebApi.Client/5.0.0": {
+      "sha512": "OMTp9ot40TZgZxnFO+S0ac0EY5CtQs6KTHkMSHmNFDc+a0tWMCsSBuOG6HoH9+G95wNhEfZrZ20btAsHMlQe7w==",
       "type": "package",
-      "path": "microsoft.aspnet.webapi.client/5.2.7",
+      "path": "microsoft.aspnet.webapi.client/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/System.Net.Http.Formatting.dll",
         "lib/net45/System.Net.Http.Formatting.xml",
-        "lib/netstandard2.0/System.Net.Http.Formatting.dll",
-        "lib/netstandard2.0/System.Net.Http.Formatting.xml",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
-        "microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
+        "lib/portable-wp8+netcore45+net45/System.Net.Http.Formatting.dll",
+        "lib/portable-wp8+netcore45+net45/System.Net.Http.Formatting.xml",
+        "microsoft.aspnet.webapi.client.5.0.0.nupkg.sha512",
         "microsoft.aspnet.webapi.client.nuspec"
       ]
     },
-    "Microsoft.AspNet.WebApi.Core/5.2.7": {
-      "sha512": "gM2QzApnHdy1FbKUJ/ROGJSm69P2G+HMoVd/t5Vq1O/zZ5TI4IKC9PX6nUfRt/NHgebZOIWHpB4/4K4inuy4yQ==",
+    "Microsoft.AspNet.WebApi.Core/5.0.0": {
+      "sha512": "ZOVLLtFpSM8nkJopUM9upbJEUkAUS60j6Sj1hDKewHaekWMUnnoMX/i3Ee+7KgxMGk13yxxQRHtSwcjh1JpJ4w==",
       "type": "package",
-      "path": "microsoft.aspnet.webapi.core/5.2.7",
+      "path": "microsoft.aspnet.webapi.core/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Content/web.config.transform",
+        "content/web.config.transform",
         "lib/net45/System.Web.Http.dll",
         "lib/net45/System.Web.Http.xml",
-        "microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.core.5.0.0.nupkg.sha512",
         "microsoft.aspnet.webapi.core.nuspec"
       ]
     },
-    "Microsoft.AspNet.WebApi.Cors/5.2.7": {
-      "sha512": "LUY5ufoiYLHKZXdrrNe7GlAwmu9WlyrX5iUtBSLwFZ31/tvPobyU7j1E31OWVdGZMBvRCxKbfyB7unxgrjTRpA==",
+    "Microsoft.AspNet.WebApi.Cors/5.0.0": {
+      "sha512": "kZjW7SpXqLHPtnzMzJ+mDZEfoYDUpCNGfWmdp6f7hLt5ncN5fbSF3xCfX4NN71DmcIZJX2MIEubisXyjtpu3aA==",
       "type": "package",
-      "path": "microsoft.aspnet.webapi.cors/5.2.7",
+      "path": "microsoft.aspnet.webapi.cors/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/System.Web.Http.Cors.dll",
         "lib/net45/System.Web.Http.Cors.xml",
-        "microsoft.aspnet.webapi.cors.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.cors.5.0.0.nupkg.sha512",
         "microsoft.aspnet.webapi.cors.nuspec"
       ]
     },
@@ -5533,7 +5527,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Microsoft.AspNet.WebApi.Cors >= 5.2.7",
+      "Microsoft.AspNet.WebApi.Cors >= 5.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
@@ -5541,19 +5535,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nikhil.nandagopan\\.nuget\\packages\\": {}
+    "C:\\Users\\sumeeth.s\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
       "projectName": "ClinicManagementSystem",
-      "projectPath": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
-      "packagesPath": "C:\\Users\\nikhil.nandagopan\\.nuget\\packages\\",
-      "outputPath": "E:\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
+      "projectPath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+      "packagesPath": "C:\\Users\\sumeeth.s\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nikhil.nandagopan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sumeeth.s\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5581,7 +5575,7 @@
         "dependencies": {
           "Microsoft.AspNet.WebApi.Cors": {
             "target": "Package",
-            "version": "[5.2.7, )"
+            "version": "[5.0.0, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
@@ -5629,7 +5623,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.AspNet.Cors 5.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Cors",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -5639,7 +5633,17 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Client 5.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Client",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -5649,7 +5653,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Cors 5.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Cors",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
