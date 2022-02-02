@@ -23,7 +23,6 @@
     <Folder Include="ViewModels\LabTests\" />
     <Folder Include="ViewModels\Staffs\" />
     <Folder Include="ViewModels\Medicines\" />
-    <Folder Include="ViewModels\Bills\" />
     <Folder Include="ViewModels\Patients\" />
   </ItemGroup>
 

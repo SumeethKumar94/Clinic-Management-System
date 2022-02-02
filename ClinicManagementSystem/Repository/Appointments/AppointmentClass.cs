@@ -43,7 +43,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
-                                  TokenNo = a.TokenNo,
+                                  TokenNo = (int)a.TokenNo,
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
                                   DoctorName = ""+(from dc in _contextone.Staff

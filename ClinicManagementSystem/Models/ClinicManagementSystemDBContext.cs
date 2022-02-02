@@ -273,6 +273,10 @@ namespace ClinicManagementSystem.Models
 
                 entity.Property(e => e.MedicineId).HasColumnName("medicineId");
 
+                entity.Property(e => e.Quantity)
+                    .HasColumnName("quantity")
+                    .HasDefaultValueSql("((1))");
+
                 entity.HasOne(d => d.MedicineAdvice)
                     .WithMany(p => p.MedicineDetails)
                     .HasForeignKey(d => d.MedicineAdviceId)

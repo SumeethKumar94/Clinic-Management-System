@@ -25,6 +25,7 @@ namespace ClinicManagementSystem.Controllers
         [HttpGet]
         // [Authorize]
         [Route("ViewAppointments")]
+        //https://localhost:44381/api/Appointments/ViewAppointments
         public async Task<List<Appointmentview>> GetAppointments()
         {
             return await _appointment.GetAppointments();
