@@ -32,16 +32,15 @@ namespace ClinicManagementSystem.Models
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<TestDetails> TestDetails { get; set; }
         public virtual DbSet<TestReport> TestReport { get; set; }
-        public virtual DbSet<Token> Token { get; set; }
 
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=SUMEETHKUMAR\\SQLEXPRESS;Database=ClinicManagementSystemDB;Integrated Security=True;");
             }
-        }*/
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -50,6 +49,11 @@ namespace ClinicManagementSystem.Models
                 entity.ToTable("appointment");
 
                 entity.Property(e => e.AppointmentId).HasColumnName("appointmentId");
+
+                entity.Property(e => e.AppointmentDate)
+                    .HasColumnName("appointmentDate")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.DoctorId).HasColumnName("doctorId");
 
@@ -76,12 +80,6 @@ namespace ClinicManagementSystem.Models
                     .HasForeignKey(d => d.ReceptionistId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__appointme__recep__398D8EEE");
-
-                entity.HasOne(d => d.TokenNoNavigation)
-                    .WithMany(p => p.Appointment)
-                    .HasForeignKey(d => d.TokenNo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__appointme__token__3A81B327");
             });
 
             modelBuilder.Entity<Bill>(entity =>
@@ -505,20 +503,6 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.TestReportLabTechnician)
                     .HasForeignKey(d => d.LabTechnicianId)
                     .HasConstraintName("FK__testRepor__labTe__5EBF139D");
-            });
-
-            modelBuilder.Entity<Token>(entity =>
-            {
-                entity.HasKey(e => e.TokenNo)
-                    .HasName("PK__token__AC16921386AAD038");
-
-                entity.ToTable("token");
-
-                entity.Property(e => e.TokenNo).HasColumnName("tokenNo");
-
-                entity.Property(e => e.Time)
-                    .HasColumnName("time")
-                    .HasColumnType("datetime");
             });
 
             OnModelCreatingPartial(modelBuilder);

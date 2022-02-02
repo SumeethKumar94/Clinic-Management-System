@@ -1,4 +1,6 @@
 using ClinicManagementSystem.Models;
+using ClinicManagementSystem.Repository.Appointments;
+using ClinicManagementSystem.Repository.Bills;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,7 +64,13 @@ namespace ClinicManagementSystem
             services.AddCors();
             services.AddDbContext<ClinicManagementSystemDBContext>(db => db.UseSqlServer(Configuration.GetConnectionString("CMSConnection")));
             //add public dependancy injection for CategoryRepository
-            //services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped<IAppointment,AppointmentClass>();
+            services.AddScoped<IBill, BillClass>();
+            services.AddScoped<IMedicinesBill, MedicinesBillClass>();
+            services.AddScoped<IConsultancyBill,ConsultancyBillClass>();
+            services.AddScoped<ITestsBill, TestsBillClass>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
