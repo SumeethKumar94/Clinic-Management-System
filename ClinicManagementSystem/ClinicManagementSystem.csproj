@@ -15,5 +15,20 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\Staffs\" />
+    <Folder Include="Repository\Appointments\" />
+    <Folder Include="Repository\Bills\" />
+    <Folder Include="Repository\Medicines\" />
+    <Folder Include="Repository\LabTests\" />
+    <Folder Include="Repository\Patients\" />
+    <Folder Include="View Models\Appointments\" />
+    <Folder Include="View Models\LabTests\" />
+    <Folder Include="View Models\Staffs\" />
+    <Folder Include="View Models\Medicines\" />
+    <Folder Include="View Models\Bills\" />
+    <Folder Include="View Models\Patients\" />
+  </ItemGroup>
+
 
 </Project>
