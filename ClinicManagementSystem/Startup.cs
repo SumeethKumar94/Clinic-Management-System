@@ -1,8 +1,10 @@
+using ClinicManagementSystem.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -58,7 +60,7 @@ namespace ClinicManagementSystem
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
-            //services.AddDbContext<CRMContext>(db => db.UseSqlServer(Configuration.GetConnectionString("CRMConnection")));
+            services.AddDbContext<ClinicManagementSystemDBContext>(db => db.UseSqlServer(Configuration.GetConnectionString("CMSConnection")));
             //add public dependancy injection for CategoryRepository
             //services.AddScoped<IUsersRepository, UsersRepository>();
         }
