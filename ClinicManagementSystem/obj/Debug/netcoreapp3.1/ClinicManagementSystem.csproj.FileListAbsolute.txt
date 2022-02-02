@@ -98,7 +98,6 @@ C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagemen
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfoInputs.cache
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfo.cs
@@ -112,3 +111,8 @@ C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagemen
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.dll
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.pdb
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.genruntimeconfig.cache
+C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.MvcApplicationPartsAssemblyInfo.cs

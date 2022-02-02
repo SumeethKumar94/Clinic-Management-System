@@ -12,9 +12,9 @@ namespace ClinicManagementSystem.Models
         }
 
         public int TestReportId { get; set; }
-        public int? AppointmentId { get; set; }
-        public int? DoctorId { get; set; }
-        public int? LabTechnicianId { get; set; }
+        public int AppointmentId { get; set; }
+        public int DoctorId { get; set; }
+        public int LabTechnicianId { get; set; }
         public int TestAmount { get; set; }
 
         public virtual Appointment Appointment { get; set; }

@@ -5,27 +5,49 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\Appointments\**" />
+    <Compile Remove="Repository\Bills\**" />
+    <Compile Remove="Repository\LabTests\**" />
+    <Compile Remove="Repository\Patients\**" />
+    <Compile Remove="Repository\Staffs\**" />
+    <Compile Remove="View Models\Medicines\**" />
+    <Content Remove="Repository\Appointments\**" />
+    <Content Remove="Repository\Bills\**" />
+    <Content Remove="Repository\LabTests\**" />
+    <Content Remove="Repository\Patients\**" />
+    <Content Remove="Repository\Staffs\**" />
+    <Content Remove="View Models\Medicines\**" />
+    <EmbeddedResource Remove="Repository\Appointments\**" />
+    <EmbeddedResource Remove="Repository\Bills\**" />
+    <EmbeddedResource Remove="Repository\LabTests\**" />
+    <EmbeddedResource Remove="Repository\Patients\**" />
+    <EmbeddedResource Remove="Repository\Staffs\**" />
+    <EmbeddedResource Remove="View Models\Medicines\**" />
+    <None Remove="Repository\Appointments\**" />
+    <None Remove="Repository\Bills\**" />
+    <None Remove="Repository\LabTests\**" />
+    <None Remove="Repository\Patients\**" />
+    <None Remove="Repository\Staffs\**" />
+    <None Remove="View Models\Medicines\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\Staffs\" />
-    <Folder Include="Repository\Appointments\" />
-    <Folder Include="Repository\Bills\" />
-    <Folder Include="Repository\Medicines\" />
-    <Folder Include="Repository\LabTests\" />
-    <Folder Include="Repository\Patients\" />
     <Folder Include="View Models\Appointments\" />
     <Folder Include="View Models\LabTests\" />
     <Folder Include="View Models\Staffs\" />
-    <Folder Include="View Models\Medicines\" />
     <Folder Include="View Models\Bills\" />
     <Folder Include="View Models\Patients\" />
   </ItemGroup>
