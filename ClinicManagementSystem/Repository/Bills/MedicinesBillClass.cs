@@ -17,12 +17,12 @@ namespace ClinicManagementSystem.Repository.Bills
             _contextone = contextone;
         }
 
-        public async Task<int> AddMedicineBill(MedicineBill MedicineBill)
+        public async Task<int> AddMedicineBill(MedicineBill medicineBill)
         {
             if (_contextone != null)
             {
 
-                await _contextone.MedicineBill.AddAsync(MedicineBill);
+                await _contextone.MedicineBill.AddAsync(medicineBill);
                 await _contextone.SaveChangesAsync();
                 return 1;
             }

@@ -1,4 +1,5 @@
-﻿using ClinicManagementSystem.Repository.Bills;
+﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.Repository.Bills;
 using ClinicManagementSystem.ViewModels.Bills;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +15,18 @@ namespace ClinicManagementSystem.Controllers
     public class MedicineBillController : ControllerBase
     {
         private readonly IMedicinesBill _medicinebill;
-
         //constructor injection
         public MedicineBillController(IMedicinesBill medicinesBill)
         {
             _medicinebill = medicinesBill;
         }
-        [HttpGet]
+        [HttpPost]
+        //https://localhost:44381/api/MedicineBill/
+        public async Task<int> AddMedicineBill(MedicineBill MedicineBill)
+        {
+            return await _medicinebill.AddMedicineBill(MedicineBill);
+        }
+            [HttpGet]
         // [Authorize]
         [Route("ViewMedicineBills")]
         //https://localhost:44381/api/MedicineBill/ViewMedicineBills

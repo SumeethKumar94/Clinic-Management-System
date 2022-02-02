@@ -109,7 +109,6 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.LabTestBill)
                     .WithMany(p => p.Bill)
                     .HasForeignKey(d => d.LabTestBillId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__bill__labTestBil__6E01572D");
 
                 entity.HasOne(d => d.MedicineBill)
@@ -467,6 +466,10 @@ namespace ClinicManagementSystem.Models
                 entity.Property(e => e.TestId).HasColumnName("testID");
 
                 entity.Property(e => e.TestReportId).HasColumnName("testReportId");
+
+                entity.Property(e => e.TestValue)
+                    .HasColumnName("testValue")
+                    .HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.Test)
                     .WithMany(p => p.TestDetails)
