@@ -16,7 +16,7 @@ namespace ClinicManagementSystem.Repository.Bills
         {
             _contextone = contextone;
         }
-
+        #region Add Medicine Bill
         public async Task<int> AddMedicineBill(MedicineBill medicineBill)
         {
             if (_contextone != null)
@@ -28,7 +28,9 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return 0;
         }
+        #endregion
 
+        #region Get all Medicine Bill
         public async  Task<List<MedicineBillView>> GetAllMedicineBills()
         {
             if (_contextone != null)
@@ -81,7 +83,10 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-        [HttpGet("{id}")]
+        #endregion
+
+        #region Medicine Bill by Id
+        [HttpGet]
         public async Task<MedicineBillView> GetMedicineBillById(int id)
         {
             if (_contextone != null)
@@ -135,7 +140,10 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-        [HttpGet("{phone}")]
+        #endregion
+
+        #region Medicine Bill by Phone
+        [HttpGet]
         public async Task<MedicineBillView> GetMedicineBillByPhone(long phone)
         {
             if (_contextone != null)
@@ -189,5 +197,6 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
+        #endregion
     }
 }

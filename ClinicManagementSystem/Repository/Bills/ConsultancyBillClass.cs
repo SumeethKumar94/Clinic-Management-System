@@ -17,7 +17,7 @@ namespace ClinicManagementSystem.Repository.Bills
         {
             _contextone = contextone;
         }
-
+        #region Add Consultation Bill
         public async Task<int> AddConsulationBill(ConsultationBill consultationBill)
         {
             if (_contextone != null)
@@ -29,7 +29,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return 0;
         }
-
+        #endregion
+        #region Get Consultation Bills
         public async Task<List<SubBillView>> GetConsultancyAllBills()
         {
             if (_contextone != null)
@@ -62,8 +63,9 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
-        [HttpGet("{id}")]
+        #endregion
+        #region Get Consultation By ID
+        [HttpGet]
         public async Task<SubBillView> GetConsultantionBillById(int id)
         {
             if (_contextone != null)
@@ -98,7 +100,9 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
 
         }
-        [HttpGet("{phone}")]
+        #endregion
+        #region Get Consultation Bills By Phone
+        [HttpGet]
         public async Task<SubBillView> GetConsultantionBillByPhone(Int64  phone)
         {
             if (_contextone != null)
@@ -132,5 +136,6 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
+        #endregion
     }
 }

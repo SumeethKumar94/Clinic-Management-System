@@ -36,7 +36,7 @@ namespace ClinicManagementSystem.Controllers
         }
         [HttpGet]
         // [Authorize]
-        [Route("MedicineBillsById")]
+        [Route("MedicineBillsById/{id}")]
         //https://localhost:44381/api/MedicineBill/MedicineBillsById?id=1
         public async Task<MedicineBillView> GetMedicineBillById(int id)
         {
@@ -45,7 +45,7 @@ namespace ClinicManagementSystem.Controllers
         [HttpGet]
         // [Authorize]
         //https://localhost:44381/api/MedicineBill/MedicineBillsByPhone?phone=7865823568
-        [Route("MedicineBillsByPhone")]
+        [Route("MedicineBillsByPhone/{phone}")]
         public async Task<MedicineBillView> GetMedicineBillByPhone(Int64 phone)
         {
             return await _medicinebill.GetMedicineBillByPhone(phone);

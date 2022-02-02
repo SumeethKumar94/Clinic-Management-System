@@ -34,13 +34,13 @@ namespace ClinicManagementSystem.Controllers
         }
         [HttpGet]
         // [Authorize]
-        [Route("ViewBillsById")]
+        [Route("ViewBillsById/{id}")]
         //https://localhost:44381/api/ConsultationBill/ViewBillById?id=1
         public async Task<SubBillView> GetConsultantionBillById(int id)
         {
             return await _consulation.GetConsultantionBillById(id);
         }
-        [Route("ViewBillsByPhone")]
+        [Route("ViewBillsByPhone/{phone}")]
        // https://localhost:44381/api/ConsultationBill/ViewBillByPhone?phone=96783454636
         public async Task<SubBillView> GetConsultantionBillByPhone(Int64 phone)
         {

@@ -27,7 +27,7 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return 0;
         }
-
+        #region Get All Bills
         public async Task<List<FinalBillView>> GetAllBills()
         {
             if (_contextone != null)
@@ -71,7 +71,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
+        #endregion
+        #region Get Bill by ID
         public async Task<FinalBillView> GetBillById(int id)
         {
             if (_contextone != null)
@@ -116,7 +117,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
+        #endregion
+        #region Get  Bills by Phone
         public async Task<FinalBillView> GetBillByPhone(Int64 phone)
         {
             if (_contextone != null)
@@ -161,5 +163,6 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
+        #endregion
     }
 }

@@ -30,14 +30,14 @@ namespace ClinicManagementSystem.Controllers
             return await _bill.AddBill(bill);
         }
         [HttpGet]
-        [Route("ViewBillsById")]
+        [Route("ViewBillsById/{id}")]
         //https://localhost:44381/api/Bills/ViewBillsById?id=1
         public async Task<FinalBillView> GetBillById(int id)
         {
             return await _bill.GetBillById(id);
         }
         [HttpGet]
-        [Route("ViewBillsByPhone")]
+        [Route("ViewBillsByPhone/{phone}")]
         //https://localhost:44381/api/Bills/ViewBillsByPhone?phone=87590867453
         public async Task<FinalBillView> GetBillByPhone(Int64 phone)
         {

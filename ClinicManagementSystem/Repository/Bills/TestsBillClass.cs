@@ -16,7 +16,7 @@ namespace ClinicManagementSystem.Repository.Bills
         {
             _contextone = contextone;
         }
-
+        #region Add Lab Bill
         public async Task<int> AddLabBill(LabBill labBill)
         {
             if (_contextone != null)
@@ -28,7 +28,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return 0;
         }
-
+        #endregion
+        #region Get all Lab Bill
         public async Task<List<LabBillView>> GetAllLabBills()
         {
             if (_contextone != null)
@@ -83,7 +84,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
+        #endregion
+        #region  Get  Lab Bill by Id
         public async Task<LabBillView> GetLabBillById(int id)
         {
             if (_contextone != null)
@@ -139,7 +141,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
+        #endregion
+        #region Get  Lab Bill by Phone
         public async Task<LabBillView> GetLabBillByPhone(Int64 phone)
         {
             if (_contextone != null)
@@ -195,7 +198,8 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
+        #endregion
+        #region Update Lab Bill
         public async Task UpdateLabBill(TestDetails testDetails)
         {
             if (_contextone != null)
@@ -205,5 +209,6 @@ namespace ClinicManagementSystem.Repository.Bills
                 await _contextone.SaveChangesAsync();
             }
         }
+        #endregion
     }
 }

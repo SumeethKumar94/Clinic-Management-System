@@ -30,7 +30,21 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _appointment.GetAppointments();
         }
-        [HttpPost]
+        [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentById/{id}")]
+        public async Task<Appointmentview> GetAppointmentsById(int id)
+        {
+            return await _appointment.GetAppointmentsById(id);
+        }
+        [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentByPhone/{phone}")]
+        public async Task<Appointmentview> GetAppointmentsByPhone(Int64 phone)
+        {
+            return await _appointment.GetAppointmentsByPhone(phone);
+        }
+            [HttpPost]
         public async Task<int> AddAppointment(Appointment appointment)
         {
             return await _appointment.AddAppointment(appointment);
