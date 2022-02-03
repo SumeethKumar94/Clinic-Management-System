@@ -116,3 +116,4 @@ C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagemen
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\sreehari.prathap\Documents\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache

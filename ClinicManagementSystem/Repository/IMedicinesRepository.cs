@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.View_Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,20 @@ namespace ClinicManagementSystem.Repository
 
         Task<List<Medicines>> GetAllMedicines();
 
+        //Task<int> AddMedicines(Medicines medicine);
+        //add medicines
+        Task<int> AddMedicine(Medicines medicine);
+        //Task<IActionResult> AddMedicine(Medicines medicine);
 
-        //public virtual ICollection<MedicineDetails> MedicineDetails { get; set; }
+
+
+        //Task<Medicines> GetMedicineById(int id);
+        Task<ActionResult<Medicines>> GetMedicineById(int? id);
+
+
+
+
+
     }
 
 }

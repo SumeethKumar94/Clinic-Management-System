@@ -50,6 +50,7 @@ namespace ClinicManagementSystem
             services.AddScoped<IMedicinesRepository, MedicinesRepository>();
 
 
+
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             //    .AddJwtBearer(options => {
             //        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
