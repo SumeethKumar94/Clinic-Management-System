@@ -48,6 +48,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   TokenNo = (int)a.TokenNo,
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
+                                  PhoneNumber = p.Phone,
                                   DoctorName = ""+(from dc in _contextone.Staff
                                                 where dc.StaffId == a.DoctorId
                                                 select dc.FirstName).FirstOrDefault(),
@@ -81,6 +82,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   TokenNo = (int)a.TokenNo,
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
+                                  PhoneNumber = p.Phone,
                                   DoctorName = "" + (from dc in _contextone.Staff
                                                      where dc.StaffId == a.DoctorId
                                                      select dc.FirstName).FirstOrDefault(),
@@ -114,6 +116,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   TokenNo = (int)a.TokenNo,
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
+                                  PhoneNumber=p.Phone,
                                   DoctorName = "" + (from dc in _contextone.Staff
                                                      where dc.StaffId == a.DoctorId
                                                      select dc.FirstName).FirstOrDefault(),

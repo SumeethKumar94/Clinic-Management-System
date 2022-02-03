@@ -10,6 +10,7 @@ namespace ClinicManagementSystem.View_Models.Appointments
         public int AppointmentId { get; set; }
         public int PatientId { get; set; }
         public string PatientName { get; set; }
+        public Int64 PhoneNumber { get; set; }
         public string DoctorName { get; set; }
         public string Receptionistname { get; set; }
         public int TokenNo { get; set; }
