@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ClinicManagementSystem"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\ClinicManagementSystem\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

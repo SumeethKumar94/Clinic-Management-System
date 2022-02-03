@@ -76,6 +76,20 @@ namespace ClinicManagementSystem.Repository.LabTests
         #endregion
 
 
+        #region getting labtestt details using test name
+        public async Task<IEnumerable<Test>> GetLabTestByTestName(string name)
+        {
+            IQueryable<Test> queryTwo = _contextTwo.Test;
+            if (!string.IsNullOrEmpty(name))
+            {
+                queryTwo = queryTwo.Where(e => e.TestName.Contains(name));
+            }
+            return await queryTwo.ToListAsync();
+            //throw new NotImplementedException();
+        }
+        #endregion
+
+
         #region delete a test
         public async Task<int> DeleteTest(int? id)
         {

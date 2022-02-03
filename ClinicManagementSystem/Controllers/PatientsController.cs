@@ -23,6 +23,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region get all Patients
         [HttpGet]
+        [Route("GetAllPatients")]
         //[Authorize]
         //[Authorize(AuthenticationSchemes = "Bearer")]
         //[Route("GetAllPatients")]

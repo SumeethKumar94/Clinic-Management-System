@@ -112,5 +112,29 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+
+        #region update test advice
+        [HttpPut]               
+        public async Task<IActionResult> UpdateTestAdvice([FromBody] TestReport testReport)
+        {
+            //since it is frombody we need to check the validation of body , n lowda
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _testAdviceRepository.UpdateTestAdvice(testReport);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
+
+
+
     }
 }

@@ -22,6 +22,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region get all tests
         [HttpGet]
+        [Route("GetAllTests")]
         
         public async Task<ActionResult<IEnumerable<Test>>> GetAllTests()
         {
@@ -50,6 +51,30 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+
+        #region get test details by name
+        [HttpGet]
+        [Route("GetLabTestByName/{name}")]
+
+        public async Task<ActionResult<IEnumerable<Patient>>> GetLabTestByName(string name)
+        {
+            try
+            {
+                var resultTwo = await _labTestsRepository.GetLabTestByTestName(name);
+                if (resultTwo == null)
+                {
+                    return NotFound();
+                }
+                return Ok(resultTwo);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+
         #region Add a Test
         [HttpPost]
         public async Task<IActionResult> AddTest([FromBody] Test test)
@@ -76,7 +101,7 @@ namespace ClinicManagementSystem.Controllers
         #endregion
 
 
-        #region update a patient
+        #region update a test
         [HttpPut]
         public async Task<IActionResult> UpdateTest([FromBody] Test test)
         {
@@ -102,7 +127,7 @@ namespace ClinicManagementSystem.Controllers
         #region delete a test
         
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePost(int? id)
+        public async Task<IActionResult> DeleteTest(int? id)
         {
             int result = 0;
             if (id == null)

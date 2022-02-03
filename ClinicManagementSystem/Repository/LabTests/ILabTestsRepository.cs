@@ -21,6 +21,9 @@ namespace ClinicManagementSystem.Repository.LabTests
         //getting test details by id
         Task<ActionResult<Test>> GetTestById(int? id);
 
+        //getting lab test details by test name
+        Task<IEnumerable<Test>> GetLabTestByTestName(string name);
+
         //delete post
         Task<int> DeleteTest(int? id);
 

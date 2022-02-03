@@ -179,5 +179,20 @@ namespace ClinicManagementSystem.Repository.LabTests
             //throw new NotImplementedException();
         }
         #endregion
+
+        #region update the test advice
+        public async Task UpdateTestAdvice(TestReport testReport)
+        {
+            if (_contextThree != null)
+            {
+                _contextThree.Entry(testReport).State = EntityState.Modified;
+                _contextThree.TestReport.Update(testReport);
+                await _contextThree.SaveChangesAsync();
+            }
+            //throw new NotImplementedException();
+        }
+        #endregion
+
+      
     }
 }
