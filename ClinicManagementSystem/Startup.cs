@@ -1,5 +1,8 @@
 using ClinicManagementSystem.Models;
-using ClinicManagementSystem.Repository;
+using ClinicManagementSystem.Repository.StaffRepo;
+using ClinicManagementSystem.Repository.DoctorsNotes;
+//using ClinicManagementSystem.Repository.MedicinesRepo;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClinicManagementSystem.Repository;
 
 namespace ClinicManagementSystem
 {
@@ -80,9 +84,7 @@ namespace ClinicManagementSystem
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
-            //services.AddDbContext<CRMContext>(db => db.UseSqlServer(Configuration.GetConnectionString("CRMConnection")));
-            //add public dependancy injection for CategoryRepository
-            //services.AddScoped<IUsersRepository, UsersRepository>();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

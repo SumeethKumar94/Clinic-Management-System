@@ -1,4 +1,4 @@
-﻿using ClinicManagementSystem.Repository;
+﻿using ClinicManagementSystem.Repository.StaffRepo;
 using ClinicManagementSystem.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,60 +39,41 @@ namespace ClinicManagementSystem.Controllers
 
         [HttpGet("{staffId}")]
         //[Route("GetStaff")]
-        public async Task<ActionResult<Staff>> GetStaff(int? staffId)
+        public async Task<ActionResult<StaffViewModel>> GetStaff(int? staffId)
         {
-            if (staffId == null)
-            {
-                return BadRequest();
-            }
-            try
-            {
-                var staffOne = await _staffRepository.GetStaff(staffId);
-                if (staffOne == null)
-                {
-                    return NotFound();
-                }
-                return Ok();
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
+            return await _staffRepository.GetStaff(staffId);
         }
 
         //add a staff
-        //[HttpPost]
-        //public async Task<IActionResult> AddStaff([FromBody] Staff staff)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var staffId = await _staffRepository, AddStaff(staff);
-        //            if (staffId > 0)
-        //            {
-        //                return Ok(staffId);
-        //            }
-        //            return NotFound();
-        //        }
-        //        catch (Exception)
-        //        {
-        //            return BadRequest();
-        //        }
-        //    }
-        //    return BadRequest();
-        //}
+        [HttpPost]
+        public async  Task<IActionResult> AddStaff([FromBody] Staff staff)
+        {
+            
+            
 
-        //delete a staff
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _staffRepository.UpdateStaff(staff);
+                    return Ok(staff);
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
 
 
-
-
+        //delete item
+        #region delete item by id
         [HttpDelete("{staffId}")]
         public async Task<IActionResult> DeleteStaffById(int? staffId)
         {
             int result = 0;
-            if(staffId == null)
+            if (staffId == null)
             {
                 return BadRequest();
             }
@@ -103,20 +84,42 @@ namespace ClinicManagementSystem.Controllers
                 {
                     return NotFound();
                 }
-                return Ok();
+                return Ok("delete successfull");
             }
             catch (Exception)
             {
                 return BadRequest();
             }
         }
+        #endregion
+
+        #region update a staff
+        [HttpPut]
+        public async Task<IActionResult> UpdateStaff([FromBody] Staff staff)
+        {
+            //since it is frombody we need to check the validation of body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _staffRepository.UpdateStaff(staff);
+                    return Ok(staff);
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
 
 
 
 
     }
 
-   
+
 
 
 }

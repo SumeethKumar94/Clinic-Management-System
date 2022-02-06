@@ -18,9 +18,9 @@ namespace ClinicManagementSystem.Controllers
 
 
         //data fields
-        private readonly ClinicManagementSystemDBContext _medicinesRepository;
+        private readonly IMedicinesRepository _medicinesRepository;
 
-        public MedicinesController(ClinicManagementSystemDBContext medicinesRepository)
+        public MedicinesController(IMedicinesRepository medicinesRepository)
         {
             _medicinesRepository = medicinesRepository;
         }
@@ -32,7 +32,8 @@ namespace ClinicManagementSystem.Controllers
             //LINQ
             if (_medicinesRepository != null)
             {
-                return await _medicinesRepository.Medicines.ToListAsync();            }
+                return await _medicinesRepository.GetAllMedicines();        
+            }
             return null;
         }
 
@@ -44,53 +45,42 @@ namespace ClinicManagementSystem.Controllers
         {
             try
             {
-                var medicine = await (
-                                    from m in _medicinesRepository.Medicines
-                                    where m.MedicineId == id
-                                    select new Medicines()
-                                    ).ToListAsync();
-                if (medicine == null)
-                {
-                    return NotFound();
-                }
-                return Ok(medicine); 
+                return await _medicinesRepository.GetMedicineById(id);
             }
             catch (Exception)
             {
-                return BadRequest();
+                return null;
             }
         }
         #endregion
 
-        //#region add medicines
-
         #region Add an Medicine
-        //[HttpPost]
-        //public async Task<IActionResult> AddMedicines([FromBody] Medicines medicine)
-        //{
-        //    // check the validation of the body
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var medicineId = await _medicinesRepository.Medicines.AddMedicines(medicine);
-        //            if (medicineId > 0)
-        //            {
-        //                return Ok(medicineId);
-        //            }
-        //            else
-        //            {
-        //                return NotFound();
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
+        [HttpPost]
+        public async Task<IActionResult> AddMedicines([FromBody] Medicines medicine)
+        {
+            // check the validation of the body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var medicineId = await _medicinesRepository.AddMedicine(medicine);
+                    if (medicineId > 0)
+                    {
+                        return Ok(medicineId);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                catch (Exception)
+                {
 
-        //            return BadRequest();
-        //        }
-        //    }
-        //    return BadRequest();
-        //}
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
 
         //#region  Add Medicine
         //[HttpPost]
@@ -126,6 +116,52 @@ namespace ClinicManagementSystem.Controllers
         #endregion
 
 
+        //delete Medicine
+        #region delete Medicine by id
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteMedicine(int? id)
+        {
+            int result = 0;
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                result = await _medicinesRepository.DeleteMedicine(id);
+                if (result == 0)
+                {
+                    return NotFound();
+                }
+                return Ok("delete successfull");
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        #endregion
+
+        #region update a medicine
+        [HttpPut]
+        public async Task<IActionResult> UpdateMedicine([FromBody] Medicines id)
+        {
+            //since it is frombody we need to check the validation of body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _medicinesRepository.UpdateMedicine(id);
+                    return Ok(id);
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
 
 
     }

@@ -1,4 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.Repository;
+using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,29 +14,25 @@ namespace ClinicManagementSystem.Controllers
     [Route("api/[controller]")]
     public class MedicineAdviceController : ControllerBase
     {
-        
-        
-        
-
-
             //data fields
-            private readonly ClinicManagementSystemDBContext _medcineAdviceRepository;
+            private readonly IMedicineAdviceRepository _medcineAdviceRepository;
 
-            public MedicineAdviceController(ClinicManagementSystemDBContext medcineAdviceRepository)
+            public MedicineAdviceController(IMedicineAdviceRepository medcineAdviceRepository)
             {
                 _medcineAdviceRepository = medcineAdviceRepository;
             }
             [HttpGet]
-            public async Task<List<MedicineAdvice>> GetAllMedicineAdvicess()
+            public async Task<List<MedicineAdviceView>> GetAllMedicineAdvicess()
             {
                 //LINQ
                 if (_medcineAdviceRepository != null)
                 {
-                    return await _medcineAdviceRepository.MedicineAdvice.ToListAsync();
+                return await _medcineAdviceRepository.GetAllMedicineAdvicess();
                 }
                 return null;
+            }
             
 
-        }
+        
     }
 }

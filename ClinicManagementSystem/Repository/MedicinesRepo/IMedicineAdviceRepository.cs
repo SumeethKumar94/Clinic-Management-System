@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Repository
 {
-    interface IMedicineAdviceRepository
+    public interface IMedicineAdviceRepository
     {
         //get all medicine advices
-        Task<List<MedicineAdvice>> GetAllMedicineAdvicess();
+        Task<List<MedicineAdviceView>> GetAllMedicineAdvicess();
     }
 }

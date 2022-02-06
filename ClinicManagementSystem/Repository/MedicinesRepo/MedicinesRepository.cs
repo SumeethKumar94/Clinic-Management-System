@@ -29,19 +29,7 @@ namespace ClinicManagementSystem.Repository
 
         #endregion
         //#region add medicine
-        //public async Task<IActionResult> AddMedicines([FromBody] Medicines medicine)
 
-        //{
-        //    if (_context != null)
-        //    {
-
-        //        await _context.Medicines.AddAsync(medicine);
-        //        await _context.SaveChangesAsync();
-        //        return Ok(medicine);
-        //    }
-        //    return ;
-
-        //}
 
 
         //#endregion
@@ -61,7 +49,7 @@ namespace ClinicManagementSystem.Repository
         #endregion
 
 
-        #region get employee by id
+        #region get medicine by id
         public async Task<ActionResult<Medicines>> GetMedicineById(int? id)
         {
             if (_context != null)
@@ -72,6 +60,7 @@ namespace ClinicManagementSystem.Repository
             return null;
             //throw new NotImplementedException();
         }
+
         #endregion
 
 
@@ -90,7 +79,45 @@ namespace ClinicManagementSystem.Repository
         //}
         #endregion
 
-        
+
+        #region delete Medicine
+        public async Task<int> DeleteMedicine(int? id)
+        {
+            // declare result
+            int result = 0;
+            if (_context != null)
+            {
+                var medicine = await _context.Medicines.FirstOrDefaultAsync(u => u.MedicineId == id);
+                if (medicine != null)
+                {
+                    // perform delete
+                    _context.Medicines.Remove(medicine);
+                    result = await _context.SaveChangesAsync(); // commit 
+                    //return succcess;
+                    result = 1;
+
+                }
+                return result;
+            }
+            return result;
+
+            //throw new NotImplementedException();
+        }
+        #endregion
+
+        //update an Medicine
+        #region update Medicine
+        public async Task UpdateMedicine(Medicines medicine)
+        {
+            if (_context != null)
+            {
+                _context.Entry(medicine).State = EntityState.Modified;
+                _context.Medicines.Update(medicine);
+                await _context.SaveChangesAsync();
+            }
+            //throw new NotImplementedException();
+        }
+        #endregion
 
 
     }

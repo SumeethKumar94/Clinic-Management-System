@@ -15,21 +15,41 @@ namespace ClinicManagementSystem.Controllers
     public class RoleController : ControllerBase
     {
         //data fields
-        private readonly ClinicManagementSystemDBContext _roleRepository;
+        private readonly IRoleRepository _roleRepo;
 
-        public RoleController(ClinicManagementSystemDBContext roleRepository)
+        public RoleController(IRoleRepository roleRepo)
         {
-            _roleRepository = roleRepository;
+            _roleRepo = roleRepo;
         }
+
+        #region get roles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Role>>> GetAllRoles()
+        public async Task<List<Role>> GetRoles()
         {
             //LINQ
-            if (_roleRepository != null)
+            if (_roleRepo != null)
             {
-                return await _roleRepository.Role.ToListAsync();
+                return await _roleRepo.GetRoles();
             }
             return null;
         }
+
+        #endregion
+
+        #region get role by id
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Role>> GetROle(int? id)
+        {
+            try
+            {
+                return await _roleRepo.GetROle(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        #endregion
+
     }
 }

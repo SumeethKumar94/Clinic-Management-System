@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Repository
 {
-    interface IMedicinesRepository
+    public interface IMedicinesRepository
     {
 
         Task<List<Medicines>> GetAllMedicines();
@@ -22,6 +22,12 @@ namespace ClinicManagementSystem.Repository
 
         //Task<Medicines> GetMedicineById(int id);
         Task<ActionResult<Medicines>> GetMedicineById(int? id);
+
+        //delete medicine 
+        Task<int> DeleteMedicine(int? id);
+
+        //update medicine
+        Task UpdateMedicine(Medicines medicine);
 
 
 
