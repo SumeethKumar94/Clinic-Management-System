@@ -12,11 +12,11 @@ namespace ClinicManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TestReportsController : ControllerBase
+    public class LabBillController : ControllerBase
     {
         private readonly ITestsBill _testbill;
         //constructor injection
-        public TestReportsController(ITestsBill testsBill)
+        public LabBillController(ITestsBill testsBill)
         {
             _testbill = testsBill;
         }

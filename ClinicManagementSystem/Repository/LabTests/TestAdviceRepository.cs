@@ -167,13 +167,13 @@ namespace ClinicManagementSystem.Repository.LabTests
 
 
         #region add a test advice
-        public async Task<int> AddTestAdvice(TestReport testReport)
+        public async Task<int> AddTestAdvice(TestDetails testdetails)
         {
             if (_contextThree != null)
             {
-                await _contextThree.TestReport.AddAsync(testReport);
+                await _contextThree.TestDetails.AddAsync(testdetails);
                 await _contextThree.SaveChangesAsync();
-                return testReport.TestReportId;
+                return testdetails.TestDetailId;
             }
             return 0;
             //throw new NotImplementedException();
@@ -181,12 +181,12 @@ namespace ClinicManagementSystem.Repository.LabTests
         #endregion
 
         #region update the test advice
-        public async Task UpdateTestAdvice(TestReport testReport)
+        public async Task UpdateTestAdvice(TestDetails testdetails)
         {
             if (_contextThree != null)
             {
-                _contextThree.Entry(testReport).State = EntityState.Modified;
-                _contextThree.TestReport.Update(testReport);
+                _contextThree.Entry(testdetails).State = EntityState.Modified;
+                _contextThree.TestDetails.Update(testdetails);
                 await _contextThree.SaveChangesAsync();
             }
             //throw new NotImplementedException();

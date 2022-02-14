@@ -241,3 +241,8 @@ C:\Users\sumeeth.s\source\repos\REST-API-CMS\ClinicManagementSystem\obj\Debug\ne
 C:\Users\sumeeth.s\source\repos\REST-API-CMS\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.pdb
 C:\Users\sumeeth.s\source\repos\REST-API-CMS\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.genruntimeconfig.cache
 C:\Users\sumeeth.s\source\repos\REST-API-CMS\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache
+C:\Users\sumeeth.s\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\sumeeth.s\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\sumeeth.s\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\sumeeth.s\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\sumeeth.s\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.MvcApplicationPartsAssemblyInfo.cs
