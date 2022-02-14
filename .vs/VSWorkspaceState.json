@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\ClinicManagementSystem",
     "\\ClinicManagementSystem\\Controllers"
+=======
+    "\\ClinicManagementSystem"
+>>>>>>> e7ba8e7f6d29ce3f0f3ff99bfba10c8aebb612df
   ],
   "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
   "PreviewInSolutionExplorer": false

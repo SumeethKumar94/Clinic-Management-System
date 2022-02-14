@@ -8,7 +8,6 @@ namespace ClinicManagementSystem.Models
         public MedicineAdvice()
         {
             MedicineBill = new HashSet<MedicineBill>();
-            MedicineDetails = new HashSet<MedicineDetails>();
         }
 
         public int MedicineAdviceId { get; set; }
@@ -20,6 +19,5 @@ namespace ClinicManagementSystem.Models
         public virtual Staff Doctor { get; set; }
         public virtual Staff Pharmacist { get; set; }
         public virtual ICollection<MedicineBill> MedicineBill { get; set; }
-        public virtual ICollection<MedicineDetails> MedicineDetails { get; set; }
     }
 }

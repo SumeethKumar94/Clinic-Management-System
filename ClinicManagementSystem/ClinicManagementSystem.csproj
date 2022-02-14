@@ -62,6 +62,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 =======
   </ItemGroup>
@@ -76,6 +77,26 @@
     <Folder Include="ViewModels\Medicines\" />
     <Folder Include="ViewModels\Patients\" />
 >>>>>>> sumeeth-develop
+=======
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\Staffs\" />
+    <Folder Include="Repository\Appointments\" />
+    <Folder Include="Repository\Bills\" />
+    <Folder Include="Repository\Medicines\" />
+    <Folder Include="View Models\Appointments\" />
+    <Folder Include="View Models\Medicines\" />
+    <Folder Include="View Models\Bills\" />
+    <Folder Include="View Models\Appointments\" />
+    <Folder Include="View Models\Staffs\" />
+    <Folder Include="View Models\Staffs\" />
+    <Folder Include="View Models\Medicines\" />
+    <Folder Include="View Models\Bills\" />
+=======
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+>>>>>>> main
+>>>>>>> e7ba8e7f6d29ce3f0f3ff99bfba10c8aebb612df
   </ItemGroup>
 
 

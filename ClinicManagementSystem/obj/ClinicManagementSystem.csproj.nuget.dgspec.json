@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sreehari.prathap\\Documents\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
+    "C:\\Users\\nikhil.nandagopan\\source\\repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sreehari.prathap\\Documents\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
+    "C:\\Users\\nikhil.nandagopan\\source\\repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sreehari.prathap\\Documents\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\nikhil.nandagopan\\source\\repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
         "projectName": "ClinicManagementSystem",
-        "projectPath": "C:\\Users\\sreehari.prathap\\Documents\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\sreehari.prathap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sreehari.prathap\\Documents\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\nikhil.nandagopan\\source\\repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\nikhil.nandagopan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikhil.nandagopan\\source\\repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sreehari.prathap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikhil.nandagopan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
