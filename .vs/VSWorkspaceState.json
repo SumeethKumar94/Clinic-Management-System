@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ClinicManagementSystem",
+    "\\ClinicManagementSystem\\Controllers"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
   "PreviewInSolutionExplorer": false
 }
