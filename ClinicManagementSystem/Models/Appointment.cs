@@ -18,13 +18,21 @@ namespace ClinicManagementSystem.Models
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
         public int ReceptionistId { get; set; }
+<<<<<<< HEAD
         public int TokenNo { get; set; }
         public DateTime AppointmentDate { get; set; }
+=======
+        public DateTime AppointmentDate { get; set; }
+        public int? TokenNo { get; set; }
+>>>>>>> sumeeth-develop
 
         public virtual Staff Doctor { get; set; }
         public virtual Patient Patient { get; set; }
         public virtual Staff Receptionist { get; set; }
+<<<<<<< HEAD
         public virtual ICollection<ConsultationBill> ConsultationBill { get; set; }
+=======
+>>>>>>> sumeeth-develop
         public virtual ICollection<LabBill> LabBill { get; set; }
         public virtual ICollection<MedicineAdvice> MedicineAdvice { get; set; }
         public virtual ICollection<MedicineBill> MedicineBill { get; set; }

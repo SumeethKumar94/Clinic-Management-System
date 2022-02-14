@@ -1,3 +1,9 @@
+C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache
+C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfoInputs.cache
+C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfo.cs
+C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\ClinicManagementSystem.exe
@@ -41,12 +47,6 @@ C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSys
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache
-C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfoInputs.cache
-C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfo.cs
-C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.CoreCompileInputs.cache
-C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\staticwebassets\ClinicManagementSystem.StaticWebAssets.Manifest.cache
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\staticwebassets\ClinicManagementSystem.StaticWebAssets.xml
 C:\Users\sumeeth.s\Source\Repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\scopedcss\bundle\ClinicManagementSystem.styles.css

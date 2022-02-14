@@ -1,8 +1,13 @@
 using ClinicManagementSystem.Models;
+<<<<<<< HEAD
 using ClinicManagementSystem.Repository.StaffRepo;
 using ClinicManagementSystem.Repository.DoctorsNotes;
 //using ClinicManagementSystem.Repository.MedicinesRepo;
 
+=======
+using ClinicManagementSystem.Repository.Appointments;
+using ClinicManagementSystem.Repository.Bills;
+>>>>>>> sumeeth-develop
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -84,7 +89,19 @@ namespace ClinicManagementSystem
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+<<<<<<< HEAD
            
+=======
+            services.AddDbContext<ClinicManagementSystemDBContext>(db => db.UseSqlServer(Configuration.GetConnectionString("CMSConnection")));
+            //add public dependancy injection for CategoryRepository
+            services.AddScoped<IAppointment,AppointmentClass>();
+            services.AddScoped<IBill, BillClass>();
+            services.AddScoped<IMedicinesBill, MedicinesBillClass>();
+            services.AddScoped<IConsultancyBill,ConsultancyBillClass>();
+            services.AddScoped<ITestsBill, TestsBillClass>();
+
+
+>>>>>>> sumeeth-develop
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -79,7 +79,11 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.AppointmentReceptionist)
                     .HasForeignKey(d => d.ReceptionistId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
+<<<<<<< HEAD
                     .HasConstraintName("FK__appointme__recep__44FF419A");
+=======
+                    .HasConstraintName("FK__appointme__recep__398D8EEE");
+>>>>>>> sumeeth-develop
             });
 
             modelBuilder.Entity<Bill>(entity =>
@@ -109,7 +113,11 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.LabTestBill)
                     .WithMany(p => p.Bill)
                     .HasForeignKey(d => d.LabTestBillId)
+<<<<<<< HEAD
                     .HasConstraintName("FK__bill__labTestBil__74AE54BC");
+=======
+                    .HasConstraintName("FK__bill__labTestBil__6E01572D");
+>>>>>>> sumeeth-develop
 
                 entity.HasOne(d => d.MedicineBill)
                     .WithMany(p => p.Bill)
@@ -521,8 +529,12 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.LabTechnician)
                     .WithMany(p => p.TestReportLabTechnician)
                     .HasForeignKey(d => d.LabTechnicianId)
+<<<<<<< HEAD
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__testRepor__labTe__5165187F");
+=======
+                    .HasConstraintName("FK__testRepor__labTe__5EBF139D");
+>>>>>>> sumeeth-develop
             });
 
             OnModelCreatingPartial(modelBuilder);

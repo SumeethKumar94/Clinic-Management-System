@@ -61,7 +61,21 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+<<<<<<< HEAD
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+=======
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\Staffs\" />
+    <Folder Include="Repository\Medicines\" />
+    <Folder Include="Repository\LabTests\" />
+    <Folder Include="Repository\Patients\" />
+    <Folder Include="ViewModels\LabTests\" />
+    <Folder Include="ViewModels\Staffs\" />
+    <Folder Include="ViewModels\Medicines\" />
+    <Folder Include="ViewModels\Patients\" />
+>>>>>>> sumeeth-develop
   </ItemGroup>
 
 
