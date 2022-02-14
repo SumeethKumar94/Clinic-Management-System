@@ -31,8 +31,6 @@ namespace ClinicManagementSystem.Repository
 
         #endregion
 
-
-
         #region get Roles by id
         public async Task<ActionResult<Role>> GetROle(int? id)
         {
@@ -46,7 +44,5 @@ namespace ClinicManagementSystem.Repository
         }
 
         #endregion
-
-
     }
 }

@@ -49,7 +49,6 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-
         #region get test details by name
         [HttpGet]
         [Route("GetLabTestByName/{name}")]
@@ -71,7 +70,6 @@ namespace ClinicManagementSystem.Controllers
             }
         }
         #endregion
-
 
         #region Add a Test
         [HttpPost]
@@ -98,7 +96,6 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-
         #region update a test
         [HttpPut]
         public async Task<IActionResult> UpdateTest([FromBody] Test test)
@@ -120,7 +117,6 @@ namespace ClinicManagementSystem.Controllers
         }
 
         #endregion
-
 
         #region delete a test
         

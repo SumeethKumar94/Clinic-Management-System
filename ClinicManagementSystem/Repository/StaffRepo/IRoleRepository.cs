@@ -10,8 +10,10 @@ namespace ClinicManagementSystem.Repository
 {
     public interface IRoleRepository
     {
+        //view roles
         Task<List<Role>> GetRoles();
 
+        //view role by id
         Task<ActionResult<Role>> GetROle(int? id);
     }
 }

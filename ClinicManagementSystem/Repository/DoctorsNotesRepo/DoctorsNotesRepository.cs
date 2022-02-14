@@ -15,6 +15,7 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
         {
             _context = context;
         }
+
         #region GET ALL ROLES
         public async Task<List<DoctorNotes>> GetAllNotes()
         {
@@ -81,8 +82,7 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
             //throw new NotImplementedException();
         }
         #endregion
-
-        //update an Medicine
+        
         #region update doctors note
         public async Task UpdateNote(DoctorNotes note)
         {

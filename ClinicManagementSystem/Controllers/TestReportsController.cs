@@ -20,6 +20,7 @@ namespace ClinicManagementSystem.Controllers
         {
             _testbill = testsBill;
         }
+
         #region Get All Bills
         [HttpGet]
         public async Task<List<LabBillView>> GetAllLabBills()
@@ -27,6 +28,7 @@ namespace ClinicManagementSystem.Controllers
             return await _testbill.GetAllLabBills();
         }
         #endregion
+
         #region Get Bills by Phone
         [HttpGet]
         [Route("ViewBillsByPhone/{phone}")]
@@ -36,6 +38,7 @@ namespace ClinicManagementSystem.Controllers
             return await _testbill.GetLabBillByPhone(phone);
         }
         #endregion
+
         #region Get Bills by ID
         [HttpGet]
         [Route("ViewBillsById/{id}")]
@@ -45,6 +48,7 @@ namespace ClinicManagementSystem.Controllers
             return await _testbill.GetLabBillById(id);
         }
         #endregion
+
         #region Add Lab Bill
         [HttpPost]
         public async Task<int> AddLabBill(LabBill labBill)
@@ -52,6 +56,7 @@ namespace ClinicManagementSystem.Controllers
             return await _testbill.AddLabBill(labBill);
         }
         #endregion
+
         #region Update Lab Bil
         [HttpPut]
         public async Task<IActionResult> UpdateLabBill(TestDetails testDetails)

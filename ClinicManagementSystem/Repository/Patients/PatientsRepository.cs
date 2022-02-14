@@ -31,23 +31,7 @@ namespace ClinicManagementSystem.Repository.Patients
             //throw new NotImplementedException();
         }
         #endregion
-        
-        /*
-        #region get patient details
-        public async Task<List<PatientViewModel>> GetTheAllPatients()
-        {
-            if (_context != null)
-            {
-                //performing lampda expression  for many post scenario
-                return await _context.PatientViewModel.ToListAsync();
-            }
-            return null;
-            //throw new NotImplementedException();
-        }
-
-        #endregion
-        */
-
+              
         #region add a patient
         public async Task<int> AddPatient(Patient patient)
         {
@@ -62,7 +46,6 @@ namespace ClinicManagementSystem.Repository.Patients
         }   
         #endregion
 
-
         #region getting patient details using contact
         public async Task<IEnumerable<Patient>> GetPatientByContact(string phone)
         {
@@ -75,7 +58,6 @@ namespace ClinicManagementSystem.Repository.Patients
             //throw new NotImplementedException();
         }
         #endregion
-
 
         #region getting patient details using patientID
         public async Task<ActionResult<Patient>> GetPatientById(int? id)

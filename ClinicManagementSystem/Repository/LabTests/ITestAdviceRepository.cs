@@ -24,10 +24,5 @@ namespace ClinicManagementSystem.Repository.LabTests
         //update a test advice
         Task UpdateTestAdvice(TestReport testReport);
 
-      
-
-
-
-
     }
 }

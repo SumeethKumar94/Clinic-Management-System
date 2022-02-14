@@ -17,6 +17,7 @@ namespace ClinicManagementSystem.Repository
         {
             _context = context;
         }
+
         #region GET ALL Medicine
         public async Task<List<Medicines>> GetAllMedicines()
         {
@@ -28,12 +29,7 @@ namespace ClinicManagementSystem.Repository
         }
 
         #endregion
-        //#region add medicine
-
-
-
-        //#endregion
-
+       
         #region Add Medicine
         public async Task<int> AddMedicine(Medicines medicine)
         {
@@ -47,7 +43,6 @@ namespace ClinicManagementSystem.Repository
             // throw new NotImplementedException();
         }
         #endregion
-
 
         #region get medicine by id
         public async Task<ActionResult<Medicines>> GetMedicineById(int? id)
@@ -63,7 +58,6 @@ namespace ClinicManagementSystem.Repository
 
         #endregion
 
-
         #region Medicine by Id
         //[HttpGet]
         //public async Task<Medicines> GetMedicineById(int id)
@@ -78,7 +72,6 @@ namespace ClinicManagementSystem.Repository
         //    return null;
         //}
         #endregion
-
 
         #region delete Medicine
         public async Task<int> DeleteMedicine(int? id)
@@ -105,7 +98,6 @@ namespace ClinicManagementSystem.Repository
         }
         #endregion
 
-        //update an Medicine
         #region update Medicine
         public async Task UpdateMedicine(Medicines medicine)
         {
@@ -119,7 +111,5 @@ namespace ClinicManagementSystem.Repository
         }
         #endregion
 
-
     }
-
 }

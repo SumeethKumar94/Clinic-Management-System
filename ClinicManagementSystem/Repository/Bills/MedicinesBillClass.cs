@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Repository.Bills
         {
             _contextone = contextone;
         }
+
         #region Add Medicine Bill
         public async Task<int> AddMedicineBill(MedicineBill medicineBill)
         {

@@ -21,7 +21,9 @@ namespace ClinicManagementSystem.Controllers
             {
                 _medcineAdviceRepository = medcineAdviceRepository;
             }
-            [HttpGet]
+
+        #region view all medicine advices
+        [HttpGet]
             public async Task<List<MedicineAdviceView>> GetAllMedicineAdvicess()
             {
                 //LINQ
@@ -31,8 +33,8 @@ namespace ClinicManagementSystem.Controllers
                 }
                 return null;
             }
-            
 
-        
+        #endregion
+
     }
 }

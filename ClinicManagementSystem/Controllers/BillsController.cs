@@ -19,16 +19,24 @@ namespace ClinicManagementSystem.Controllers
         {
             _bill = Bill;
         }
+
+        #region view all bills
         [HttpGet]
         public async Task<List<FinalBillView>> GetAllBills()
         {
             return await _bill.GetAllBills();
         }
+        #endregion
+
+        #region add bill
         [HttpPost]
         public async Task<int> AddBill(Bill bill)
         {
             return await _bill.AddBill(bill);
         }
+        #endregion
+
+        #region view bill by id
         [HttpGet]
         [Route("ViewBillsById/{id}")]
         //https://localhost:44381/api/Bills/ViewBillsById?id=1
@@ -36,6 +44,9 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _bill.GetBillById(id);
         }
+        #endregion
+
+        #region view bill by patient mobile
         [HttpGet]
         [Route("ViewBillsByPhone/{phone}")]
         //https://localhost:44381/api/Bills/ViewBillsByPhone?phone=87590867453
@@ -43,5 +54,6 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _bill.GetBillByPhone(phone);
         }
+        #endregion
     }
 }

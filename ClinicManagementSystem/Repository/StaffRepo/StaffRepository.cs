@@ -109,11 +109,8 @@ namespace ClinicManagementSystem.Repository.StaffRepo
         }
 
         #endregion
-
-
-
-        //delete a user
-        #region delete item
+        
+        #region delete staff using id
         public async Task<int> DeleteStaffById(int? staffId)
         {
             // declare result
@@ -137,8 +134,7 @@ namespace ClinicManagementSystem.Repository.StaffRepo
             //throw new NotImplementedException();
         }
         #endregion
-
-        //update an Staff
+        
         #region update Staff
         public async Task UpdateStaff(Staff staff)
         {
@@ -153,6 +149,4 @@ namespace ClinicManagementSystem.Repository.StaffRepo
         #endregion
 
     }
-
-
 }

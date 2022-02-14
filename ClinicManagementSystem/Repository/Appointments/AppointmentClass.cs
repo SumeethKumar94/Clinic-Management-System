@@ -15,6 +15,7 @@ namespace ClinicManagementSystem.Repository.Appointments
         {
         _contextone = contextone;
         }
+
         #region Add Appointment
         public async Task<int> AddAppointment(Appointment appointment)
         {

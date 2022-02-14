@@ -18,7 +18,6 @@ namespace ClinicManagementSystem.Repository.LabTests
             _contextTwo = contextTwo;
         }
 
-
         #region add a test
         public async Task<int> AddTest(Test test)
         {
@@ -33,7 +32,6 @@ namespace ClinicManagementSystem.Repository.LabTests
         }
         #endregion
 
-
         #region getting all test details
         public async Task<List<Test>> GetAllTests()
         {
@@ -46,7 +44,6 @@ namespace ClinicManagementSystem.Repository.LabTests
             //throw new NotImplementedException();
         }
         #endregion
-
 
         #region update a test
         public async Task UpdateTest(Test test)
@@ -75,7 +72,6 @@ namespace ClinicManagementSystem.Repository.LabTests
         }
         #endregion
 
-
         #region getting labtestt details using test name
         public async Task<IEnumerable<Test>> GetLabTestByTestName(string name)
         {
@@ -88,7 +84,6 @@ namespace ClinicManagementSystem.Repository.LabTests
             //throw new NotImplementedException();
         }
         #endregion
-
 
         #region delete a test
         public async Task<int> DeleteTest(int? id)

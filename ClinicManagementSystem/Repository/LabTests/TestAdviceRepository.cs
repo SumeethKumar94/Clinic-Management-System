@@ -16,9 +16,7 @@ namespace ClinicManagementSystem.Repository.LabTests
         {
             _contextThree = contextThree;
         }
-
-       
-
+      
         #region get test advice
         public async Task<List<TestAdviceViewModel>> GetTestAdvice()
         {
@@ -165,7 +163,6 @@ namespace ClinicManagementSystem.Repository.LabTests
         }
         #endregion
 
-
         #region add a test advice
         public async Task<int> AddTestAdvice(TestReport testReport)
         {
@@ -192,7 +189,6 @@ namespace ClinicManagementSystem.Repository.LabTests
             //throw new NotImplementedException();
         }
         #endregion
-
       
     }
 }

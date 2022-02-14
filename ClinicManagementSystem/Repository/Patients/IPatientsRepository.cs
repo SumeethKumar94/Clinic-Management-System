@@ -13,8 +13,6 @@ namespace ClinicManagementSystem.Repository.Patients
         //get all Patients
         Task<List<Patient>> GetAllPatients();
 
-        //Task<List<PatientViewModel>> GetTheAllPatients();
-
         //add a patient
         Task<int> AddPatient(Patient patient);
 
@@ -23,8 +21,7 @@ namespace ClinicManagementSystem.Repository.Patients
 
         //getting patient details by id
         Task<ActionResult<Patient>> GetPatientById(int? id);
-
-        
+       
         //using contact getting patient details
         Task<IEnumerable<Patient>> GetPatientByContact(string contact);
 
