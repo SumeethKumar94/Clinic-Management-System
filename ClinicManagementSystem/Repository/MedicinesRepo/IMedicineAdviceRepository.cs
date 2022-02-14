@@ -11,5 +11,12 @@ namespace ClinicManagementSystem.Repository
     {
         //get all medicine advices
         Task<List<MedicineAdviceView>> GetAllMedicineAdvicess();
+
+        Task<MedicineAdviceView> GetMedicineAdvicebyId(int id);
+        Task<MedicineAdviceView> GetMedicineAdvicebyPhone(Int64 phone);
+        Task<MedicineAdviceView> GetMedicineAdvicebyName(string named);
+
+        Task<int> AddMedicineAdvice(MedicineAdvice medicineAdvice);
+        Task UpdateMedicineAdvice(MedicineAdvice medicineAdvice);
     }
 }

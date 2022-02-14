@@ -13,7 +13,7 @@ namespace ClinicManagementSystem.View_Models
         public DateTime DateOfPrescription { get; set; }
         public int? DoctorsId { get; set; }
 
-        public List<String> Medicines { get; set; }
+        public List<MedicinesView> Medicines { get; set; }
 
     }
 }

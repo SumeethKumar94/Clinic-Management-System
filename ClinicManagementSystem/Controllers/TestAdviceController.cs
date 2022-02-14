@@ -88,14 +88,14 @@ namespace ClinicManagementSystem.Controllers
 
         #region add a test advice
         [HttpPost]
-        public async Task<IActionResult> AddTestAdvice([FromBody] TestReport testReport)
+        public async Task<IActionResult> AddTestAdvice([FromBody] TestDetails testDetails)
         {
             //since it is frombody we need to check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var adviceID = await _testAdviceRepository.AddTestAdvice(testReport);
+                    var adviceID = await _testAdviceRepository.AddTestAdvice(testDetails);
                     if (adviceID > 0)
                     {
                         return Ok(adviceID);
@@ -113,14 +113,14 @@ namespace ClinicManagementSystem.Controllers
 
         #region update test advice
         [HttpPut]               
-        public async Task<IActionResult> UpdateTestAdvice([FromBody] TestReport testReport)
+        public async Task<IActionResult> UpdateTestAdvice([FromBody] TestDetails testDetails)
         {
             //since it is frombody we need to check the validation of body , n lowda
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _testAdviceRepository.UpdateTestAdvice(testReport);
+                    await _testAdviceRepository.UpdateTestAdvice(testDetails);
                     return Ok();
                 }
                 catch (Exception)

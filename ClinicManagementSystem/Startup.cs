@@ -27,6 +27,7 @@ using ClinicManagementSystem.Repository.Patients;
 using ClinicManagementSystem.Repository.LabTests;
 using Microsoft.OpenApi.Models;
 using ClinicManagementSystem.Repository.Logins;
+using ClinicManagementSystem.Repository.MedicinesRepo;
 
 namespace ClinicManagementSystem
 {
@@ -67,6 +68,7 @@ namespace ClinicManagementSystem
             services.AddScoped<ILogin, LoginClass>();
             services.AddScoped<ILabTestsRepository, LabTestsRepository>();
             services.AddScoped<ITestAdviceRepository, TestAdviceRepository>();
+            services.AddScoped<IMedicineDetailsRepository,MedicineDetailsRepository>();
 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

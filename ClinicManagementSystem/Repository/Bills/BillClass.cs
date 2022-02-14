@@ -35,7 +35,7 @@ namespace ClinicManagementSystem.Repository.Bills
             {
                 return await(from b in _contextone.Bill
                             join c in _contextone.ConsultationBill
-                            on b.ConsultancyBillId equals c.ConsultancyBillId
+                            on b.ConsultancyBillId equals c.ConsultationBillId
                             join a in _contextone.Appointment 
                             on c.AppointmentId equals a.AppointmentId
                             join  p in _contextone.Patient 
@@ -61,7 +61,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                where m.MedicineBillId == b.MedicineBillId
                                                 select m.TotalAmount).FirstOrDefault(),
                                  LabTestsFee = (from l in _contextone.LabBill
-                                                where l.LabTestBillId == b.LabTestBillId
+                                                where l.LabBillId == b.LabTestBillId
                                                 select l.TotalAmount).FirstOrDefault(),
                                  TotalAmount= b.TotalAmount
 
@@ -79,7 +79,7 @@ namespace ClinicManagementSystem.Repository.Bills
             {
                 return await (from b in _contextone.Bill
                              join c in _contextone.ConsultationBill
-                             on b.ConsultancyBillId equals c.ConsultancyBillId
+                             on b.ConsultancyBillId equals c.ConsultationBillId
                              join a in _contextone.Appointment 
                              on c.AppointmentId equals a.AppointmentId
                              join p in _contextone.Patient
@@ -106,7 +106,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                 where m.MedicineBillId == b.MedicineBillId
                                                  select m.TotalAmount).FirstOrDefault(),
                                  LabTestsFee = (from l in _contextone.LabBill
-                                               where l.LabTestBillId == b.LabTestBillId
+                                               where l.LabBillId == b.LabTestBillId
                                                 select l.TotalAmount).FirstOrDefault(),
                                  TotalAmount = b.TotalAmount
 
@@ -124,7 +124,7 @@ namespace ClinicManagementSystem.Repository.Bills
             {
                 return await (from b in _contextone.Bill
                               join c in _contextone.ConsultationBill
-                              on b.ConsultancyBillId equals c.ConsultancyBillId
+                              on b.ConsultancyBillId equals c.ConsultationBillId
                              join a in _contextone.Appointment 
                              on c.AppointmentId equals a.AppointmentId
                              join p in _contextone.Patient
@@ -151,7 +151,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                   where m.MedicineBillId == b.MedicineBillId
                                                   select m.TotalAmount).FirstOrDefault(),
                                   LabTestsFee = (from l in _contextone.LabBill
-                                                 where l.LabTestBillId == b.LabTestBillId
+                                                 where l.LabBillId == b.LabTestBillId
                                                  select l.TotalAmount).FirstOrDefault(),
                                   TotalAmount = b.TotalAmount
                               

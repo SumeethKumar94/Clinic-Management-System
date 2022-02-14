@@ -1,4 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -42,22 +44,180 @@ namespace ClinicManagementSystem.Repository.MedicinesRepo
         #endregion
 
         #region view all medicine details
-        #endregion
-
-        /*
-        #region view medicine details by id
-        public async Task<ActionResult<MedicineDetails>> GetMedicineDetailsById(int? id)
+        public async Task<List<MedicineListView>> GetMedicineDetails()
         {
             if (_contextThree != null)
             {
-                var testOne = await _contextThree.MedicineDetails.FindAsync(id);
+                return await (from med in _contextThree.MedicineDetails
+                              join
+                              madv in _contextThree.MedicineAdvice
+                              on med.MedicineAdviceId equals madv.MedicineAdviceId
+                              join
+                              a in _contextThree.Appointment
+                              on madv.AppointmentId equals a.AppointmentId
+                              join
+                              s in _contextThree.Staff
+                              on a.DoctorId equals s.StaffId
+                              join p in _contextThree.Patient
+                              on a.PatientId equals p.PatientId
+                              select new MedicineListView
+                              {
+                                  PatientId = p.PatientId,
+                                  PatientName = p.PatientName,
+                                  DateOfPrescription = a.AppointmentDate,
+                                  DoctorsId = s.StaffId,
+                                  DoctorsName = " "+(from stf in _contextThree.Staff where stf.StaffId == a.DoctorId select stf.FirstName).FirstOrDefault(),
+                                  Medicines = (from med in _contextThree.Medicines
+                                               join
+           medadv in _contextThree.MedicineDetails on med.MedicineId equals medadv.MedicineId
+                                               select new MedicinesView
+                                               {
+                                                   Medicine = med.MedicineName,
+                                                   MedicineDescription = med.MedicineDescription,
+                                                   MedicinePrice = med.MedicinePrice,
+                                                   Quantity = medadv.Quantity,
+                                                   Dose = med.Dose
+                                               }).ToList()
+                              }).Distinct().ToListAsync();
 
-                return testOne;
             }
             return null;
             //throw new NotImplementedException();
         }
         #endregion
-        */
+
+
+        #region view medicine details by id
+
+        public async Task<MedicineListView> GetMedicineDetailsById(int id)
+        {
+              if (_contextThree != null)
+                {
+                return await (from med in _contextThree.MedicineDetails
+                              join
+                              madv in _contextThree.MedicineAdvice
+                              on med.MedicineAdviceId equals madv.MedicineAdviceId
+                              join
+                              a in _contextThree.Appointment
+                              on madv.AppointmentId equals a.AppointmentId
+                              join
+                              s in _contextThree.Staff
+                              on a.DoctorId equals s.StaffId
+                              join p in _contextThree.Patient
+                              on a.PatientId equals p.PatientId
+                              where med.MedicineId==id
+                              select new MedicineListView
+                              {
+                                  PatientId = p.PatientId,
+                                  PatientName = p.PatientName,
+                                  DateOfPrescription = a.AppointmentDate,
+                                  DoctorsId = s.StaffId,
+                                  DoctorsName = (from stf in _contextThree.Staff where stf.StaffId == a.DoctorId select stf.FirstName).ToString(),
+                                  Medicines = (from med in _contextThree.Medicines
+                                               join
+           medadv in _contextThree.MedicineDetails on med.MedicineId equals medadv.MedicineId
+                                               select new MedicinesView
+                                               {
+                                                   Medicine = med.MedicineName,
+                                                   MedicineDescription = med.MedicineDescription,
+                                                   MedicinePrice = med.MedicinePrice,
+                                                   Quantity = medadv.Quantity,
+                                                   Dose = med.Dose
+                                               }).ToList()
+                              }).FirstOrDefaultAsync();
+          
+            }
+            return null;
+            //throw new NotImplementedException();
+        }
+        #endregion
+      
+       
+
+        #region Get Medicine Details by Customer Name
+        public async Task<MedicineListView> GetMedicineDetailsByname(string name)
+        {
+            if (_contextThree != null)
+            {
+                return await(from med in _contextThree.MedicineDetails
+                             join
+                             madv in _contextThree.MedicineAdvice
+                             on med.MedicineAdviceId equals madv.MedicineAdviceId
+                             join
+                             a in _contextThree.Appointment
+                             on madv.AppointmentId equals a.AppointmentId
+                             join
+                             s in _contextThree.Staff
+                             on a.DoctorId equals s.StaffId
+                             join p in _contextThree.Patient
+                             on a.PatientId equals p.PatientId
+                             where p.PatientName==name
+                             select new MedicineListView
+                             {
+                                 PatientId = p.PatientId,
+                                 PatientName = p.PatientName,
+                                 DateOfPrescription = a.AppointmentDate,
+                                 DoctorsId = s.StaffId,
+                                 DoctorsName = (from stf in _contextThree.Staff where stf.StaffId == a.DoctorId select stf.FirstName).ToString(),
+                                 Medicines = (from med in _contextThree.Medicines
+                                              join
+          medadv in _contextThree.MedicineDetails on med.MedicineId equals medadv.MedicineId
+                                              select new MedicinesView
+                                              {
+                                                  Medicine = med.MedicineName,
+                                                  MedicineDescription = med.MedicineDescription,
+                                                  MedicinePrice = med.MedicinePrice,
+                                                  Quantity = medadv.Quantity,
+                                                  Dose = med.Dose
+                                              }).ToList()
+                             }).FirstOrDefaultAsync();
+
+            }
+            return null;
+        }
+        #endregion
+        #region Medicine Details by Phone
+        public async Task<MedicineListView> GetMedicineDetailsByPhone(Int64 phone)
+        {
+            if (_contextThree != null)
+            {
+                return await(from med in _contextThree.MedicineDetails
+                             join
+                             madv in _contextThree.MedicineAdvice
+                             on med.MedicineAdviceId equals madv.MedicineAdviceId
+                             join
+                             a in _contextThree.Appointment
+                             on madv.AppointmentId equals a.AppointmentId
+                             join
+                             s in _contextThree.Staff
+                             on a.DoctorId equals s.StaffId
+                             join p in _contextThree.Patient
+                             on a.PatientId equals p.PatientId
+                             where p.Phone==phone
+                             select new MedicineListView
+                             {
+                                 PatientId = p.PatientId,
+                                 PatientName = p.PatientName,
+                                 DateOfPrescription = a.AppointmentDate,
+                                 DoctorsId = s.StaffId,
+                                 DoctorsName = (from stf in _contextThree.Staff where stf.StaffId == a.DoctorId select stf.FirstName).ToString(),
+                                 Medicines = (from med in _contextThree.Medicines
+                                              join
+          medadv in _contextThree.MedicineDetails on med.MedicineId equals medadv.MedicineId
+                                              select new MedicinesView
+                                              {
+                                                  Medicine = med.MedicineName,
+                                                  MedicineDescription = med.MedicineDescription,
+                                                  MedicinePrice = med.MedicinePrice,
+                                                  Quantity = medadv.Quantity,
+                                                  Dose = med.Dose
+                                              }).ToList()
+                             }).FirstOrDefaultAsync();
+
+            }
+            return null;
+        }
+        #endregion
+
     }
 }

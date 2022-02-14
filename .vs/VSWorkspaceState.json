@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ClinicManagementSystem"
+    "\\ClinicManagementSystem",
+    "\\ClinicManagementSystem\\Controllers"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
+  "SelectedNode": "\\ClinicManagementSystem\\Controllers\\TestReportController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -47,7 +47,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              on a.PatientId equals p.PatientId
                              select new LabBillView
                              {
-                                 LabBillId = l.LabTestBillId,
+                                 LabBillId = l.LabBillId,
                                  DateOfReport =l.Date,
                                  AppointmentDate = a.AppointmentDate,
                                  ReceptionistName = "" + (from dc in _contextone.Staff
@@ -100,10 +100,10 @@ namespace ClinicManagementSystem.Repository.Bills
                               join
                               p in _contextone.Patient
                               on a.PatientId equals p.PatientId
-                              where l.LabTestBillId==id
+                              where l.LabBillId==id
                               select new LabBillView
                               {
-                                  LabBillId = l.LabTestBillId,
+                                  LabBillId = l.LabBillId,
                                   DateOfReport = l.Date,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff
@@ -159,7 +159,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              where p.Phone==phone
                              select new LabBillView
                              {
-                                 LabBillId = l.LabTestBillId,
+                                 LabBillId = l.LabBillId,
                                  DateOfReport = l.Date,
                                  AppointmentDate = a.AppointmentDate,
                                  ReceptionistName = "" + (from dc in _contextone.Staff

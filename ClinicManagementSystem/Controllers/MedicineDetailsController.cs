@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.Repository.MedicinesRepo;
+using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -65,5 +66,32 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-    }
+
+        [HttpGet]
+        [Route("Id/{id}")]
+        public async Task<MedicineListView> GetMedicineDetailsById(int id)
+        {
+            return await _medicineDetailsRepository.GetMedicineDetailsById(id);
+        }
+        [HttpGet]
+        public async Task<List<MedicineListView>> GetMedicineDetails()
+        {
+            return await _medicineDetailsRepository.GetMedicineDetails();
+        }
+        [HttpGet]
+        [Route("/Name/{name}")]
+        public async Task<MedicineListView> GetMedicineDetailsByname(string name)
+        {
+            return await _medicineDetailsRepository.GetMedicineDetailsByname(name);
+        }
+        [HttpGet]
+        [Route("/Phone/{phone}")]
+        public async Task<MedicineListView> GetMedicineDetailsByPhone(Int64 phone)
+        {
+            return await _medicineDetailsRepository.GetMedicineDetailsByPhone(phone);
+        }
+   
+
+
+        }
 }
