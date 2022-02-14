@@ -9,7 +9,6 @@ namespace ClinicManagementSystem.View_Models
     {
         public string Medicine { get; set; }
         public int Quantity { get; set; }
-
         public string MedicineDescription { get; set; }
         public int MedicinePrice { get; set; }
         public string Dose { get; set; }

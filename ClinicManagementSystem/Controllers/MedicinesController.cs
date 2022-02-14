@@ -113,8 +113,6 @@ namespace ClinicManagementSystem.Controllers
 
         #endregion
 
-
-        //delete Medicine
         #region delete Medicine by id
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMedicine(int? id)
@@ -160,7 +158,6 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
-
 
     }
 }

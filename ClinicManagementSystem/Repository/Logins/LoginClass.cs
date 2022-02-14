@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Repository.Logins
             _context = context;
         }
 
+        #region add login
         public async Task<int> AddLogin(Login logint)
         {
             if (_context != null)
@@ -27,7 +28,9 @@ namespace ClinicManagementSystem.Repository.Logins
             }
             return 0;
         }
+        #endregion
 
+        #region login using username and password
         public async Task<LoginView> LoginUser(string username, string password)
         {
             if (_context != null)
@@ -47,7 +50,9 @@ namespace ClinicManagementSystem.Repository.Logins
             }
             return null;
         }
+        #endregion
 
+        #region update login
         public async Task UpdateLogin(Login login)
         {
             if (_context != null)
@@ -57,5 +62,6 @@ namespace ClinicManagementSystem.Repository.Logins
                 await _context.SaveChangesAsync();
             }
         }
+        #endregion
     }
 }

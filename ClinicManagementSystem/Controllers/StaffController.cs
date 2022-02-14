@@ -22,8 +22,7 @@ namespace ClinicManagementSystem.Controllers
             _staffRepository = staffRepository;
         }
 
-        //get post
-
+        #region view all staffs
         [HttpGet]
         public async Task<List<StaffViewModel>> GetAllStaffs()
         {
@@ -34,23 +33,21 @@ namespace ClinicManagementSystem.Controllers
             }
             return null;
         }
+        #endregion
 
-        //get staff by id 
-
+        #region view staff by id
         [HttpGet("{staffId}")]
         //[Route("GetStaff")]
         public async Task<ActionResult<StaffViewModel>> GetStaff(int? staffId)
         {
             return await _staffRepository.GetStaff(staffId);
         }
+        #endregion
 
-        //add a staff
+        #region add a staff
         [HttpPost]
         public async  Task<IActionResult> AddStaff([FromBody] Staff staff)
         {
-            
-            
-
             if (ModelState.IsValid)
             {
                 try
@@ -65,10 +62,9 @@ namespace ClinicManagementSystem.Controllers
             }
             return BadRequest();
         }
+        #endregion
 
-
-        //delete item
-        #region delete item by id
+        #region delete staff by id
         [HttpDelete("{staffId}")]
         public async Task<IActionResult> DeleteStaffById(int? staffId)
         {
@@ -114,12 +110,5 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-
-
-
     }
-
-
-
-
 }

@@ -9,14 +9,19 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
 {
     public interface IDoctorsNotesRepository
     {
+        //view all doctor notes
         Task<List<DoctorNotes>> GetAllNotes();
 
+        //add doctor note
         Task<int> AddNotes(DoctorNotes note);
 
+        //view doctor note by id
         Task<ActionResult<DoctorNotes>> GetNote(int? id);
 
+        //update doctor note
         Task UpdateNote(DoctorNotes note);
 
+        //delete doctor note
         Task<int> DeleteNote(int? id);
 
     }

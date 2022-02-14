@@ -86,7 +86,6 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-
         #region add a test advice
         [HttpPost]
         public async Task<IActionResult> AddTestAdvice([FromBody] TestReport testReport)
@@ -112,7 +111,6 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-
         #region update test advice
         [HttpPut]               
         public async Task<IActionResult> UpdateTestAdvice([FromBody] TestReport testReport)
@@ -133,8 +131,5 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
-
-
-
     }
 }

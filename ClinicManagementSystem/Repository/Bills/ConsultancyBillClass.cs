@@ -17,6 +17,7 @@ namespace ClinicManagementSystem.Repository.Bills
         {
             _contextone = contextone;
         }
+
         #region Add Consultation Bill
         public async Task<int> AddConsulationBill(ConsultationBill consultationBill)
         {
@@ -30,6 +31,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return 0;
         }
         #endregion
+
         #region Get Consultation Bills
         public async Task<List<SubBillView>> GetConsultancyAllBills()
         {
@@ -44,7 +46,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              on a.PatientId equals p.PatientId
                              select new  SubBillView
                              {
-                              ConsultationBillId=c.ConsultationBillId,
+                              ConsultationBillId=c.ConsultancyBillId,
                               DateOfBill=c.DateOfBill,
                               AppointmentDate=a.AppointmentDate,
                               ReceptionistName= "" + (from dc in _contextone.Staff
@@ -64,6 +66,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
+
         #region Get Consultation By ID
         [HttpGet]
         public async Task<SubBillView> GetConsultantionBillById(int id)
@@ -77,10 +80,10 @@ namespace ClinicManagementSystem.Repository.Bills
                               join
                               p in _contextone.Patient
                               on a.PatientId equals p.PatientId
-                              where c.ConsultationBillId==id
+                              where c.ConsultancyBillId==id
                               select new SubBillView
                               {
-                                  ConsultationBillId = c.ConsultationBillId,
+                                  ConsultationBillId = c.ConsultancyBillId,
                                   DateOfBill = c.DateOfBill,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff
@@ -101,6 +104,7 @@ namespace ClinicManagementSystem.Repository.Bills
 
         }
         #endregion
+
         #region Get Consultation Bills By Phone
         [HttpGet]
         public async Task<SubBillView> GetConsultantionBillByPhone(Int64  phone)
@@ -117,7 +121,7 @@ namespace ClinicManagementSystem.Repository.Bills
                               where p.Phone == phone
                               select new SubBillView
                               {
-                                  ConsultationBillId = c.ConsultationBillId,
+                                  ConsultationBillId = c.ConsultancyBillId,
                                   DateOfBill = c.DateOfBill,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff

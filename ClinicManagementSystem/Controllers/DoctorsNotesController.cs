@@ -23,7 +23,7 @@ namespace ClinicManagementSystem.Controllers
             _notes = notes;
         }
 
-        #region get notes
+        #region get doctor notes
         [HttpGet]
         public async Task<List<DoctorNotes>> GetAllNotes()
         {
@@ -37,7 +37,7 @@ namespace ClinicManagementSystem.Controllers
 
         #endregion
 
-        #region get note by id
+        #region get doctor note by id
         [HttpGet("{id}")]
         public async Task<ActionResult<DoctorNotes>> GetNote(int? id)
         {
@@ -52,7 +52,7 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region Add a note
+        #region Add a  note
         [HttpPost]
         public async Task<IActionResult> AddMedicines([FromBody] DoctorNotes note)
         {
@@ -82,9 +82,7 @@ namespace ClinicManagementSystem.Controllers
 
         
         #endregion
-
-
-        //delete note
+        
         #region delete note by id
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNote(int? id)
@@ -130,8 +128,6 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
-
-
 
     }
 }

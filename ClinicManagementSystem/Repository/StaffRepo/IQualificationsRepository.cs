@@ -10,10 +10,13 @@ namespace ClinicManagementSystem.Repository
 {
     public interface IQualificationsRepository
     {
+        //view all qualifications
         Task<List<Qualifications>> GetQualifications();
 
+        //add qualifications
         Task<int> AddQualification(Qualifications qualification);
 
+        //view qualification by id
         Task<ActionResult<Qualifications>> GetQualification(int? id);
     }
 }

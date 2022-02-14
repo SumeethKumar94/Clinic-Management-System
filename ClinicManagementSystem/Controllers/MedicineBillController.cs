@@ -20,12 +20,17 @@ namespace ClinicManagementSystem.Controllers
         {
             _medicinebill = medicinesBill;
         }
+
+        #region add medicine bill
         [HttpPost]
         //https://localhost:44381/api/MedicineBill/
         public async Task<int> AddMedicineBill(MedicineBill MedicineBill)
         {
             return await _medicinebill.AddMedicineBill(MedicineBill);
         }
+        #endregion
+
+        #region view medicine bills
         [HttpGet]
         [Route("ViewMedicineBills")]
         //https://localhost:44381/api/MedicineBill/ViewMedicineBills
@@ -33,6 +38,9 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _medicinebill.GetAllMedicineBills();
         }
+        #endregion
+
+        #region view medicine bills by id
         [HttpGet]
         // [Authorize]
         [Route("MedicineBillsById/{id}")]
@@ -41,6 +49,9 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _medicinebill.GetMedicineBillById(id);
         }
+        #endregion
+
+        #region view medicine bill by patients mobile
         [HttpGet]
         // [Authorize]
         //https://localhost:44381/api/MedicineBill/MedicineBillsByPhone?phone=7865823568
@@ -49,6 +60,7 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _medicinebill.GetMedicineBillByPhone(phone);
         }
+        #endregion
     }
-        
+
 }

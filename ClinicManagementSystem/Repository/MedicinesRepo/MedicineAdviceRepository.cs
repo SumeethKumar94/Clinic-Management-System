@@ -17,14 +17,14 @@ namespace ClinicManagementSystem.Repository
         {
             _context = context;
         }
+
         #region Get all medicine advices
         public async Task<List<MedicineAdviceView>> GetAllMedicineAdvicess()
         {
             if (_context != null)
             {
                 return await (from s in _context.Staff
-                              join
-     p in _context.Appointment on s.StaffId equals p.DoctorId
+                              join p in _context.Appointment on s.StaffId equals p.DoctorId
                               join a in _context.Patient on p.PatientId equals a.PatientId
                               join m in _context.MedicineAdvice on p.AppointmentId equals m.AppointmentId
                               join ml in _context.MedicineDetails on m.MedicineAdviceId equals ml.MedicineAdviceId
@@ -51,10 +51,7 @@ namespace ClinicManagementSystem.Repository
 
 
                                                   }
-
-
                                   ).ToList()
-
                               }
                               ).ToListAsync();
             }

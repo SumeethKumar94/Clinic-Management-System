@@ -22,6 +22,7 @@ namespace ClinicManagementSystem.Controllers
             _appointment = appoint;
         }
 
+        #region view appointments
         [HttpGet]
         // [Authorize]
         [Route("ViewAppointments")]
@@ -30,6 +31,9 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _appointment.GetAppointments();
         }
+        #endregion
+
+        #region view appointments by  id
         [HttpGet]
         // [Authorize]
         [Route("ViewAppointmentById/{id}")]
@@ -37,6 +41,9 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _appointment.GetAppointmentsById(id);
         }
+        #endregion
+
+        #region view appointment by patient mobile
         [HttpGet]
         // [Authorize]
         [Route("ViewAppointmentByPhone/{phone}")]
@@ -44,11 +51,17 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _appointment.GetAppointmentsByPhone(phone);
         }
-            [HttpPost]
+        #endregion
+
+        #region add appointments
+        [HttpPost]
         public async Task<int> AddAppointment(Appointment appointment)
         {
             return await _appointment.AddAppointment(appointment);
         }
+        #endregion
+
+        #region update appointment
         [HttpPut]
        public async Task<IActionResult> UpdateAppointment(Appointment appointment)
         {
@@ -66,5 +79,6 @@ namespace ClinicManagementSystem.Controllers
             }
             return BadRequest();
         }
+        #endregion
     }
 }

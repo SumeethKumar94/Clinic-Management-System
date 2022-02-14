@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Repository
         {
             _context = context;
         }
+
         #region GET ALL Qualifications
         public async Task<List<Qualifications>> GetQualifications()
         {

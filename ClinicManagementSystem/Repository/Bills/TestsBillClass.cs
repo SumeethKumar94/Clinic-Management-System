@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Repository.Bills
         {
             _contextone = contextone;
         }
+
         #region Add Lab Bill
         public async Task<int> AddLabBill(LabBill labBill)
         {
@@ -29,6 +30,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return 0;
         }
         #endregion
+
         #region Get all Lab Bill
         public async Task<List<LabBillView>> GetAllLabBills()
         {
@@ -45,7 +47,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              on a.PatientId equals p.PatientId
                              select new LabBillView
                              {
-                                 LabBillId = l.LabBillId,
+                                 LabBillId = l.LabTestBillId,
                                  DateOfReport =l.Date,
                                  AppointmentDate = a.AppointmentDate,
                                  ReceptionistName = "" + (from dc in _contextone.Staff
@@ -83,6 +85,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
+
         #region  Get  Lab Bill by Id
         public async Task<LabBillView> GetLabBillById(int id)
         {
@@ -97,10 +100,10 @@ namespace ClinicManagementSystem.Repository.Bills
                               join
                               p in _contextone.Patient
                               on a.PatientId equals p.PatientId
-                              where l.LabBillId==id
+                              where l.LabTestBillId==id
                               select new LabBillView
                               {
-                                  LabBillId = l.LabBillId,
+                                  LabBillId = l.LabTestBillId,
                                   DateOfReport = l.Date,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff
@@ -138,6 +141,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
+
         #region Get  Lab Bill by Phone
         public async Task<LabBillView> GetLabBillByPhone(Int64 phone)
         {
@@ -155,7 +159,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              where p.Phone==phone
                              select new LabBillView
                              {
-                                 LabBillId = l.LabBillId,
+                                 LabBillId = l.LabTestBillId,
                                  DateOfReport = l.Date,
                                  AppointmentDate = a.AppointmentDate,
                                  ReceptionistName = "" + (from dc in _contextone.Staff
@@ -193,6 +197,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
+
         #region Update Lab Bill
         public async Task UpdateLabBill(TestDetails testDetails)
         {

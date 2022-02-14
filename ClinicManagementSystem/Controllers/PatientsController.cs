@@ -43,8 +43,6 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
         
-
-
         #region get patient details by contact
         [HttpGet("{search}/{contact}")]
         //[Route("GetPatientByContact")]
@@ -133,7 +131,6 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-
         #region update a patient
         [HttpPut]
         public async Task<IActionResult> UpdatePatient([FromBody] Patient patient)
@@ -155,9 +152,6 @@ namespace ClinicManagementSystem.Controllers
         }
 
         #endregion
-
-
-
 
     }
 }

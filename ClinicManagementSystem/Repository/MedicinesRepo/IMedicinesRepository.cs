@@ -10,17 +10,13 @@ namespace ClinicManagementSystem.Repository
 {
     public interface IMedicinesRepository
     {
-
+        //view all medicines
         Task<List<Medicines>> GetAllMedicines();
-
-        //Task<int> AddMedicines(Medicines medicine);
+       
         //add medicines
         Task<int> AddMedicine(Medicines medicine);
-        //Task<IActionResult> AddMedicine(Medicines medicine);
-
-
-
-        //Task<Medicines> GetMedicineById(int id);
+        
+        //view medicine by id
         Task<ActionResult<Medicines>> GetMedicineById(int? id);
 
         //delete medicine 
@@ -28,10 +24,6 @@ namespace ClinicManagementSystem.Repository
 
         //update medicine
         Task UpdateMedicine(Medicines medicine);
-
-
-
-
 
     }
 
