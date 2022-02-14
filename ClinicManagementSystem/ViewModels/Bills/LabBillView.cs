@@ -13,10 +13,9 @@ namespace ClinicManagementSystem.ViewModels.Bills
         public string DoctorName { get; set; }
         public string PatientName { get; set; }
         public long Phone { get; set; }
-        public string Address { get; set; }
-        public DateTime? DateOfBirth { get; set; }
+  
         public string BloodGroup { get; set; }
-        public DateTime? DateOfBill { get; set; }
+        public DateTime? DateOfReport { get; set; }
         public string LabTechnician{ get; set; }
         public List<TestsView> TestReport { get; set; }
         public int TotalAmount { get; set; }

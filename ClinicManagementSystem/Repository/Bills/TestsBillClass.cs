@@ -46,7 +46,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              select new LabBillView
                              {
                                  LabBillId = l.LabBillId,
-                                 DateOfBill =l.Date,
+                                 DateOfReport =l.Date,
                                  AppointmentDate = a.AppointmentDate,
                                  ReceptionistName = "" + (from dc in _contextone.Staff
                                                           where dc.StaffId == a.ReceptionistId
@@ -56,8 +56,6 @@ namespace ClinicManagementSystem.Repository.Bills
                                                     select dc.FirstName).FirstOrDefault(),
                                  PatientName = p.PatientName,
                                  Phone = p.Phone,
-                                 Address = p.Address,
-                                 DateOfBirth = p.DateOfBirth,
                                  BloodGroup = p.BloodGroup,
                                  LabTechnician = "" + (from dc in _contextone.Staff
                                                         where dc.StaffId == advice.LabTechnicianId
@@ -103,7 +101,7 @@ namespace ClinicManagementSystem.Repository.Bills
                               select new LabBillView
                               {
                                   LabBillId = l.LabBillId,
-                                  DateOfBill = l.Date,
+                                  DateOfReport = l.Date,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff
                                                            where dc.StaffId == a.ReceptionistId
@@ -113,8 +111,6 @@ namespace ClinicManagementSystem.Repository.Bills
                                                      select dc.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
                                   Phone = p.Phone,
-                                  Address = p.Address,
-                                  DateOfBirth = p.DateOfBirth,
                                   BloodGroup = p.BloodGroup,
                                   LabTechnician = "" + (from dc in _contextone.Staff
                                                         where dc.StaffId == advice.LabTechnicianId
@@ -160,7 +156,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              select new LabBillView
                              {
                                  LabBillId = l.LabBillId,
-                                 DateOfBill = l.Date,
+                                 DateOfReport = l.Date,
                                  AppointmentDate = a.AppointmentDate,
                                  ReceptionistName = "" + (from dc in _contextone.Staff
                                                           where dc.StaffId == a.ReceptionistId
@@ -170,8 +166,6 @@ namespace ClinicManagementSystem.Repository.Bills
                                                     select dc.FirstName).FirstOrDefault(),
                                  PatientName = p.PatientName,
                                  Phone = p.Phone,
-                                 Address = p.Address,
-                                 DateOfBirth = p.DateOfBirth,
                                  BloodGroup = p.BloodGroup,
                                  LabTechnician = "" + (from dc in _contextone.Staff
                                                        where dc.StaffId == advice.LabTechnicianId
