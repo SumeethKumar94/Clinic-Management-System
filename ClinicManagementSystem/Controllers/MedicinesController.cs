@@ -15,8 +15,6 @@ namespace ClinicManagementSystem.Controllers
     [Route("api/[controller]")]
     public class MedicinesController : Controller
     {
-
-
         //data fields
         private readonly IMedicinesRepository _medicinesRepository;
 
@@ -133,7 +131,7 @@ namespace ClinicManagementSystem.Controllers
                 {
                     return NotFound();
                 }
-                return Ok("delete successfull");
+                return Ok("Delete successfull");
             }
             catch (Exception)
             {

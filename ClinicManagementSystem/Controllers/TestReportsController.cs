@@ -53,6 +53,7 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
         #region Update Lab Bil
+        [HttpPut]
         public async Task<IActionResult> UpdateLabBill(TestDetails testDetails)
         {
             if (ModelState.IsValid)

@@ -17,7 +17,7 @@ namespace ClinicManagementSystem.View_Models
         //public string Pharmcist { get; set; }
 
 
-        public List<MedicineView> medicineList { get; set; }
+        public List<MedicinesView> medicineList { get; set; }
 
     }
 }

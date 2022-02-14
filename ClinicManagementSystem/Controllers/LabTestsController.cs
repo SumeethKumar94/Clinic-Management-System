@@ -23,7 +23,6 @@ namespace ClinicManagementSystem.Controllers
         #region get all tests
         [HttpGet]
         [Route("GetAllTests")]
-        
         public async Task<ActionResult<IEnumerable<Test>>> GetAllTests()
         {
             return await _labTestsRepository.GetAllTests();
@@ -32,7 +31,6 @@ namespace ClinicManagementSystem.Controllers
 
         #region get test details by id
         [HttpGet("{id}")]
-
         public async Task<ActionResult<Test>> GetTestById(int? id)
         {
             try

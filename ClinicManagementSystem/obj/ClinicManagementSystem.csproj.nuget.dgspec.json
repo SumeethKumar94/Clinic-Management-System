@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sreehari.prathap\\Desktop\\RestAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
+    "C:\\Users\\sumeeth.s\\source\\repos\\REST-API-CMS\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sreehari.prathap\\Desktop\\RestAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
+    "C:\\Users\\sumeeth.s\\source\\repos\\REST-API-CMS\\ClinicManagementSystem\\ClinicManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sreehari.prathap\\Desktop\\RestAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\sumeeth.s\\source\\repos\\REST-API-CMS\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
         "projectName": "ClinicManagementSystem",
-        "projectPath": "C:\\Users\\sreehari.prathap\\Desktop\\RestAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\sreehari.prathap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sreehari.prathap\\Desktop\\RestAPI\\ClinicManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\sumeeth.s\\source\\repos\\REST-API-CMS\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\sumeeth.s\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sumeeth.s\\source\\repos\\REST-API-CMS\\ClinicManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sreehari.prathap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sumeeth.s\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

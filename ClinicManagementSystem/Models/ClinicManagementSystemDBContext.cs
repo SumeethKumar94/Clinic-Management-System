@@ -35,11 +35,11 @@ namespace ClinicManagementSystem.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
+          /*  if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=SREEHARIPRATHAP\\SQLEXPRESS;Database=ClinicManagementSystemDB;Integrated Security=True;");
-            }
+/#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source=SUMEETHKUMAR\\SQLEXPRESS;Database=ClinicManagementSystemDB;Integrated Security=True;");
+            }*/
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,19 +67,19 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.AppointmentDoctor)
                     .HasForeignKey(d => d.DoctorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__appointme__docto__440B1D61");
+                    .HasConstraintName("FK__appointme__docto__38996AB5");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Appointment)
                     .HasForeignKey(d => d.PatientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__appointme__patie__4316F928");
+                    .HasConstraintName("FK__appointme__patie__37A5467C");
 
                 entity.HasOne(d => d.Receptionist)
                     .WithMany(p => p.AppointmentReceptionist)
                     .HasForeignKey(d => d.ReceptionistId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__appointme__recep__44FF419A");
+                    .HasConstraintName("FK__appointme__recep__398D8EEE");
             });
 
             modelBuilder.Entity<Bill>(entity =>
@@ -104,18 +104,18 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.Bill)
                     .HasForeignKey(d => d.ConsultancyBillId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__bill__consultanc__72C60C4A");
+                    .HasConstraintName("FK__bill__consultanc__6C190EBB");
 
                 entity.HasOne(d => d.LabTestBill)
                     .WithMany(p => p.Bill)
                     .HasForeignKey(d => d.LabTestBillId)
-                    .HasConstraintName("FK__bill__labTestBil__74AE54BC");
+                    .HasConstraintName("FK__bill__labTestBil__6E01572D");
 
                 entity.HasOne(d => d.MedicineBill)
                     .WithMany(p => p.Bill)
                     .HasForeignKey(d => d.MedicineBillId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__bill__medicineBi__73BA3083");
+                    .HasConstraintName("FK__bill__medicineBi__6D0D32F4");
             });
 
             modelBuilder.Entity<ConsultationBill>(entity =>
@@ -124,25 +124,19 @@ namespace ClinicManagementSystem.Models
 
                 entity.Property(e => e.ConsultationBillId).HasColumnName("consultationBillId");
 
-                entity.Property(e => e.AppointmentId).HasColumnName("appointmentId");
+                entity.Property(e => e.AppointmentId).HasColumnName("appointmentID");
 
                 entity.Property(e => e.DateOfBill)
                     .HasColumnName("dateOfBill")
                     .HasColumnType("date");
 
                 entity.Property(e => e.TotalAmount).HasColumnName("totalAmount");
-
-                entity.HasOne(d => d.Appointment)
-                    .WithMany(p => p.ConsultationBill)
-                    .HasForeignKey(d => d.AppointmentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__consultat__appoi__6A30C649");
             });
 
             modelBuilder.Entity<DoctorNotes>(entity =>
             {
                 entity.HasKey(e => e.NoteId)
-                    .HasName("PK__doctorNo__03C97EFD11E22838");
+                    .HasName("PK__doctorNo__03C97EFDFAEEC1D7");
 
                 entity.ToTable("doctorNotes");
 
@@ -178,14 +172,12 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.LabBill)
                     .HasForeignKey(d => d.AppointmentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__labBill__appoint__5812160E");
+                    .HasConstraintName("FK__labBill__appoint__619B8048");
 
                 entity.HasOne(d => d.TestReport)
                     .WithMany(p => p.LabBill)
                     .HasForeignKey(d => d.TestReportId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__labBill__testRep__59063A47");
+                    .HasConstraintName("FK__labBill__testRep__628FA481");
             });
 
             modelBuilder.Entity<Login>(entity =>
@@ -208,7 +200,7 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Login)
                     .HasForeignKey(d => d.StaffId)
-                    .HasConstraintName("FK__login__staffId__48CFD27E");
+                    .HasConstraintName("FK__login__staffId__2D27B809");
             });
 
             modelBuilder.Entity<MedicineAdvice>(entity =>
@@ -227,18 +219,18 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.MedicineAdvice)
                     .HasForeignKey(d => d.AppointmentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__medicineA__appoi__5DCAEF64");
+                    .HasConstraintName("FK__medicineA__appoi__4316F928");
 
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.MedicineAdviceDoctor)
                     .HasForeignKey(d => d.DoctorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__medicineA__docto__5EBF139D");
+                    .HasConstraintName("FK__medicineA__docto__440B1D61");
 
                 entity.HasOne(d => d.Pharmacist)
                     .WithMany(p => p.MedicineAdvicePharmacist)
                     .HasForeignKey(d => d.PharmacistId)
-                    .HasConstraintName("FK__medicineA__pharm__5FB337D6");
+                    .HasConstraintName("FK__medicineA__pharm__44FF419A");
             });
 
             modelBuilder.Entity<MedicineBill>(entity =>
@@ -261,13 +253,13 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.MedicineBill)
                     .HasForeignKey(d => d.AppointmentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__medicineB__appoi__66603565");
+                    .HasConstraintName("FK__medicineB__appoi__4BAC3F29");
 
                 entity.HasOne(d => d.MedicineAdvice)
                     .WithMany(p => p.MedicineBill)
                     .HasForeignKey(d => d.MedicineAdviceId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__medicineB__medic__6754599E");
+                    .HasConstraintName("FK__medicineB__medic__4CA06362");
             });
 
             modelBuilder.Entity<MedicineDetails>(entity =>
@@ -288,19 +280,19 @@ namespace ClinicManagementSystem.Models
                     .WithMany(p => p.MedicineDetails)
                     .HasForeignKey(d => d.MedicineAdviceId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__medicineD__medic__6383C8BA");
+                    .HasConstraintName("FK__medicineD__medic__48CFD27E");
 
                 entity.HasOne(d => d.Medicine)
                     .WithMany(p => p.MedicineDetails)
                     .HasForeignKey(d => d.MedicineId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__medicineD__medic__628FA481");
+                    .HasConstraintName("FK__medicineD__medic__47DBAE45");
             });
 
             modelBuilder.Entity<Medicines>(entity =>
             {
                 entity.HasKey(e => e.MedicineId)
-                    .HasName("PK__medicine__BA9E65EEF2CD5129");
+                    .HasName("PK__medicine__BA9E65EEDA4133EF");
 
                 entity.ToTable("medicines");
 
@@ -370,7 +362,7 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Qualifications)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__qualifica__roleI__38996AB5");
+                    .HasConstraintName("FK__qualifica__roleI__267ABA7A");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -424,12 +416,12 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.Qualifications)
                     .WithMany(p => p.Staff)
                     .HasForeignKey(d => d.QualificationsId)
-                    .HasConstraintName("FK__staff__qualifica__3B75D760");
+                    .HasConstraintName("FK__staff__qualifica__29572725");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Staff)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__staff__roleId__3C69FB99");
+                    .HasConstraintName("FK__staff__roleId__2A4B4B5E");
             });
 
             modelBuilder.Entity<Test>(entity =>
@@ -465,7 +457,7 @@ namespace ClinicManagementSystem.Models
             modelBuilder.Entity<TestDetails>(entity =>
             {
                 entity.HasKey(e => e.TestDetailId)
-                    .HasName("PK__testDeta__2639FF9D10CC90EF");
+                    .HasName("PK__testDeta__2639FF9D5ACDDF02");
 
                 entity.ToTable("testDetails");
 
@@ -482,14 +474,12 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.Test)
                     .WithMany(p => p.TestDetails)
                     .HasForeignKey(d => d.TestId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__testDetai__testI__5441852A");
+                    .HasConstraintName("FK__testDetai__testI__72C60C4A");
 
                 entity.HasOne(d => d.TestReport)
                     .WithMany(p => p.TestDetails)
                     .HasForeignKey(d => d.TestReportId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__testDetai__testR__5535A963");
+                    .HasConstraintName("FK__testDetai__testR__73BA3083");
             });
 
             modelBuilder.Entity<TestReport>(entity =>
@@ -509,20 +499,17 @@ namespace ClinicManagementSystem.Models
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.TestReport)
                     .HasForeignKey(d => d.AppointmentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__testRepor__appoi__4F7CD00D");
+                    .HasConstraintName("FK__testRepor__appoi__5CD6CB2B");
 
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.TestReportDoctor)
                     .HasForeignKey(d => d.DoctorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__testRepor__docto__5070F446");
+                    .HasConstraintName("FK__testRepor__docto__5DCAEF64");
 
                 entity.HasOne(d => d.LabTechnician)
                     .WithMany(p => p.TestReportLabTechnician)
                     .HasForeignKey(d => d.LabTechnicianId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__testRepor__labTe__5165187F");
+                    .HasConstraintName("FK__testRepor__labTe__5EBF139D");
             });
 
             OnModelCreatingPartial(modelBuilder);

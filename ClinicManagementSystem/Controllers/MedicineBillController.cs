@@ -26,8 +26,7 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _medicinebill.AddMedicineBill(MedicineBill);
         }
-            [HttpGet]
-        // [Authorize]
+        [HttpGet]
         [Route("ViewMedicineBills")]
         //https://localhost:44381/api/MedicineBill/ViewMedicineBills
         public async Task<List<MedicineBillView>> GetAllMedicineBills()

@@ -41,11 +41,13 @@ namespace ClinicManagementSystem.Repository
                                                   join ml in _context.MedicineDetails on m.MedicineAdviceId equals ml.MedicineAdviceId
                                                   join mde in _context.Medicines on ml.MedicineId equals mde.MedicineId
                                                   where p.AppointmentId == m.AppointmentId
-                                                  select new MedicineView
+                                                  select new MedicinesView
                                                   {
                                                       Medicine = mde.MedicineName,
                                                       MedicineDescription = mde.MedicineDescription,
-                                                      MedicinePrice = mde.MedicinePrice
+                                                      MedicinePrice = mde.MedicinePrice,
+                                                      Dose=mde.Dose,
+                                                      Quantity=ml.Quantity,
 
 
                                                   }

@@ -32,17 +32,17 @@ namespace ClinicManagementSystem.Controllers
             return await _patientsRepository.GetAllPatients();
         }
         #endregion
-        /*
+       
         #region get patients using view model
         [HttpGet]
         
         [Route("GetTheAllPatients")]
         public async Task<ActionResult<IEnumerable<Patient>>> GetTheAllPatients()
         {
-            return await _patientsRepository.GetTheAllPatients();
+            return await _patientsRepository.GetAllPatients();
         }
         #endregion
-        */
+        
 
 
         #region get patient details by contact
