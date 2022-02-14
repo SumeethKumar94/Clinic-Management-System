@@ -40,7 +40,8 @@ namespace ClinicManagementSystem.Repository.Logins
                              {
                              Username=staff.FirstName,
                              StaffId=(int)login.StaffId,
-                             LoginId=login.LoginId
+                             LoginId=login.LoginId,
+                             RoleId=(int)staff.RoleId,
                              }
                               ).FirstOrDefaultAsync();
             }
