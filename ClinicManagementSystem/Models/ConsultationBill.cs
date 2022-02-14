@@ -11,5 +11,9 @@ namespace ClinicManagementSystem.Models
         public int TotalAmount { get; set; }
 
         public virtual Appointment Appointment { get; set; }
+<<<<<<< HEAD
+=======
+        public virtual ICollection<Bill> Bill { get; set; }
+>>>>>>> main
     }
 }
