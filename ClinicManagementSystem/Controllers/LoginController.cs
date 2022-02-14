@@ -79,7 +79,7 @@ namespace ClinicManagementSystem.Controllers
                             var emp = await _login.LoginUser(username, password);
                             if (emp != null)
                             {
-                                response = Ok(new { token = tokens, LoginId = emp.LoginId, StaffId = emp.StaffId,Firstname=emp.Username });
+                                response = Ok(new { token = tokens, LoginId = emp.LoginId, StaffId = emp.StaffId,Firstname=emp.Username,RoleId=emp.RoleId });
                                 return response;
                             }
                             else

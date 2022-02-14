@@ -288,7 +288,6 @@ C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManag
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfoInputs.cache
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.AssemblyInfo.cs
