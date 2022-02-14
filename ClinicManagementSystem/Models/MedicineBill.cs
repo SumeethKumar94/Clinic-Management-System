@@ -5,11 +5,6 @@ namespace ClinicManagementSystem.Models
 {
     public partial class MedicineBill
     {
-        public MedicineBill()
-        {
-            Bill = new HashSet<Bill>();
-        }
-
         public int MedicineBillId { get; set; }
         public int AppointmentId { get; set; }
         public int MedicineAdviceId { get; set; }
@@ -18,6 +13,5 @@ namespace ClinicManagementSystem.Models
 
         public virtual Appointment Appointment { get; set; }
         public virtual MedicineAdvice MedicineAdvice { get; set; }
-        public virtual ICollection<Bill> Bill { get; set; }
     }
 }

@@ -1,8 +1,13 @@
 using ClinicManagementSystem.Models;
+<<<<<<< HEAD
+using ClinicManagementSystem.Repository.LabTests;
+using ClinicManagementSystem.Repository.Patients;
+=======
 using ClinicManagementSystem.Repository.StaffRepo;
 using ClinicManagementSystem.Repository.DoctorsNotes;
 //using ClinicManagementSystem.Repository.MedicinesRepo;
 
+>>>>>>> main
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +43,27 @@ namespace ClinicManagementSystem
         {
             //add services
             services.AddControllers();
+<<<<<<< HEAD
+
+            /*
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                    {
+
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    };
+                });
+            */
+
+
+=======
 
             //swagger documentation
             services.AddSwaggerGen();
@@ -70,6 +96,7 @@ namespace ClinicManagementSystem
             //        };
             //    });
 
+>>>>>>> main
             //adding services
             services.AddControllers().AddNewtonsoftJson(
                 options => {
@@ -84,7 +111,19 @@ namespace ClinicManagementSystem
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+<<<<<<< HEAD
+            services.AddDbContext<ClinicManagementSystemDBContext>(db => db.UseSqlServer(Configuration.GetConnectionString("CMSConnection")));
+            //add public dependancy injection for CategoryRepository
+            services.AddScoped<IPatientsRepository, PatientsRepository>();
+
+            services.AddScoped<ILabTestsRepository, LabTestsRepository>();
+
+            services.AddScoped<ITestAdviceRepository, TestAdviceRepository>();
+
+
+=======
            
+>>>>>>> main
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -107,6 +146,7 @@ namespace ClinicManagementSystem
             app.UseRouting();
 
             app.UseAuthorization();
+
             app.UseAuthentication();
 
 
