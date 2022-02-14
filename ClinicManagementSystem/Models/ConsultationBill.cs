@@ -15,6 +15,7 @@ namespace ClinicManagementSystem.Models
         public DateTime? DateOfBill { get; set; }
         public int TotalAmount { get; set; }
 
+        public virtual Appointment Appointment { get; set; }
         public virtual ICollection<Bill> Bill { get; set; }
     }
 }
