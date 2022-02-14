@@ -11,8 +11,8 @@ namespace ClinicManagementSystem.Models
         }
 
         public int LabBillId { get; set; }
-        public int? AppointmentId { get; set; }
-        public int? TestReportId { get; set; }
+        public int AppointmentId { get; set; }
+        public int TestReportId { get; set; }
         public DateTime Date { get; set; }
         public int TotalAmount { get; set; }
 
