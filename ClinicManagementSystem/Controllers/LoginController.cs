@@ -1,4 +1,5 @@
-﻿using ClinicManagementSystem.Repository.Logins;
+﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.Repository.Logins;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -24,8 +25,33 @@ namespace ClinicManagementSystem.Controllers
             _config = configuration;
         }
 
-        [HttpGet("/{username}/{password}")]
+        #region Add a Login
+        [HttpPost]
+        public async Task<IActionResult> AddLogin([FromBody] Login login)
+        {
+            //since it is frombody we need to check the validation of body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var LoginID = await _login.AddLogin(login);
+                    if (LoginID > 0)
+                    {
+                        return Ok(LoginID);
+                    }
+                    return NotFound();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
 
+        #region Login 
+        [HttpGet("/{username}/{password}")]
         public async Task<ActionResult> GetUserByIdPass(string username, string password)
         {
             var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -79,5 +105,30 @@ namespace ClinicManagementSystem.Controllers
             return response;
 
         }
+        #endregion
+
+        #region Update Login
+        [HttpPut]
+        public async Task<IActionResult> UpdateLogin([FromBody] Login login)
+        {
+            //since it is frombody we need to check the validation of body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _login.UpdateLogin(login);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+
+        #endregion
+
+
     }
 }

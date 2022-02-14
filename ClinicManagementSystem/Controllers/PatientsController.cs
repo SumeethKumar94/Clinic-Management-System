@@ -69,9 +69,6 @@ namespace ClinicManagementSystem.Controllers
 
         #region get patient details by id
         [HttpGet("{id}")]
-
-
-
         public async Task<ActionResult<Patient>> GetPatientById(int? id)
         {
             try
@@ -92,8 +89,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region get patient details by name
         [HttpGet]
-        [Route("GetPatientByName/{name}")]
-        
+        [Route("GetPatientByName/{name}")] 
         public async Task<ActionResult<IEnumerable<Patient>>> GetPatientByName(string name)
         {
             try

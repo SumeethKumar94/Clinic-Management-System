@@ -10,5 +10,7 @@ namespace ClinicManagementSystem.Repository.Logins
    public interface ILogin
     {
         Task<LoginView> LoginUser(string username,string password);
+        Task<int> AddLogin(Login logint);
+        Task UpdateLogin(Login login);
     }
 }

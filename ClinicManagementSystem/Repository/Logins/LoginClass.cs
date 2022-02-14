@@ -15,7 +15,19 @@ namespace ClinicManagementSystem.Repository.Logins
         {
             _context = context;
         }
-        
+
+        public async Task<int> AddLogin(Login logint)
+        {
+            if (_context != null)
+            {
+
+                await _context.Login.AddAsync(logint);
+                await _context.SaveChangesAsync();
+                return 1;
+            }
+            return 0;
+        }
+
         public async Task<LoginView> LoginUser(string username, string password)
         {
             if (_context != null)
@@ -33,6 +45,16 @@ namespace ClinicManagementSystem.Repository.Logins
                               ).FirstOrDefaultAsync();
             }
             return null;
+        }
+
+        public async Task UpdateLogin(Login login)
+        {
+            if (_context != null)
+            {
+                _context.Entry(login).State = EntityState.Modified;
+                _context.Login.Update(login);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
