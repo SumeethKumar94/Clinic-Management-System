@@ -148,7 +148,9 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
+                              orderby a.AppointmentDate 
                               where p.Phone == phone
+
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
