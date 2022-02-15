@@ -15,6 +15,8 @@ namespace ClinicManagementSystem.Repository.Appointments
         Task<List<Appointmentview>> GetAppointmentsToday();
         // view Appointment by Date
         Task<List<Appointmentview>> GetAppointmentsByDate(DateTime date);
+        //view Appointment by Status
+        Task<List<Appointmentview>> GetAppointmentsByStatus(int status);
         //view appointment by id
         Task<Appointmentview> GetAppointmentsById(int id);
         //view appointment using patients mobile

@@ -59,6 +59,14 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _appointment.GetAppointmentsByDate(date);
         }
+        #endregion
+        #region  Get Appointments By Status
+        [HttpGet]
+        [Route("Status/{status}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByStatus(int status)
+        {
+            return await _appointment.GetAppointmentsByStatus(status);
+        }
             #endregion
 
             #region view appointment by patient mobile
