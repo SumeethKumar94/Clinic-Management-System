@@ -46,6 +46,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                                                             where stone.StaffId == a.ReceptionistId
                                                             select stone.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
+                                  Sex=p.Sex,
                                   Mobile = p.Phone,
                                   AppointmentDate = a.AppointmentDate,
                                   TestName = (from trone in _contextThree.TestReport
@@ -95,6 +96,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                                                            where stone.StaffId == a.ReceptionistId
                                                            select stone.FirstName).FirstOrDefault(),
                                  PatientName = p.PatientName,
+                                 Sex = p.Sex,
                                  Mobile = p.Phone,
                                  AppointmentDate = a.AppointmentDate,
                                  TestName = (from trone in _contextThree.TestReport
@@ -144,6 +146,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                                                             where stone.StaffId == a.ReceptionistId
                                                             select stone.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
+                                  Sex = p.Sex,
                                   Mobile = p.Phone,
                                   AppointmentDate = a.AppointmentDate,
                                   TestName = (from trone in _contextThree.TestReport

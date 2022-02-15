@@ -51,6 +51,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
                                   PhoneNumber = p.Phone,
+                                  Sex = p.Sex,
                                   DoctorName = ""+(from dc in _contextone.Staff
                                                 where dc.StaffId == a.DoctorId
                                                 select dc.FirstName).FirstOrDefault(),
@@ -84,6 +85,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
                                   PhoneNumber = p.Phone,
+                                  Sex = p.Sex,
                                   DoctorName = "" + (from dc in _contextone.Staff
                                                      where dc.StaffId == a.DoctorId
                                                      select dc.FirstName).FirstOrDefault(),
@@ -118,6 +120,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   TokenNo = (int)a.TokenNo,
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
+                                  Sex = p.Sex,
                                   PhoneNumber = p.Phone,
                                   DoctorName = "" + (from dc in _contextone.Staff
                                                      where dc.StaffId == a.DoctorId
@@ -186,6 +189,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
                                   PhoneNumber = p.Phone,
+                                  Sex=p.Sex,
                                   DoctorName = "" + (from dc in _contextone.Staff
                                                      where dc.StaffId == a.DoctorId
                                                      select dc.FirstName).FirstOrDefault(),

@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Models
         public string Address { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string BloodGroup { get; set; }
+        public string Sex { get; set; }
 
         public virtual ICollection<Appointment> Appointment { get; set; }
     }

@@ -51,6 +51,7 @@ namespace ClinicManagementSystem.Controllers
                                                             select stone.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
                                   Mobile = p.Phone,
+                                  Sex = p.Sex,
                                   AppointmentDate = a.AppointmentDate,
                                   TestDetails = (from labadv in context.TestReport
                                                  join labdetails in context.TestDetails
@@ -106,6 +107,7 @@ namespace ClinicManagementSystem.Controllers
                                                             select stone.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
                                   Mobile = p.Phone,
+                                  Sex = p.Sex,
                                   AppointmentDate = a.AppointmentDate,
                                   TestDetails = (from labadv in context.TestReport
                                                  join labdetails in context.TestDetails
@@ -160,6 +162,7 @@ namespace ClinicManagementSystem.Controllers
                                                             where stone.StaffId == a.ReceptionistId
                                                             select stone.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
+                                  Sex = p.Sex,
                                   Mobile = p.Phone,
                                   AppointmentDate = a.AppointmentDate,
                                   TestDetails = (from labadv in context.TestReport

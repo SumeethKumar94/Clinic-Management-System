@@ -11,6 +11,7 @@ namespace ClinicManagementSystem.View_Models.LabTests
         public string PatientName { get; set; }
         public Int64 Mobile { get; set; }
         public string DoctorName { get; set; }
+        public string Sex { get; set; }
         public string ReceptionistName { get; set; }       
         public DateTime AppointmentDate { get; set; }
         public List<string> TestName { get; set; }
