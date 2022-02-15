@@ -80,5 +80,15 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
+
+        #region view appointments by  id
+        [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentByDoctorId/{id}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id)
+        {
+            return await _appointment.GetAppointmentsByDoctorId(id);
+        }
+        #endregion
     }
 }

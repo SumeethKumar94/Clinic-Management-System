@@ -58,6 +58,30 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
 
         #endregion
 
+        #region get Notes by patient id
+        public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
+        {
+            if (_context != null)
+            {
+                return await (from c in _context.DoctorNotes
+                                  where c.PatientId == id
+                                  select new DoctorNotes
+                                  {
+                                      NoteId = c.NoteId,
+                                      Note = c.Note,
+                                      PatientId = c.PatientId,
+                                      DoctorId = c.DoctorId,
+                                      AppointmentId = c.AppointmentId
+                                  }
+                                  ).ToListAsync();
+                
+            }
+            return null;
+            //throw new NotImplementedException();
+        }
+
+        #endregion
+
         #region delete doctors note
         public async Task<int> DeleteNote(int? id)
         {
