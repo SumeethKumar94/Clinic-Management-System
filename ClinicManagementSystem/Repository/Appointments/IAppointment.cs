@@ -25,6 +25,7 @@ namespace ClinicManagementSystem.Repository.Appointments
         Task<int> AddAppointment(Appointment appointment);
         //update appointment
         Task UpdateAppointment(Appointment appointment);
-    
+        Task<int> DeleteAppointment(int id);
+
     }
 }

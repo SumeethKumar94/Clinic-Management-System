@@ -251,5 +251,28 @@ namespace ClinicManagementSystem.Repository.Appointments
             }
         }
         #endregion
+
+
+        #region Delete Appointment
+        public async Task<int> DeleteAppointment(int id)
+        {
+            // declare result
+            int result = 0;
+            if (_contextone != null)
+            {
+                var note = await _contextone.Appointment.FirstOrDefaultAsync(u => u.AppointmentId == id);
+                if (note != null)
+                {
+                    // perform delete
+                    _contextone.Appointment.Remove(note);
+                    result = await _contextone.SaveChangesAsync(); // commit 
+                    //return succcess;
+                    result = 1;
+                }
+                return result;
+            }
+            return result;
+        }
+        #endregion
     }
 }

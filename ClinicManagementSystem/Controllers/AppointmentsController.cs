@@ -107,6 +107,52 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+        #region Patch  appointment
+        [HttpPatch]
+        public async Task<IActionResult> UpdateAppointments(Appointment appointment)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _appointment.UpdateAppointment(appointment);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
+        #endregion
+        [HttpDelete("{id}")]
+        //[Route]
+        #region Delete Appointment
+        public async Task<ActionResult> DeleteAppointment(int id)
+        {
+                int result = 0;
+                if (id == 0)
+                {
+                    return BadRequest();
+                }
 
-    }
+                try
+                {
+                    result = await _appointment.DeleteAppointment(id);
+                    if (result == 0)
+                    {
+                        return NotFound();
+                    }
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            
+        }
+            #endregion
+
+        }
 }
