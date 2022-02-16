@@ -166,5 +166,27 @@ namespace ClinicManagementSystem.Controllers
         }
             #endregion
 
+
+        #region view appointments by  doctorsid and date (today)
+        [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentsToday/{id}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByDoctorIdandDate(int id)
+        {
+            return await _appointment.GetAppointmentsByDoctorIdandDate(id);
+        }
+        #endregion
+
+        
+
+              #region view appointments by  doctorsid and date (today)
+        [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentsondate/{id}/{date}")]
+        public async Task<List<Appointmentview>> getAppointmentsOnDate(int id, DateTime date)
+        {
+            return await _appointment.getAppointmentsOnDate(id,date);
+        }
+        #endregion
     }
 }

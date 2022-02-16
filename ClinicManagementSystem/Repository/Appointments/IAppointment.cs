@@ -25,6 +25,17 @@ namespace ClinicManagementSystem.Repository.Appointments
         Task<int> AddAppointment(Appointment appointment);
         //update appointment
         Task UpdateAppointment(Appointment appointment);
+<<<<<<< HEAD
     
+=======
+        //get appointmnets by doctor id
+        Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id);
+
+        Task<List<Appointmentview>> GetAppointmentsByDoctorIdandDate(int id);
+
+        Task<List<Appointmentview>> getAppointmentsOnDate(int id, DateTime date);
+
+
+>>>>>>> f382953f16efaa483bcce55d8881794d1af3f794
     }
 }
