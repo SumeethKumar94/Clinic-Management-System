@@ -182,8 +182,8 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              orderby a.AppointmentDate
                               where a.Status == status
+                              orderby a.AppointmentDate ascending
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -199,7 +199,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                                            where rc.StaffId == a.ReceptionistId
                                                            select rc.FirstName).FirstOrDefault(),
                                   AppointmentDate = a.AppointmentDate
-                              }).Distinct().ToListAsync();  //FirstorDefaultAsync();
+                              }).ToListAsync();  //FirstorDefaultAsync();
             }
             return null;
         }

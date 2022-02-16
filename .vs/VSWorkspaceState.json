@@ -4,8 +4,9 @@
     "\\ClinicManagementSystem",
     "\\ClinicManagementSystem\\Controllers",
     "\\ClinicManagementSystem\\Repository",
+    "\\ClinicManagementSystem\\Repository\\Appointments",
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\MedicineDetailsRepository.cs",
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\Appointments\\AppointmentClass.cs",
   "PreviewInSolutionExplorer": false
 }
