@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\ClinicManagementSystem",
-    "\\ClinicManagementSystem\\Controllers"
+    "\\ClinicManagementSystem\\Controllers",
+    "\\ClinicManagementSystem\\Repository",
+    "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Controllers\\TestReportController.cs",
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\MedicineDetailsRepository.cs",
   "PreviewInSolutionExplorer": false
 }

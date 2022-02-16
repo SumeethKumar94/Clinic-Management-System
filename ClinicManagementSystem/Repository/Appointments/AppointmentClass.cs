@@ -3,6 +3,7 @@ using ClinicManagementSystem.View_Models.Appointments;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,6 +51,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
                                   PhoneNumber = p.Phone,
+                                  Sex = p.Sex,
                                   DoctorName = ""+(from dc in _contextone.Staff
                                                 where dc.StaffId == a.DoctorId
                                                 select dc.FirstName).FirstOrDefault(),
@@ -62,7 +64,42 @@ namespace ClinicManagementSystem.Repository.Appointments
             return null;
         }
         #endregion
+        #region Get Appointment by Date
+        public async Task<List<Appointmentview>> GetAppointmentsByDate(DateTime date)
+        {
+            if (_contextone != null)
+            {
+                return await(
+                              from a in _contextone.Appointment
+                              join
+                              p in _contextone.Patient
+                              on a.PatientId equals p.PatientId
+                              join
+                              s in _contextone.Staff
+                              on a.DoctorId equals s.StaffId
+                              where a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year ==date.Day
+                              select new Appointmentview
+                              {
+                                  AppointmentId = a.AppointmentId,
+                                  TokenNo = (int)a.TokenNo,
+                                  PatientId = a.PatientId,
+                                  PatientName = p.PatientName,
+                                  PhoneNumber = p.Phone,
+                                  Sex = p.Sex,
+                                  DoctorName = "" + (from dc in _contextone.Staff
+                                                     where dc.StaffId == a.DoctorId
+                                                     select dc.FirstName).FirstOrDefault(),
+                                  Receptionistname = "" + (from rc in _contextone.Staff
+                                                           where rc.StaffId == a.ReceptionistId
+                                                           select rc.FirstName).FirstOrDefault(),
+                                  AppointmentDate = a.AppointmentDate
+                              }).Distinct().ToListAsync();  //FirstorDefaultAsync();
+            }
+            return null;
 
+        }
+        #endregion
+    
         #region Get Appointment by ID
         public async Task<Appointmentview> GetAppointmentsById(int id)
         {
@@ -83,6 +120,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                                   TokenNo = (int)a.TokenNo,
                                   PatientId = a.PatientId,
                                   PatientName = p.PatientName,
+                                  Sex = p.Sex,
                                   PhoneNumber = p.Phone,
                                   DoctorName = "" + (from dc in _contextone.Staff
                                                      where dc.StaffId == a.DoctorId
@@ -111,6 +149,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
                               where p.Phone == phone
+
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -129,6 +168,76 @@ namespace ClinicManagementSystem.Repository.Appointments
             }
             return null;
         }
+        #endregion
+        #region Get Appointment By Status
+        public async Task<List<Appointmentview>> GetAppointmentsByStatus(int status)
+        {
+            if (_contextone != null)
+            {
+                return await(
+                              from a in _contextone.Appointment
+                              join
+                              p in _contextone.Patient
+                              on a.PatientId equals p.PatientId
+                              join
+                              s in _contextone.Staff
+                              on a.DoctorId equals s.StaffId
+                              orderby a.AppointmentDate
+                              where a.Status == status
+                              select new Appointmentview
+                              {
+                                  AppointmentId = a.AppointmentId,
+                                  TokenNo = (int)a.TokenNo,
+                                  PatientId = a.PatientId,
+                                  PatientName = p.PatientName,
+                                  PhoneNumber = p.Phone,
+                                  Sex = p.Sex,
+                                  DoctorName = "" + (from dc in _contextone.Staff
+                                                     where dc.StaffId == a.DoctorId
+                                                     select dc.FirstName).FirstOrDefault(),
+                                  Receptionistname = "" + (from rc in _contextone.Staff
+                                                           where rc.StaffId == a.ReceptionistId
+                                                           select rc.FirstName).FirstOrDefault(),
+                                  AppointmentDate = a.AppointmentDate
+                              }).Distinct().ToListAsync();  //FirstorDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+        #region Get Today Appointment
+        public async Task<List<Appointmentview>> GetAppointmentsToday()
+        {
+            if (_contextone != null)
+            {
+                return await (
+                              from a in _contextone.Appointment
+                              join
+                              p in _contextone.Patient
+                              on a.PatientId equals p.PatientId
+                              join
+                              s in _contextone.Staff
+                              on a.DoctorId equals s.StaffId
+                              where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month== DateTime.Today.Month && a.AppointmentDate.Year== DateTime.Today.Year
+                              select new Appointmentview
+                              {
+                                  AppointmentId = a.AppointmentId,
+                                  TokenNo = (int)a.TokenNo,
+                                  PatientId = a.PatientId,
+                                  PatientName = p.PatientName,
+                                  PhoneNumber = p.Phone,
+                                  Sex=p.Sex,
+                                  DoctorName = "" + (from dc in _contextone.Staff
+                                                     where dc.StaffId == a.DoctorId
+                                                     select dc.FirstName).FirstOrDefault(),
+                                  Receptionistname = "" + (from rc in _contextone.Staff
+                                                           where rc.StaffId == a.ReceptionistId
+                                                           select rc.FirstName).FirstOrDefault(),
+                                  AppointmentDate = a.AppointmentDate
+                              }).ToListAsync();  //FirstorDefaultAsync();
+            }
+            return null;
+        }
+
         #endregion
 
         #region Update Appointment

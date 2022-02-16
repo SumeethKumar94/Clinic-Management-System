@@ -43,8 +43,44 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region view appointment by patient mobile
+        #region view appointments by  doctorsid
         [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentByDoctorId/{id}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id)
+        {
+            return await _appointment.GetAppointmentsByDoctorId(id);
+        }
+        #endregion
+
+        #region View Todays Appointment
+        [HttpGet]
+        [Route("Today")]
+        public async Task<List<Appointmentview>> GetAppointmentsToday()
+        {
+            return await _appointment.GetAppointmentsToday();
+        }
+            #endregion
+
+            #region View Appointment By Date
+            [HttpGet]
+        [Route("Date/{date}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByDate(DateTime date)
+        {
+            return await _appointment.GetAppointmentsByDate(date);
+        }
+        #endregion
+        #region  Get Appointments By Status
+        [HttpGet]
+        [Route("Status/{status}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByStatus(int status)
+        {
+            return await _appointment.GetAppointmentsByStatus(status);
+        }
+            #endregion
+
+            #region view appointment by patient mobile
+            [HttpGet]
         // [Authorize]
         [Route("ViewAppointmentByPhone/{phone}")]
         public async Task<Appointmentview> GetAppointmentsByPhone(Int64 phone)
@@ -81,14 +117,7 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region view appointments by  id
-        [HttpGet]
-        // [Authorize]
-        [Route("ViewAppointmentByDoctorId/{id}")]
-        public async Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id)
-        {
-            return await _appointment.GetAppointmentsByDoctorId(id);
-        }
-        #endregion
+
+
     }
 }

@@ -12,6 +12,7 @@ namespace ClinicManagementSystem.Repository
     {
         //view roles
         Task<List<Role>> GetRoles();
+        Task<List<RoleView>> GetRolesStaff(int id);
 
         //view role by id
         Task<ActionResult<Role>> GetROle(int? id);

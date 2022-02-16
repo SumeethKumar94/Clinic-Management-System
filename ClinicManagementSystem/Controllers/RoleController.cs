@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using ClinicManagementSystem.View_Models;
 
 namespace ClinicManagementSystem.Controllers
 {
@@ -35,9 +36,16 @@ namespace ClinicManagementSystem.Controllers
         }
 
         #endregion
-
-        #region get role by id
-        [HttpGet("{id}")]
+        #region get everyone in Role
+        [HttpGet]
+        [Route("Staff/{id}")]
+        public async Task<List<RoleView>> GetRolesStaff(int id)
+        {
+            return await _roleRepo.GetRolesStaff(id);
+        }
+            #endregion
+            #region get role by id
+            [HttpGet("{id}")]
         public async Task<ActionResult<Role>> GetROle(int? id)
         {
             try

@@ -61,6 +61,10 @@ namespace ClinicManagementSystem.Models
 
                 entity.Property(e => e.ReceptionistId).HasColumnName("receptionistId");
 
+                entity.Property(e => e.Status)
+                    .HasColumnName("status")
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.TokenNo).HasColumnName("tokenNo");
 
                 entity.HasOne(d => d.Doctor)
@@ -344,6 +348,13 @@ namespace ClinicManagementSystem.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Phone).HasColumnName("phone");
+
+                entity.Property(e => e.Sex)
+                    .IsRequired()
+                    .HasColumnName("sex")
+                    .HasMaxLength(6)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('Other')");
             });
 
             modelBuilder.Entity<Qualifications>(entity =>

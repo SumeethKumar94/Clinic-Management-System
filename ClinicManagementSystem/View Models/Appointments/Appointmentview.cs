@@ -14,6 +14,7 @@ namespace ClinicManagementSystem.View_Models.Appointments
         public string DoctorName { get; set; }
         public string Receptionistname { get; set; }
         public int TokenNo { get; set; }
+        public string Sex { get; set; }
         public DateTime AppointmentDate {get;set;}
         
     }

@@ -89,10 +89,20 @@ namespace ClinicManagementSystem.Controllers
             return await _medcineAdviceRepository.GetMedicineAdvicebyId(id);
         }
 
-            #endregion
+        #endregion
 
-            #region Get Medicine Advice by Name
-            [HttpGet]
+        #region Get Medicine Advice by patient ID
+        [HttpGet]
+        [Route("patient/{id}")]
+        public async Task<MedicineAdviceView> GetMedicineAdvicebyPatientId(int id)
+        {
+            return await _medcineAdviceRepository.GetMedicineAdvicebyPatientId(id);
+        }
+
+        #endregion
+
+        #region Get Medicine Advice by Name
+        [HttpGet]
         [Route("Name/{name}")]
         public async Task<MedicineAdviceView> GetMedicineAdvicebyName(string name)
         {
