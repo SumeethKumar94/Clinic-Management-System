@@ -23,6 +23,7 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
 
         //delete doctor note
         Task<int> DeleteNote(int? id);
+        Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id);
 
     }
 }

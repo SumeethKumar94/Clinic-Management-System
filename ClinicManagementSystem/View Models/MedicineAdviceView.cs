@@ -11,6 +11,12 @@ namespace ClinicManagementSystem.View_Models
         public int MedicineAdviceId { get; set; }
         public int AppointmentId { get; set; }
         public int PatientId { get; set; }
+        public int DoctorsId { get; set; }
+
+
+        //public string Doctor { get; set; }
+
+
         public string Patient { get; set; }
         //public string Doctor { get; set; }
         //public string Pharmcist { get; set; }

@@ -52,6 +52,21 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+        #region get doctor note by id
+        [HttpGet("patient/{id}")]
+        public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
+        {
+            try
+            {
+                return await _notes.GetNoteForPatient(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #region Add a  note
         [HttpPost]
         public async Task<IActionResult> AddMedicines([FromBody] DoctorNotes note)

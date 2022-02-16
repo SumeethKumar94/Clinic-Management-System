@@ -43,6 +43,16 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+        #region view appointments by  doctorsid
+        [HttpGet]
+        // [Authorize]
+        [Route("ViewAppointmentByDoctorId/{id}")]
+        public async Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id)
+        {
+            return await _appointment.GetAppointmentsByDoctorId(id);
+        }
+        #endregion
+
         #region View Todays Appointment
         [HttpGet]
         [Route("Today")]
@@ -126,9 +136,11 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
-        [HttpDelete("{id}")]
+
+      
         //[Route]
         #region Delete Appointment
+          [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAppointment(int id)
         {
                 int result = 0;
@@ -154,5 +166,5 @@ namespace ClinicManagementSystem.Controllers
         }
             #endregion
 
-        }
+    }
 }
