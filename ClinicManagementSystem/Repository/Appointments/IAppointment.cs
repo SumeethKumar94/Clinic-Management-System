@@ -28,6 +28,10 @@ namespace ClinicManagementSystem.Repository.Appointments
         //get appointmnets by doctor id
         Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id);
 
+        Task<List<Appointmentview>> GetAppointmentsByDoctorIdandDate(int id);
+
+        Task<List<Appointmentview>> getAppointmentsOnDate(int id, DateTime date);
+
 
     }
 }
