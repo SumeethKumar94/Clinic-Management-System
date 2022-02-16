@@ -257,28 +257,11 @@ namespace ClinicManagementSystem.Repository.Appointments
         #endregion
 
         #region Patch Appointment
-       /* public async Task<int> PatchAppointment(int id, [FromBody]JsonPatchDocument<Appointment> patchEntity)
-        {
-           if (_contextone != null)
-            {
-           
-                    var appointment=await _contextone.Appointment.FirstOrDefaultAsync(u => u.AppointmentId == id);
-                if (appointment == null)
-                {
-                    return 0;
-                }
-
-                patchEntity.ApplyTo(appointment,ModelState); // Must have Microsoft.AspNetCore.Mvc.NewtonsoftJson installed
-                   
-                   _contextone.Appointment.Update(appointment);
-                    await _contextone.SaveChangesAsync();
-                    return status;
-                }}*/
-               
-            
-        
-        
+        //FU
         #endregion
+
+
+
 
         #region Get Appointment by Doctor ID
         public async Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id)
@@ -293,11 +276,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-<<<<<<< HEAD
                               where a.DoctorId == id //&& a.Status==2
-=======
-                              where a.DoctorId == id 
->>>>>>> f382953f16efaa483bcce55d8881794d1af3f794
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -318,7 +297,6 @@ namespace ClinicManagementSystem.Repository.Appointments
         }
         #endregion
 
-<<<<<<< HEAD
 
         #region Delete Appointment
         public async Task<int> DeleteAppointment(int id)
@@ -341,7 +319,7 @@ namespace ClinicManagementSystem.Repository.Appointments
             return result;
         }
         #endregion
-=======
+
         #region Get Appointment by Doctor ID and todays date
         public async Task<List<Appointmentview>> GetAppointmentsByDoctorIdandDate(int id)
         {
@@ -411,6 +389,6 @@ namespace ClinicManagementSystem.Repository.Appointments
         #endregion
 
 
->>>>>>> f382953f16efaa483bcce55d8881794d1af3f794
+
     }
 }
