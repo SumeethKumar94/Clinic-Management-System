@@ -182,7 +182,7 @@ namespace ClinicManagementSystem.Controllers
 
         
 
-              #region view appointments by  doctorsid and date (today)
+              #region view appointments by  doctorsid and date 
         [HttpGet]
         // [Authorize]
         [Route("ViewAppointmentsondate/{id}/{date}")]
