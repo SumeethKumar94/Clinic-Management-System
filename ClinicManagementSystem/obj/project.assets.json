@@ -5725,6 +5725,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNet.WebApi.Cors >= 5.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.0",
+      "Microsoft.AspNetCore.JsonPatch >= 3.1.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.0",
       "Microsoft.EntityFrameworkCore >= 3.1.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
@@ -5776,6 +5777,10 @@
             "version": "[5.0.0, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "Microsoft.AspNetCore.JsonPatch": {
             "target": "Package",
             "version": "[3.1.0, )"
           },

@@ -2,7 +2,9 @@
 using ClinicManagementSystem.Repository.Appointments;
 using ClinicManagementSystem.View_Models.Appointments;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,13 @@ namespace ClinicManagementSystem.Controllers
     public class AppointmentsController : ControllerBase
     {
         private readonly IAppointment _appointment;
+        private readonly ClinicManagementSystemDBContext _context;
 
         //constructor injection
-        public AppointmentsController(IAppointment appoint)
+        public AppointmentsController(IAppointment appoint,ClinicManagementSystemDBContext cont)
         {
             _appointment = appoint;
+            _context = cont;
         }
 
         #region view appointments
@@ -116,8 +120,54 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
+//--------------------Dont Touch---------------------
+        #region Patch  appointment
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchAppointment(int id, [FromBody] JsonPatchDocument<Appointment> patchEntity)
+        {
+            if (id> 0)
+            {
 
+                var appointment = await _context.Appointment.FirstOrDefaultAsync(u => u.AppointmentId == id);
+                if (appointment == null)
+                {
+                    return BadRequest();
+                }
 
+                patchEntity.ApplyTo(appointment, ModelState);
+
+                _context.Appointment.Update(appointment);
+                await _context.SaveChangesAsync();
+                return Ok(appointment);
+            }
+            return BadRequest();
+        }
+       
+        #endregion
+        //------------------------------------------------------
+      
+        //[Route]
+        #region Delete Appointment
+          [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteAppointment(int id)
+        {
+                int result = 0;
+                if (id == 0)
+                {
+                    return BadRequest();
+                }
+                try
+                {
+                result = await _appointment.DeleteAppointment(id);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            
+        }
+            #endregion
 
 
         #region view appointments by  doctorsid and date (today)

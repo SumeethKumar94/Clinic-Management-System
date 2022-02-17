@@ -1,11 +1,15 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.View_Models.Appointments;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace ClinicManagementSystem.Repository.Appointments
 {
@@ -113,7 +117,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.PatientId==id
+                              where a.AppointmentId==id
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -217,7 +221,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month== DateTime.Today.Month && a.AppointmentDate.Year== DateTime.Today.Year
+                              where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month== DateTime.Today.Month && a.AppointmentDate.Year== DateTime.Today.Year && a.Status==1
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -252,6 +256,13 @@ namespace ClinicManagementSystem.Repository.Appointments
         }
         #endregion
 
+        #region Patch Appointment
+        //FU
+        #endregion
+
+
+
+
         #region Get Appointment by Doctor ID
         public async Task<List<Appointmentview>> GetAppointmentsByDoctorId(int id)
         {
@@ -265,7 +276,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.DoctorId == id 
+                              where a.DoctorId == id //&& a.Status==2
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -283,6 +294,29 @@ namespace ClinicManagementSystem.Repository.Appointments
                               }).ToListAsync();  //FirstorDefaultAsync();
             }
             return null;
+        }
+        #endregion
+
+
+        #region Delete Appointment
+        public async Task<int> DeleteAppointment(int id)
+        {
+            // declare result
+            int result = 0;
+            if (_contextone != null)
+            {
+                var note = await _contextone.Appointment.FirstOrDefaultAsync(u => u.AppointmentId == id);
+                if (note != null)
+                {
+                    // perform delete
+                    _contextone.Appointment.Remove(note);
+                    result = await _contextone.SaveChangesAsync(); // commit 
+                    //return succcess;
+                    result = 1;
+                }
+                return result;
+            }
+            return result;
         }
         #endregion
 
@@ -353,6 +387,7 @@ namespace ClinicManagementSystem.Repository.Appointments
             return null;
         }
         #endregion
+
 
 
     }
