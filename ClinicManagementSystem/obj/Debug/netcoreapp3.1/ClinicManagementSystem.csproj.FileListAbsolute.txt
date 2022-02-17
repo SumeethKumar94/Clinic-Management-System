@@ -310,3 +310,4 @@ C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManag
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.pdb
 C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.genruntimeconfig.cache
 >>>>>>> 08d75f1162b551001e250072a49821e7526d805e
+C:\Users\nikhil.nandagopan\source\repos\Experion-Net-TRIDENT-RESTAPI\ClinicManagementSystem\obj\Debug\netcoreapp3.1\ClinicManagementSystem.csproj.AssemblyReference.cache

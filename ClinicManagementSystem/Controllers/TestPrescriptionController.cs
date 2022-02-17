@@ -12,17 +12,17 @@ namespace ClinicManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TestAdviceController : ControllerBase
+    public class TestPrescriptionController : ControllerBase
     {
-        private readonly ITestAdviceRepository _testAdviceRepository;
+        private readonly ITestPrescriptionRepository _testPrescriptionRepository;
 
-        public TestAdviceController(ITestAdviceRepository testAdviceRepository)
+        public TestPrescriptionController(ITestPrescriptionRepository testPrescriptionRepository)
         {
-            _testAdviceRepository = testAdviceRepository;
+            _testPrescriptionRepository = testPrescriptionRepository;
         }
 
 
-        #region get all test advice
+        #region get all test advices (prescriptions)
         [HttpGet]
         [Route("GetTestAdvice")]
 
@@ -31,7 +31,7 @@ namespace ClinicManagementSystem.Controllers
             
             try
             {
-                var advice = await _testAdviceRepository.GetTestAdvice();
+                var advice = await _testPrescriptionRepository.GetTestAdvice();
                 if (advice == null)
                 {
                     return NotFound();
@@ -45,13 +45,13 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region  get test advice by id
+        #region  get test advice (prescription) by id
         [HttpGet("{id}")]
         public async Task<ActionResult<TestAdviceViewModel>> GetTestAdviceById(int id)
         {
             try
             {
-                var adviceTwo = await _testAdviceRepository.GetTestAdviceById(id);
+                var adviceTwo = await _testPrescriptionRepository.GetTestAdviceById(id);
                 if (adviceTwo == null)
                 {
                     return NotFound();
@@ -65,19 +65,19 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region  get test advice by phone
+        #region  get test advice (prescription) by phone
         [HttpGet]
         [Route("GetTestAdviceByPhone/{phone}")]
         public async Task<ActionResult<TestAdviceViewModel>> GetTestAdviceByPhone(Int64 phone)
         {
             try
             {
-                var adviceThree = await _testAdviceRepository.GetTestAdviceByPhone(phone);
-                if (adviceThree == null)
+                var prescription = await _testPrescriptionRepository.GetTestAdviceByPhone(phone);
+                if (prescription == null)
                 {
                     return NotFound();
                 }
-                return adviceThree;
+                return prescription;
             }
             catch (Exception)
             {
@@ -86,19 +86,19 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region add a test advice
+        #region add a test advice (prescription)
         [HttpPost]
-        public async Task<IActionResult> AddTestAdvice([FromBody] TestDetails testDetails)
+        public async Task<IActionResult> AddTestAdvice([FromBody] TestReport testReport)
         {
             //since it is frombody we need to check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var adviceID = await _testAdviceRepository.AddTestAdvice(testDetails);
-                    if (adviceID > 0)
+                    var prescriptionID = await _testPrescriptionRepository.AddTestAdvice(testReport);
+                    if (prescriptionID > 0)
                     {
-                        return Ok(adviceID);
+                        return Ok(prescriptionID);
                     }
                     return NotFound();
                 }
@@ -111,16 +111,16 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region update test advice
+        #region update test advice(prescription)
         [HttpPut]               
-        public async Task<IActionResult> UpdateTestAdvice([FromBody] TestDetails testDetails)
+        public async Task<IActionResult> UpdateTestAdvice([FromBody] TestReport testReport)
         {
-            //since it is frombody we need to check the validation of body , n lowda
+            
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _testAdviceRepository.UpdateTestAdvice(testDetails);
+                    await _testPrescriptionRepository.UpdateTestAdvice(testReport);
                     return Ok();
                 }
                 catch (Exception)

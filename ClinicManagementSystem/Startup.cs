@@ -67,7 +67,7 @@ namespace ClinicManagementSystem
             services.AddScoped<IDoctorsNotesRepository, DoctorsNotesRepository>();
             services.AddScoped<ILogin, LoginClass>();
             services.AddScoped<ILabTestsRepository, LabTestsRepository>();
-            services.AddScoped<ITestAdviceRepository, TestAdviceRepository>();
+            services.AddScoped<ITestPrescriptionRepository, TestPrescriptionRepository>();
             services.AddScoped<IMedicineDetailsRepository,MedicineDetailsRepository>();
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Repository.LabTests
 {
-    public interface ITestAdviceRepository
+    public interface ITestPrescriptionRepository
     {
         //get test advice
         Task<List<TestAdviceViewModel>> GetTestAdvice();
@@ -19,10 +19,10 @@ namespace ClinicManagementSystem.Repository.LabTests
         Task<TestAdviceViewModel> GetTestAdviceByPhone(Int64 phone);
 
         //add a test advice
-        Task<int> AddTestAdvice(TestDetails testDetails);
+        Task<int> AddTestAdvice(TestReport testReport);
 
         //update a test advice
-        Task UpdateTestAdvice(TestDetails testDetails);
+        Task UpdateTestAdvice(TestReport testReport);
 
     }
 }

@@ -67,31 +67,41 @@ namespace ClinicManagementSystem.Controllers
         #endregion
 
 
+        #region get medicine by id
         [HttpGet]
         [Route("Id/{id}")]
         public async Task<MedicineListView> GetMedicineDetailsById(int id)
         {
             return await _medicineDetailsRepository.GetMedicineDetailsById(id);
         }
+        #endregion
+
+        #region view medicine details
         [HttpGet]
         public async Task<List<MedicineListView>> GetMedicineDetails()
         {
             return await _medicineDetailsRepository.GetMedicineDetails();
         }
+        #endregion
+
+        #region view medicine details by name
         [HttpGet]
         [Route("/Name/{name}")]
         public async Task<MedicineListView> GetMedicineDetailsByname(string name)
         {
             return await _medicineDetailsRepository.GetMedicineDetailsByname(name);
         }
+        #endregion
+
+        #region view medicine details by phone
         [HttpGet]
         [Route("/Phone/{phone}")]
         public async Task<MedicineListView> GetMedicineDetailsByPhone(Int64 phone)
         {
             return await _medicineDetailsRepository.GetMedicineDetailsByPhone(phone);
         }
-   
+        #endregion
 
 
-        }
+    }
 }

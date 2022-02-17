@@ -70,6 +70,7 @@ namespace ClinicManagementSystem.Repository
             return null;
         }
         #endregion
+
         #region Get Medicine Advice by ID
         public async Task<MedicineAdviceView> GetMedicineAdvicebyId(int id)
         {
@@ -111,6 +112,7 @@ namespace ClinicManagementSystem.Repository
             return null;
         }
         #endregion
+
         #region Get Medicine Advice  by Name
         public async Task<MedicineAdviceView> GetMedicineAdvicebyName(string name)
         {
@@ -152,7 +154,8 @@ namespace ClinicManagementSystem.Repository
             return null;
         }
         #endregion
-# region Get Medicine Advice by Phone
+
+        # region Get Medicine Advice by Phone
         public async Task<MedicineAdviceView> GetMedicineAdvicebyPhone(Int64 phone)
         {
             if (_context != null)
@@ -193,6 +196,7 @@ namespace ClinicManagementSystem.Repository
             return null;
         }
         #endregion
+
         #region Update Medicine Advice
         public async Task UpdateMedicineAdvice(MedicineAdvice medicineAdvice)
         {

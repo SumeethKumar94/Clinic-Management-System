@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Repository.LabTests
 {
-    public class TestAdviceRepository : ITestAdviceRepository
+    public class TestPrescriptionRepository : ITestPrescriptionRepository
     {
         private readonly ClinicManagementSystemDBContext _contextThree;
 
-        public TestAdviceRepository(ClinicManagementSystemDBContext contextThree)
+        public TestPrescriptionRepository(ClinicManagementSystemDBContext contextThree)
         {
             _contextThree = contextThree;
         }
@@ -167,13 +167,13 @@ namespace ClinicManagementSystem.Repository.LabTests
         #endregion
 
         #region add a test advice
-        public async Task<int> AddTestAdvice(TestDetails testdetails)
+        public async Task<int> AddTestAdvice(TestReport testReport)
         {
             if (_contextThree != null)
             {
-                await _contextThree.TestDetails.AddAsync(testdetails);
+                await _contextThree.TestReport.AddAsync(testReport);
                 await _contextThree.SaveChangesAsync();
-                return testdetails.TestDetailId;
+                return testReport.TestReportId;
             }
             return 0;
             //throw new NotImplementedException();
@@ -181,17 +181,18 @@ namespace ClinicManagementSystem.Repository.LabTests
         #endregion
 
         #region update the test advice
-        public async Task UpdateTestAdvice(TestDetails testdetails)
+        public async Task UpdateTestAdvice(TestReport testReport)
         {
             if (_contextThree != null)
             {
-                _contextThree.Entry(testdetails).State = EntityState.Modified;
-                _contextThree.TestDetails.Update(testdetails);
+                _contextThree.Entry(testReport).State = EntityState.Modified;
+                _contextThree.TestReport.Update(testReport);
                 await _contextThree.SaveChangesAsync();
             }
             //throw new NotImplementedException();
         }
+
         #endregion
-      
+
     }
 }

@@ -3,9 +3,10 @@
     "",
     "\\ClinicManagementSystem",
     "\\ClinicManagementSystem\\Controllers",
+    "\\ClinicManagementSystem\\Models",
     "\\ClinicManagementSystem\\Repository",
-    "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
+    "\\ClinicManagementSystem\\Repository\\StaffRepo"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\MedicineDetailsRepository.cs",
+  "SelectedNode": "\\ClinicManagementSystem\\Controllers\\MedicineDetailsController.cs",
   "PreviewInSolutionExplorer": false
 }
