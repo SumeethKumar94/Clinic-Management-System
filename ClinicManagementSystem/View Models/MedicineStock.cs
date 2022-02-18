@@ -8,8 +8,8 @@ namespace ClinicManagementSystem.View_Models
     public class MedicineStock
     {
 
-      public int? Stock { get; set; }
+        public int? Stock { get; set; }
     }
-    
+
 
 }

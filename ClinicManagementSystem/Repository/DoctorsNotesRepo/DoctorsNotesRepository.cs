@@ -58,7 +58,7 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
 
         #endregion
 
-        #region get Notes by patient id
+        #region get Notes by appointment id
         public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
         {
             if (_context != null)
