@@ -333,7 +333,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.DoctorId == id && a.AppointmentDate == DateTime.Today
+                              where a.DoctorId == id && a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month==DateTime.Today.Month && a.AppointmentDate.Year==DateTime.Today.Year
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -367,7 +367,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.DoctorId == id && a.AppointmentDate == date
+                              where a.DoctorId == id && a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year==date.Year
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,

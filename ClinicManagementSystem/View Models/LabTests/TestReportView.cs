@@ -8,6 +8,7 @@ namespace ClinicManagementSystem.View_Models.LabTests
     public class TestReportView
     {
         public int TestReportId { get; set; }
+        public int AppointmentId { get; set; }
         public string PatientName { get; set; }
         public Int64 Mobile { get; set; }
         public string Sex { get; set; }

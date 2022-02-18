@@ -22,7 +22,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region View  All Test Report
         [HttpGet]
-        public async Task<TestReportView> GetTestReports()
+        public async Task<List<TestReportView>> GetTestReports()
         {
             if (context != null)
             {
@@ -33,12 +33,12 @@ namespace ClinicManagementSystem.Controllers
                               join
                               a in context.Appointment
                               on tr.AppointmentId equals a.AppointmentId
-
                               join
                               s in context.Staff
                               on a.DoctorId equals s.StaffId
                               join p in context.Patient
                               on a.PatientId equals p.PatientId
+
                               select new TestReportView
                               {
                                   TestReportId = tr.TestReportId,
@@ -53,12 +53,11 @@ namespace ClinicManagementSystem.Controllers
                                   Mobile = p.Phone,
                                   Sex = p.Sex,
                                   AppointmentDate = a.AppointmentDate,
-                                  TestDetails = (from labadv in context.TestReport
-                                                 join labdetails in context.TestDetails
-                                                 on labadv.TestReportId equals labdetails.TestReportId
+                                  TestDetails = (
+                                                 from labdetails in context.TestDetails
                                                  join tests in context.Test
                                                  on labdetails.TestId equals tests.TestId
-                                                 where labadv.TestReportId == labdetails.TestReportId
+                                                 where tr.TestReportId == labdetails.TestReportId  //|| labdetails.TestValue<=1
                                                  select new TestValueView
                                                  {
                                                      TestName = tests.TestName,
@@ -67,6 +66,63 @@ namespace ClinicManagementSystem.Controllers
                                                      TestValue = labdetails.TestValue,
                                                      MinRange = tests.MinRange,
                                                      MaxRange = tests.MaxRange
+                                                 }).ToList()
+                              }).Distinct().ToListAsync();
+            }
+            return null;
+            //throw new NotImplementedException();
+        }
+        #endregion
+        #region View  All Test Report by Test Report ID
+        [HttpGet("{id}")]
+        public async Task<TestReportView> GetTestReportsById(int id)
+        {
+            if (context != null)
+            {
+                return await (from tr in context.TestReport
+                              join
+                              td in context.TestDetails
+                              on tr.TestReportId equals td.TestReportId
+                              join
+                              a in context.Appointment
+                              on tr.AppointmentId equals a.AppointmentId
+                              join
+                              s in context.Staff
+                              on a.DoctorId equals s.StaffId
+                              join p in context.Patient
+                              on a.PatientId equals p.PatientId
+                              where tr.TestReportId==id
+                              select new TestReportView
+                              {
+                                  TestReportId = tr.TestReportId,
+                                  AppointmentId=a.AppointmentId,
+
+                                  DoctorName = " " + (from st in context.Staff
+                                                      where st.StaffId == a.DoctorId
+                                                      select st.FirstName).FirstOrDefault(),
+                                  ReceptionistName = " " + (from stone in context.Staff
+                                                            where stone.StaffId == a.ReceptionistId
+                                                            select stone.FirstName).FirstOrDefault(),
+                                  PatientName = p.PatientName,
+                                  Mobile = p.Phone,
+                                  Sex = p.Sex,
+
+                                  AppointmentDate = a.AppointmentDate,
+                                  TestDetails = (
+                                                 from labdetails in context.TestDetails
+                                                 join tests in context.Test
+                                                 on labdetails.TestId equals tests.TestId
+                                                 where tr.TestReportId == labdetails.TestReportId  //|| labdetails.TestValue<=1
+                                                 select new TestValueView
+                                                 {
+                                                     TestId=labdetails.TestDetailId,
+                                                     TestName = tests.TestName,
+                                                     TestDescription = tests.TestDescription,
+                                                     Unit = tests.Unit,
+                                                     TestValue = labdetails.TestValue,
+                                                     MinRange = tests.MinRange,
+                                                     MaxRange = tests.MaxRange,
+                                                     Price= tests.TotalAmount
                                                  }).ToList()
                               }).FirstOrDefaultAsync();
             }
@@ -144,7 +200,6 @@ namespace ClinicManagementSystem.Controllers
                               join
                               a in context.Appointment
                               on tr.AppointmentId equals a.AppointmentId
-
                               join
                               s in context.Staff
                               on a.DoctorId equals s.StaffId
