@@ -1,6 +1,7 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.Repository;
 using ClinicManagementSystem.View_Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,10 +17,12 @@ namespace ClinicManagementSystem.Controllers
     {
             //data fields
             private readonly IMedicineAdviceRepository _medcineAdviceRepository;
+             private readonly ClinicManagementSystemDBContext _context;
 
-            public MedicineAdviceController(IMedicineAdviceRepository medcineAdviceRepository)
+            public MedicineAdviceController(IMedicineAdviceRepository medcineAdviceRepository,ClinicManagementSystemDBContext cont)
             {
                 _medcineAdviceRepository = medcineAdviceRepository;
+            _context = cont;
             }
 
         #region view all medicine advices
@@ -117,7 +120,30 @@ namespace ClinicManagementSystem.Controllers
         {
             return await _medcineAdviceRepository.GetMedicineAdvicebyPhone(phone);
         }
-            #endregion
+        #endregion
 
+        #region Patch Lab  Test Report
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchLabTest(int id, [FromBody] JsonPatchDocument<MedicineAdvice> patchEntity)
+        {
+            if (id > 0)
+            {
+
+                var medadv = await _context.MedicineAdvice.FirstOrDefaultAsync(u => u.MedicineAdviceId == id);
+                if (medadv == null)
+                {
+                    return BadRequest();
+                }
+
+                patchEntity.ApplyTo(medadv, ModelState);
+
+                _context.MedicineAdvice.Update(medadv);
+                await _context.SaveChangesAsync();
+                return Ok(medadv);
+            }
+            return BadRequest();
         }
+        #endregion
+
+    }
 }

@@ -15,6 +15,7 @@ namespace ClinicManagementSystem.Models
         public int AppointmentId { get; set; }
         public int DoctorId { get; set; }
         public int? PharmacistId { get; set; }
+        public int? Status { get; set; }
 
         public virtual Appointment Appointment { get; set; }
         public virtual Staff Doctor { get; set; }

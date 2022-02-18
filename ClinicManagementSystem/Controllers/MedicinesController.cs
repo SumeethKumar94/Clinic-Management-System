@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.Repository;
+using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.AspNetCore.Mvc;
@@ -158,6 +159,24 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
+
+        
+
+        #region get medicine stock
+        [HttpGet]
+        [Route("stock")]
+        public async Task<MedicineStock> GetMedicineStockByName(string id)
+        {
+            //LINQ
+            if (_medicinesRepository != null)
+            {
+                return await _medicinesRepository.GetMedicineStockByName(id);
+            }
+            return null;
+        }
+        #endregion
+
+
 
     }
 }

@@ -64,7 +64,7 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
             if (_context != null)
             {
                 return await (from c in _context.DoctorNotes
-                                  where c.PatientId == id
+                                  where c.AppointmentId == id
                                   select new DoctorNotes
                                   {
                                       NoteId = c.NoteId,

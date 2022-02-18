@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models.Bills;
 using ClinicManagementSystem.ViewModels.Bills;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -161,5 +162,106 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
-    }
+
+
+        #region Get  Bills by ID
+        public async Task<List<FinalBillView>> GetBillByAppointment()
+        {
+            if (_contextone != null)
+            {
+                return await (
+                              from c in _contextone.ConsultationBill
+                              join a in _contextone.Appointment
+                              on c.AppointmentId equals a.AppointmentId
+                              join p in _contextone.Patient
+                               on a.PatientId equals p.PatientId
+                              where a.Status==4
+                              select new FinalBillView
+                              {
+                                  BillId = c.AppointmentId,
+                                  BillDate = (DateTime)c.DateOfBill,
+                                  AppointmentDate = a.AppointmentDate,
+                                  ReceptionistName = "" + (from dc in _contextone.Staff
+                                                           where dc.StaffId == a.ReceptionistId
+                                                           select dc.FirstName).FirstOrDefault(),
+                                  DoctorName = "" + (from dc in _contextone.Staff
+                                                     where dc.StaffId == a.DoctorId
+                                                     select dc.FirstName).FirstOrDefault(),
+                                  PatientName = p.PatientName,
+                                  Phone = p.Phone,
+                                  Address = p.Address,
+                                  DateOfBirth = p.DateOfBirth,
+                                  BloodGroup = p.BloodGroup,
+                                  ConsultationFee = c.TotalAmount,
+
+                                  MedicinesFee = (from m in _contextone.MedicineBill
+                                                  join medadv in _contextone.MedicineAdvice
+                                                  on m.MedicineAdviceId equals medadv.MedicineAdviceId
+                                                  where m.AppointmentId== a.AppointmentId
+                                                  select m.TotalAmount).FirstOrDefault(),
+                                  LabTestsFee = (from l in _contextone.LabBill
+                                                 join b in _contextone.TestReport on
+                                                 l.TestReportId equals b.TestReportId
+                                                 where b.AppointmentId == a.AppointmentId
+                                                 select l.TotalAmount).FirstOrDefault(),
+                                  MedDone=(int)(from medadv in _contextone.MedicineAdvice
+                                                 where medadv.AppointmentId == a.AppointmentId
+                                                 select medadv.Status).FirstOrDefault(),
+                                  LabDone=(int) (
+                                               from  b in _contextone.TestReport 
+                                               where b.AppointmentId == a.AppointmentId
+                                                 select b.Status).FirstOrDefault(),
+                                  TotalAmount =0
+
+
+                              }).ToListAsync();
+            }
+            return null;
+        }
+        #endregion
+
+        public async Task<BillIds> GetBillByAppointmentID(int id)
+        {
+            if (_contextone != null)
+            {
+                return await (
+                              from c in _contextone.ConsultationBill
+                              join a in _contextone.Appointment
+                              on c.AppointmentId equals a.AppointmentId
+                              join p in _contextone.Patient
+                               on a.PatientId equals p.PatientId
+                              where a.Status == 4 && a.AppointmentId==id
+                              select new BillIds
+                              {
+                                  AppointmentId = c.AppointmentId,
+                                  
+                                  ConsultancyBillId= c.ConsultationBillId,
+
+                                  MedicineBillId = (from m in _contextone.MedicineBill
+                                                  join medadv in _contextone.MedicineAdvice
+                                                  on m.MedicineAdviceId equals medadv.MedicineAdviceId
+                                                  where m.AppointmentId == a.AppointmentId
+                                                  select m.MedicineBillId).FirstOrDefault(),
+                                  LabTestBillId = (from l in _contextone.LabBill
+                                                 join b in _contextone.TestReport on
+                                                 l.TestReportId equals b.TestReportId
+                                                 where b.AppointmentId == a.AppointmentId
+                                                 select l.LabBillId).FirstOrDefault(),
+                                
+                                  TotalAmount = (c.TotalAmount+(int)(from l in _contextone.LabBill
+                                                                join b in _contextone.TestReport on
+                                                                l.TestReportId equals b.TestReportId
+                                                                where b.AppointmentId == a.AppointmentId
+                                                                select l.TotalAmount).FirstOrDefault())+((int)(from m in _contextone.MedicineBill
+                                                                                                        join medadv in _contextone.MedicineAdvice
+                                                                                                        on m.MedicineAdviceId equals medadv.MedicineAdviceId
+                                                                                                        where m.AppointmentId == a.AppointmentId
+                                                                                                        select m.TotalAmount).FirstOrDefault())
+
+                              }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+
+        }
 }

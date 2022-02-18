@@ -25,6 +25,8 @@ namespace ClinicManagementSystem.Repository
         //update medicine
         Task UpdateMedicine(Medicines medicine);
 
+        Task<MedicineStock> GetMedicineStockByName(string id);
+
     }
 
 }

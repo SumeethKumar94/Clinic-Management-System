@@ -222,6 +222,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
                               where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month== DateTime.Today.Month && a.AppointmentDate.Year== DateTime.Today.Year && a.Status==1
+                              orderby a.AppointmentDate ascending
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -333,7 +334,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.DoctorId == id && a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month==DateTime.Today.Month && a.AppointmentDate.Year==DateTime.Today.Year
+                              where a.DoctorId == id && a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month==DateTime.Today.Month && a.AppointmentDate.Year==DateTime.Today.Year && a.Status == 2
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -367,7 +368,8 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.DoctorId == id && a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year==date.Year
+                              where a.DoctorId == id && a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year==date.Year && a.Status==2
+
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,

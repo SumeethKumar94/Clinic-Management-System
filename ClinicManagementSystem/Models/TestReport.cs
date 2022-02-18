@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Models
         public int? DoctorId { get; set; }
         public int? LabTechnicianId { get; set; }
         public int TestAmount { get; set; }
+        public int? Status { get; set; }
 
         public virtual Appointment Appointment { get; set; }
         public virtual Staff Doctor { get; set; }

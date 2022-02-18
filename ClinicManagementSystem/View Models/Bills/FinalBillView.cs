@@ -17,6 +17,8 @@ namespace ClinicManagementSystem.ViewModels.Bills
         public string PatientName { get; set; }
         public long Phone { get; set; }
         public string Address { get; set; }
+        public int MedDone { get; set; }
+        public int LabDone { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string BloodGroup { get; set; }
         public int ConsultationFee { get; set; }

@@ -39,7 +39,7 @@ namespace ClinicManagementSystem.Repository
                               join p in _context.Appointment 
                               on m.AppointmentId equals p.AppointmentId
                               join a in _context.Patient on p.PatientId equals a.PatientId
-
+                              where m.Status==1
                               select new MedicineAdviceView
                               {
                                   MedicineAdviceId=m.MedicineAdviceId,

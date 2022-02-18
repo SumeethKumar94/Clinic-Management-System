@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models.Bills;
 using ClinicManagementSystem.ViewModels.Bills;
 using System;
 using System.Collections.Generic;
@@ -20,5 +21,8 @@ namespace ClinicManagementSystem.Repository.Bills
 
         //add bill
         Task<int> AddBill(Bill bill);
+        //Task<FinalBillView> GetBillByAppointment(int id);
+        Task<List<FinalBillView>> GetBillByAppointment();
+        Task<BillIds> GetBillByAppointmentID(int id);
     }
 }

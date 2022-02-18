@@ -1,6 +1,7 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.View_Models.LabTests;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -38,7 +39,7 @@ namespace ClinicManagementSystem.Controllers
                               on a.DoctorId equals s.StaffId
                               join p in context.Patient
                               on a.PatientId equals p.PatientId
-
+                              where tr.Status==1
                               select new TestReportView
                               {
                                   TestReportId = tr.TestReportId,
@@ -299,5 +300,30 @@ namespace ClinicManagementSystem.Controllers
 
         }
         #endregion
+
+
+        #region Patch Lab  Test Report
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchLabTest(int id, [FromBody] JsonPatchDocument<TestReport> patchEntity)
+        {
+            if (id > 0)
+            {
+
+                var testdetail = await context.TestReport.FirstOrDefaultAsync(u => u.TestReportId == id);
+                if (testdetail == null)
+                {
+                    return BadRequest();
+                }
+
+                patchEntity.ApplyTo(testdetail, ModelState);
+
+                context.TestReport.Update(testdetail);
+                await context.SaveChangesAsync();
+                return Ok(testdetail);
+            }
+            return BadRequest();
+        }
+        #endregion
+
     }
 }
