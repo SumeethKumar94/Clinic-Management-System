@@ -69,7 +69,7 @@ namespace ClinicManagementSystem.Repository.MedicinesRepo
                                   DoctorsName = " "+(from stf in _contextThree.Staff where stf.StaffId == a.DoctorId select stf.FirstName).FirstOrDefault(),
                                   Medicines = (from med in _contextThree.Medicines
                                                join
-           medadv in _contextThree.MedicineDetails on med.MedicineId equals medadv.MedicineId
+                                                medadv in _contextThree.MedicineDetails on med.MedicineId equals medadv.MedicineId
                                                select new MedicinesView
                                                {
                                                    Medicine = med.MedicineName,

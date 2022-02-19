@@ -5,6 +5,10 @@
     "\\ClinicManagementSystem\\Repository",
     "\\ClinicManagementSystem\\Repository\\StaffRepo"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+=======
+  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
+>>>>>>> c2ff281bcf192522d51c0110b5bd2c085b633f7a
   "PreviewInSolutionExplorer": false
 }

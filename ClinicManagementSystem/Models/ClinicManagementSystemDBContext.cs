@@ -37,8 +37,13 @@ namespace ClinicManagementSystem.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+                /*
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+
                 optionsBuilder.UseSqlServer("Data Source= NIKHILNANDAGOPA\\SQLEXPRESS; Initial Catalog= ClinicManagementSystemDB; Integrated security=True");
+
+                optionsBuilder.UseSqlServer("Data Source=SUMEETHKUMAR\\SQLEXPRESS;Database=ClinicManagementSystemDB;Integrated Security=True;");
+
             }
         }
         */
@@ -121,6 +126,8 @@ namespace ClinicManagementSystem.Models
                     .HasForeignKey(d => d.MedicineBillId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__bill__medicineBi__70DDC3D8");
+                   // .HasConstraintName("FK__bill__medicineBi__6D0D32F4");
+
             });
 
             modelBuilder.Entity<ConsultationBill>(entity =>
@@ -233,6 +240,8 @@ namespace ClinicManagementSystem.Models
                 entity.Property(e => e.DoctorId).HasColumnName("doctorId");
 
                 entity.Property(e => e.PharmacistId).HasColumnName("pharmacistId");
+
+                entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.MedicineAdvice)
@@ -356,6 +365,11 @@ namespace ClinicManagementSystem.Models
                     .HasColumnName("dateOfBirth")
                     .HasColumnType("date");
 
+                entity.Property(e => e.Email)
+                    .HasColumnName("email")
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.PatientName)
                     .IsRequired()
                     .HasColumnName("patientName")
@@ -416,6 +430,11 @@ namespace ClinicManagementSystem.Models
                 entity.Property(e => e.DateOfBirth)
                     .HasColumnName("dateOfBirth")
                     .HasColumnType("date");
+
+                entity.Property(e => e.Email)
+                    .HasColumnName("email")
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -521,6 +540,8 @@ namespace ClinicManagementSystem.Models
                 entity.Property(e => e.DoctorId).HasColumnName("doctorId");
 
                 entity.Property(e => e.LabTechnicianId).HasColumnName("labTechnicianId");
+
+                entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.Property(e => e.TestAmount).HasColumnName("testAmount");
 

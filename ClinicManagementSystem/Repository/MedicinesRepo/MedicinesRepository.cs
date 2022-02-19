@@ -111,5 +111,26 @@ namespace ClinicManagementSystem.Repository
         }
         #endregion
 
+        #region GET Medicine Stock
+        public async Task<MedicineStock> GetMedicineStockByName(string id)
+        {
+            if (_context != null)
+            {
+                return await (from a in _context.Medicines
+                              where a.MedicineName == id
+                              select new MedicineStock
+                              {
+                                  Stock = a.Stock
+                              }
+
+                ).FirstOrDefaultAsync();                            
+            };
+            return null;
+        }
+
+
+
+        #endregion
+
     }
 }

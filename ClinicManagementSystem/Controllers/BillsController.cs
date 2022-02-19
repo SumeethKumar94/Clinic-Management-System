@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.Repository.Bills;
+using ClinicManagementSystem.View_Models.Bills;
 using ClinicManagementSystem.ViewModels.Bills;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -55,5 +56,22 @@ namespace ClinicManagementSystem.Controllers
             return await _bill.GetBillByPhone(phone);
         }
         #endregion
+        [HttpGet]
+        [Route("UserBill")]
+        public async Task<List<FinalBillView>> GetBillByAppointment()
+        {
+            return await _bill.GetBillByAppointment();
+
+        }
+
+
+        /*
+        [HttpGet]
+        [Route("UserBill/{id}")]
+        public async Task<BillIds> GetBillByAppointmentID(int id)
+        {
+            return await _bill.GetBillByAppointmentID(id);
+        }
+        */
     }
 }
