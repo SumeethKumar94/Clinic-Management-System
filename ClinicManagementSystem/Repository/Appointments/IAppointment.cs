@@ -21,6 +21,8 @@ namespace ClinicManagementSystem.Repository.Appointments
         Task<Appointmentview> GetAppointmentsById(int id);
         //view appointment using patients mobile
         Task<Appointmentview> GetAppointmentsByPhone(Int64 id);
+
+        Task<int> GetAppointmentCount();
         //add appointment
 
         //Delete

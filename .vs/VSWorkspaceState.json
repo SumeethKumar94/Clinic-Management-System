@@ -5,8 +5,9 @@
     "\\ClinicManagementSystem\\Controllers",
     "\\ClinicManagementSystem\\Repository",
     "\\ClinicManagementSystem\\Repository\\Appointments",
+    "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo\\DoctorsNotesRepository.cs",
   "PreviewInSolutionExplorer": false
 }

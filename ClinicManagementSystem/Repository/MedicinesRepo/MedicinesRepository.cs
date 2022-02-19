@@ -122,20 +122,11 @@ namespace ClinicManagementSystem.Repository
                               {
                                   Stock = a.Stock
                               }
-<<<<<<< HEAD
+
                 ).FirstOrDefaultAsync();
-=======
-                              ).FirstOrDefaultAsync();
->>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
             };
             return null;
         }
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
         #endregion
 
     }
