@@ -52,7 +52,7 @@ namespace ClinicManagementSystem.Controllers
             {
                 try
                 {
-                    await _staffRepository.UpdateStaff(staff);
+                    await _staffRepository.AddStaff(staff);
                     return Ok(staff);
                 }
                 catch (Exception)

@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -41,6 +42,25 @@ namespace ClinicManagementSystem.Repository
             }
             return null;
             //throw new NotImplementedException();
+        }
+
+        public async Task<List<RoleView>> GetRolesStaff(int id)
+        {
+            if (_context != null)
+            {
+                var role = await (from r in _context.Role
+                                  join s in _context.Staff
+                                 on r.RoleId equals s.RoleId
+                                  where r.RoleId == id
+                                  select new RoleView
+                                  {
+                                      StaffId = s.StaffId,
+                                      Name = s.FirstName + " " + s.LastName
+
+                                  }).ToListAsync();
+                return role;
+            }
+            return null;
         }
 
         #endregion

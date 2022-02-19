@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Repository.LabTests
 {
-    public class TestPrescriptionRepository : ITestPrescriptionRepository
+    public class TestAdviceRepository : ITestAdviceRepository
     {
         private readonly ClinicManagementSystemDBContext _contextThree;
 
-        public TestPrescriptionRepository(ClinicManagementSystemDBContext contextThree)
+        public TestAdviceRepository(ClinicManagementSystemDBContext contextThree)
         {
             _contextThree = contextThree;
         }

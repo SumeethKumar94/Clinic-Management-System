@@ -18,5 +18,6 @@ namespace ClinicManagementSystem.Repository
 
         Task<int> AddMedicineAdvice(MedicineAdvice medicineAdvice);
         Task UpdateMedicineAdvice(MedicineAdvice medicineAdvice);
+        Task<MedicineAdviceView> GetMedicineAdvicebyPatientId(int id);
     }
 }

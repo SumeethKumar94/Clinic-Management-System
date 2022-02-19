@@ -20,6 +20,7 @@ namespace ClinicManagementSystem.Models
         public int ReceptionistId { get; set; }
         public int TokenNo { get; set; }
         public DateTime AppointmentDate { get; set; }
+        public byte Status { get; set; }
 
         public virtual Staff Doctor { get; set; }
         public virtual Patient Patient { get; set; }
