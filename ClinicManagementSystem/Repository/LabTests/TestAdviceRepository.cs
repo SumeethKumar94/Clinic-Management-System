@@ -35,7 +35,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                               on a.DoctorId equals s.StaffId
                               join p in _contextThree.Patient
                               on a.PatientId equals p.PatientId
-                              
+                              where tr.Status==1
                               select  new TestAdviceViewModel
                               {
                                   TestAdviceId = tr.TestReportId,

@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.Repository.LabTests;
 using ClinicManagementSystem.View_Models.LabTests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
@@ -15,257 +16,100 @@ namespace ClinicManagementSystem.Controllers
     [ApiController]
     public class TestReportController : ControllerBase
     {
-        private readonly ClinicManagementSystemDBContext context;
-        public TestReportController(ClinicManagementSystemDBContext cont)
+
+        private readonly ITestAdviceRepository _testPrescriptionRepository;
+        private readonly ClinicManagementSystemDBContext _context;
+
+        public TestReportController(ITestAdviceRepository testPrescriptionRepository, ClinicManagementSystemDBContext cont)
         {
-            context = cont;
+            _testPrescriptionRepository = testPrescriptionRepository;
+            _context = cont;
         }
 
-        #region View  All Test Report
-        [HttpGet]
-        public async Task<List<TestReportView>> GetTestReports()
-        {
-            if (context != null)
-            {
-                return await (from tr in context.TestReport
-                              join
-                              td in context.TestDetails
-                              on tr.TestReportId equals td.TestReportId
-                              join
-                              a in context.Appointment
-                              on tr.AppointmentId equals a.AppointmentId
-                              join
-                              s in context.Staff
-                              on a.DoctorId equals s.StaffId
-                              join p in context.Patient
-                              on a.PatientId equals p.PatientId
-                              where tr.Status==1
-                              select new TestReportView
-                              {
-                                  TestReportId = tr.TestReportId,
+        
+       
 
-                                  DoctorName = " " + (from st in context.Staff
-                                                      where st.StaffId == a.DoctorId
-                                                      select st.FirstName).FirstOrDefault(),
-                                  ReceptionistName = " " + (from stone in context.Staff
-                                                            where stone.StaffId == a.ReceptionistId
-                                                            select stone.FirstName).FirstOrDefault(),
-                                  PatientName = p.PatientName,
-                                  Mobile = p.Phone,
-                                  Sex = p.Sex,
-                                  AppointmentDate = a.AppointmentDate,
-                                  TestDetails = (
-                                                 from labdetails in context.TestDetails
-                                                 join tests in context.Test
-                                                 on labdetails.TestId equals tests.TestId
-                                                 where tr.TestReportId == labdetails.TestReportId  //|| labdetails.TestValue<=1
-                                                 select new TestValueView
-                                                 {
-                                                     TestName = tests.TestName,
-                                                     TestDescription = tests.TestDescription,
-                                                     Unit = tests.Unit,
-                                                     TestValue = labdetails.TestValue,
-                                                     MinRange = tests.MinRange,
-                                                     MaxRange = tests.MaxRange
-                                                 }).ToList()
-                              }).Distinct().ToListAsync();
+       
+
+
+        #region get all test advices (prescriptions)
+        [HttpGet]
+       // [Route("GetTestDetails")]
+
+        public async Task<IActionResult> GetTestAdvice()
+        {
+            
+            try
+            {
+                var advice = await _testPrescriptionRepository.GetTestAdvice();
+                if (advice == null)
+                {
+                    return NotFound();
+                }
+                return Ok(advice);
             }
-            return null;
-            //throw new NotImplementedException();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
         #endregion
 
-        #region View  All Test Report by Test Report ID
+        #region  get test advice (prescription) by id
         [HttpGet("{id}")]
-        public async Task<TestReportView> GetTestReportsById(int id)
+        public async Task<ActionResult<TestAdviceViewModel>> GetTestAdviceById(int id)
         {
-            if (context != null)
+            try
             {
-                return await (from tr in context.TestReport
-                              join
-                              td in context.TestDetails
-                              on tr.TestReportId equals td.TestReportId
-                              join
-                              a in context.Appointment
-                              on tr.AppointmentId equals a.AppointmentId
-                              join
-                              s in context.Staff
-                              on a.DoctorId equals s.StaffId
-                              join p in context.Patient
-                              on a.PatientId equals p.PatientId
-                              where tr.TestReportId==id
-                              select new TestReportView
-                              {
-                                  TestReportId = tr.TestReportId,
-                                  AppointmentId=a.AppointmentId,
-
-                                  DoctorName = " " + (from st in context.Staff
-                                                      where st.StaffId == a.DoctorId
-                                                      select st.FirstName).FirstOrDefault(),
-                                  ReceptionistName = " " + (from stone in context.Staff
-                                                            where stone.StaffId == a.ReceptionistId
-                                                            select stone.FirstName).FirstOrDefault(),
-                                  PatientName = p.PatientName,
-                                  Mobile = p.Phone,
-                                  Sex = p.Sex,
-
-                                  AppointmentDate = a.AppointmentDate,
-                                  TestDetails = (
-                                                 from labdetails in context.TestDetails
-                                                 join tests in context.Test
-                                                 on labdetails.TestId equals tests.TestId
-                                                 where tr.TestReportId == labdetails.TestReportId  //|| labdetails.TestValue<=1
-                                                 select new TestValueView
-                                                 {
-                                                     TestId=labdetails.TestDetailId,
-                                                     TestName = tests.TestName,
-                                                     TestDescription = tests.TestDescription,
-                                                     Unit = tests.Unit,
-                                                     TestValue = labdetails.TestValue,
-                                                     MinRange = tests.MinRange,
-                                                     MaxRange = tests.MaxRange,
-                                                     Price= tests.TotalAmount
-                                                 }).ToList()
-                              }).FirstOrDefaultAsync();
+                var adviceTwo = await _testPrescriptionRepository.GetTestAdviceById(id);
+                if (adviceTwo == null)
+                {
+                    return NotFound();
+                }
+                return adviceTwo;
             }
-            return null;
-            //throw new NotImplementedException();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
         #endregion
 
-        #region View Test Report By name
+        #region  get test advice (prescription) by phone
         [HttpGet]
-        [Route("Name/{name}")]
-        public async Task<TestReportView> GetTestReportsByName(string name )
+        [Route("GetTestDetailsByPhone/{phone}")]
+        public async Task<ActionResult<TestAdviceViewModel>> GetTestAdviceByPhone(Int64 phone)
         {
-            if (context != null)
+            try
             {
-                return await (from tr in context.TestReport
-                              join
-                              td in context.TestDetails
-                              on tr.TestReportId equals td.TestReportId
-                              join
-                              a in context.Appointment
-                              on tr.AppointmentId equals a.AppointmentId
-
-                              join
-                              s in context.Staff
-                              on a.DoctorId equals s.StaffId
-                              join p in context.Patient
-                              on a.PatientId equals p.PatientId
-                              where p.PatientName == name
-                              select new TestReportView
-                              {
-                                  TestReportId = tr.TestReportId,
-
-                                  DoctorName = " " + (from st in context.Staff
-                                                      where st.StaffId == a.DoctorId
-                                                      select st.FirstName).FirstOrDefault(),
-                                  ReceptionistName = " " + (from stone in context.Staff
-                                                            where stone.StaffId == a.ReceptionistId
-                                                            select stone.FirstName).FirstOrDefault(),
-                                  PatientName = p.PatientName,
-                                  Mobile = p.Phone,
-                                  Sex = p.Sex,
-                                  AppointmentDate = a.AppointmentDate,
-                                  TestDetails = (from labadv in context.TestReport
-                                                 join labdetails in context.TestDetails
-                                                 on labadv.TestReportId equals labdetails.TestReportId
-                                                 join tests in context.Test
-                                                 on labdetails.TestId equals tests.TestId
-                                                 where labadv.TestReportId == labdetails.TestReportId
-                                                 select new TestValueView
-                                                 {
-                                                     TestName = tests.TestName,
-                                                     TestDescription = tests.TestDescription,
-                                                     Unit = tests.Unit,
-                                                     TestValue = labdetails.TestValue,
-                                                     MinRange = tests.MinRange,
-                                                     MaxRange = tests.MaxRange
-                                                 }).ToList()
-                                                 } ).FirstOrDefaultAsync();
+                var prescription = await _testPrescriptionRepository.GetTestAdviceByPhone(phone);
+                if (prescription == null)
+                {
+                    return NotFound();
+                }
+                return prescription;
             }
-            return null;
-            //throw new NotImplementedException();
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
         #endregion
 
-        #region View Test Report by Phone
-        [Route("Phone/{phone}")]
-        [HttpGet]
-        public async Task<TestReportView> GetTestReportByPhone(long phone)
-        {
-            if (context != null)
-            {
-                return await (from tr in context.TestReport
-                              join
-                              td in context.TestDetails
-                              on tr.TestReportId equals td.TestReportId
-                              join
-                              a in context.Appointment
-                              on tr.AppointmentId equals a.AppointmentId
-                              join
-                              s in context.Staff
-                              on a.DoctorId equals s.StaffId
-                              join p in context.Patient
-                              on a.PatientId equals p.PatientId
-                              where p.Phone == phone
-                              select new TestReportView
-                              {
-                                  TestReportId = tr.TestReportId,
 
-                                  DoctorName = " " + (from st in context.Staff
-                                                      where st.StaffId == a.DoctorId
-                                                      select st.FirstName).FirstOrDefault(),
-                                  ReceptionistName = " " + (from stone in context.Staff
-                                                            where stone.StaffId == a.ReceptionistId
-                                                            select stone.FirstName).FirstOrDefault(),
-                                  PatientName = p.PatientName,
-                                  Sex = p.Sex,
-                                  Mobile = p.Phone,
-                                  AppointmentDate = a.AppointmentDate,
-                                  TestDetails = (from labadv in context.TestReport
-                                                 join labdetails in context.TestDetails
-                                                 on labadv.TestReportId equals labdetails.TestReportId
-                                                 join tests in context.Test
-                                                 on labdetails.TestId equals tests.TestId
-                                                 where labadv.TestReportId == labdetails.TestReportId
-                                                 select new TestValueView
-                                                 {
-                                                     TestName = tests.TestName,
-                                                     TestDescription = tests.TestDescription,
-                                                     Unit = tests.Unit,
-                                                     TestValue = labdetails.TestValue,
-                                                     MinRange = tests.MinRange,
-                                                     MaxRange = tests.MaxRange
-                                                 }).ToList()
-                              }).FirstOrDefaultAsync();
-            }
-            return null;
-            //throw new NotImplementedException();
-        }
-        #endregion
-
-        #region add a test report
+        #region add a test advice (prescription)
         [HttpPost]
-        public async Task<IActionResult> AddTestReport([FromBody] TestDetails testDetails)
+        public async Task<IActionResult> AddTestAdvice([FromBody] TestReport testReport)
         {
-            var adviceID = 0;
             //since it is frombody we need to check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (context != null)
+                    var prescriptionID = await _testPrescriptionRepository.AddTestAdvice(testReport);
+                    if (prescriptionID > 0)
                     {
-                        await context.TestDetails.AddAsync(testDetails);
-                        await context.SaveChangesAsync();
-                        adviceID = testDetails.TestDetailId;
-                    }
-
-                    if (adviceID > 0)
-                    {
-                        return Ok(adviceID);
+                        return Ok(prescriptionID);
                     }
                     return NotFound();
                 }
@@ -278,20 +122,17 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        #region Update Test Report
-        [HttpPut]
-        public async Task<ActionResult>UpdateTestReport([FromBody] TestDetails testDetails)
-            {
+        #region update test advice(prescription)
+
+        [HttpPut]               
+        public async Task<IActionResult> UpdateTestAdvice([FromBody] TestReport testReport)
+        {
+            
             if (ModelState.IsValid)
             {
                 try
                 {
-                      if (context != null)
-                    {
-                        context.Entry(testDetails).State = EntityState.Modified;
-                        context.TestDetails.Update(testDetails);
-                        await context.SaveChangesAsync();
-                    }
+                    await _testPrescriptionRepository.UpdateTestAdvice(testReport);
                     return Ok();
                 }
                 catch (Exception)
@@ -300,19 +141,17 @@ namespace ClinicManagementSystem.Controllers
                 }
             }
             return BadRequest();
-
         }
         #endregion
 
-
-        #region Patch Lab  Test Report
+        #region Patch Lab  Test Details
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchLabTest(int id, [FromBody] JsonPatchDocument<TestReport> patchEntity)
+        public async Task<IActionResult> PatchLabTest(int id, [FromBody] JsonPatchDocument<TestDetails> patchEntity)
         {
             if (id > 0)
             {
 
-                var testdetail = await context.TestReport.FirstOrDefaultAsync(u => u.TestReportId == id);
+                var testdetail = await _context.TestDetails.FirstOrDefaultAsync(u => u.TestDetailId == id);
                 if (testdetail == null)
                 {
                     return BadRequest();
@@ -320,13 +159,13 @@ namespace ClinicManagementSystem.Controllers
 
                 patchEntity.ApplyTo(testdetail, ModelState);
 
-                context.TestReport.Update(testdetail);
-                await context.SaveChangesAsync();
+                _context.TestDetails.Update(testdetail);
+                await _context.SaveChangesAsync();
                 return Ok(testdetail);
             }
             return BadRequest();
         }
-        #endregion
 
+        #endregion
     }
 }
