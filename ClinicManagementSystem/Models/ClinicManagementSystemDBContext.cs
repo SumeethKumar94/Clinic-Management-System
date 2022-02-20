@@ -37,13 +37,8 @@ namespace ClinicManagementSystem.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                /*
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-
                 optionsBuilder.UseSqlServer("Data Source= NIKHILNANDAGOPA\\SQLEXPRESS; Initial Catalog= ClinicManagementSystemDB; Integrated security=True");
-
-                optionsBuilder.UseSqlServer("Data Source=SUMEETHKUMAR\\SQLEXPRESS;Database=ClinicManagementSystemDB;Integrated Security=True;");
-
             }
         }
         */
@@ -126,8 +121,6 @@ namespace ClinicManagementSystem.Models
                     .HasForeignKey(d => d.MedicineBillId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__bill__medicineBi__70DDC3D8");
-                   // .HasConstraintName("FK__bill__medicineBi__6D0D32F4");
-
             });
 
             modelBuilder.Entity<ConsultationBill>(entity =>
@@ -241,7 +234,9 @@ namespace ClinicManagementSystem.Models
 
                 entity.Property(e => e.PharmacistId).HasColumnName("pharmacistId");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.Status)
+                    .HasColumnName("status")
+                    .HasDefaultValueSql("((0))");
 
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.MedicineAdvice)
@@ -541,7 +536,9 @@ namespace ClinicManagementSystem.Models
 
                 entity.Property(e => e.LabTechnicianId).HasColumnName("labTechnicianId");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.Status)
+                    .HasColumnName("status")
+                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.TestAmount).HasColumnName("testAmount");
 

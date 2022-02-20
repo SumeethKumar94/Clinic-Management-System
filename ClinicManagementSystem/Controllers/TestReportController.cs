@@ -74,6 +74,7 @@ namespace ClinicManagementSystem.Controllers
             //throw new NotImplementedException();
         }
         #endregion
+
         #region View  All Test Report by Test Report ID
         [HttpGet("{id}")]
         public async Task<TestReportView> GetTestReportsById(int id)
