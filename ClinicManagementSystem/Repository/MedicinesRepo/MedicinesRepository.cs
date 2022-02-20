@@ -122,18 +122,34 @@ namespace ClinicManagementSystem.Repository
                               {
                                   Stock = a.Stock
                               }
+<<<<<<< HEAD
 
 
                 ).FirstOrDefaultAsync();                            
+=======
+<<<<<<< HEAD
+                ).FirstOrDefaultAsync();
+=======
+                              ).FirstOrDefaultAsync();
+>>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
             };
             return null;
         }
 
+<<<<<<< HEAD
 
 
 
           
 
+=======
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
         #endregion
 
     }

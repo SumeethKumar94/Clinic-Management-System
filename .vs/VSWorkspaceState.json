@@ -13,9 +13,12 @@
 >>>>>>> c2ff281bcf192522d51c0110b5bd2c085b633f7a
 =======
     "\\ClinicManagementSystem\\Repository\\Appointments",
-    "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\IMedicinesRepository.cs",
+=======
+  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
   "PreviewInSolutionExplorer": false
 }

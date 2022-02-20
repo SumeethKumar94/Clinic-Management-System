@@ -1,5 +1,4 @@
 ﻿using ClinicManagementSystem.Models;
-using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -25,7 +24,6 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
         //delete doctor note
         Task<int> DeleteNote(int? id);
         Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id);
-        Task<ActionResult<List<NotesView>>> GetNoteForPatients(int? id);
 
     }
 }

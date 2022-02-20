@@ -1,5 +1,4 @@
 ﻿using ClinicManagementSystem.Models;
-using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -59,7 +58,7 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
 
         #endregion
 
-        #region get Notes by patient id
+        #region get Notes by appointment id
         public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
         {
             if (_context != null)
@@ -117,32 +116,6 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
                 _context.DoctorNotes.Update(note);
                 await _context.SaveChangesAsync();
             }
-            //throw new NotImplementedException();
-        }
-        #endregion
-
-        #region get Notes by appointment id
-        public async Task<ActionResult<List<NotesView>>> GetNoteForPatients(int? id)
-        {
-            if (_context != null)
-            {
-                return await (from c in _context.DoctorNotes
-                              join a in _context.Appointment on c.AppointmentId equals a.AppointmentId
-                              where c.AppointmentId == id
-                              select new NotesView
-                              {
-                                  NoteId = c.NoteId,
-                                  Note = c.Note,
-                                  PatientId = c.PatientId,
-                                  DoctorId = c.DoctorId,
-                                  AppointmentId = c.AppointmentId,
-                                  Date = a.AppointmentDate
-
-                              }
-                ).ToListAsync();
-
-            }
-            return null;
             //throw new NotImplementedException();
         }
         #endregion

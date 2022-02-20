@@ -82,9 +82,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year ==date.Year && a.Status==1
-                              orderby a.AppointmentDate ascending
-                              orderby a.TokenNo ascending
+                              where a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year ==date.Day
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -228,7 +226,6 @@ namespace ClinicManagementSystem.Repository.Appointments
                               on a.DoctorId equals s.StaffId
                               where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month== DateTime.Today.Month && a.AppointmentDate.Year== DateTime.Today.Year && a.Status==1
                               orderby a.AppointmentDate ascending
-                              orderby a.TokenNo ascending
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -393,22 +390,6 @@ namespace ClinicManagementSystem.Repository.Appointments
                               }).ToListAsync();  //FirstorDefaultAsync();
             }
             return null;
-        }
-        #endregion
-        #region Get Appointment Count
-        [HttpGet]
-        public async Task<int> GetAppointmentCount()
-        {
-            if (_contextone != null)
-            {
-                return await (
-                              from a in _contextone.Appointment
-
-                              where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month == DateTime.Today.Month && a.AppointmentDate.Year == DateTime.Today.Year
-                              group a by 1 into ct
-                              select ct.Count()).FirstOrDefaultAsync();
-            }
-            return 0;
         }
         #endregion
 
