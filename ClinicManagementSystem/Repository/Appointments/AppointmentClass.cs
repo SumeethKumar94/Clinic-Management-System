@@ -68,6 +68,7 @@ namespace ClinicManagementSystem.Repository.Appointments
             return null;
         }
         #endregion
+
         #region Get Appointment by Date
         public async Task<List<Appointmentview>> GetAppointmentsByDate(DateTime date)
         {
@@ -175,6 +176,7 @@ namespace ClinicManagementSystem.Repository.Appointments
             return null;
         }
         #endregion
+        
         #region Get Appointment By Status
         public async Task<List<Appointmentview>> GetAppointmentsByStatus(int status)
         {
@@ -210,6 +212,7 @@ namespace ClinicManagementSystem.Repository.Appointments
             return null;
         }
         #endregion
+        
         #region Get Today Appointment
         public async Task<List<Appointmentview>> GetAppointmentsToday()
         {
@@ -247,7 +250,7 @@ namespace ClinicManagementSystem.Repository.Appointments
         }
 
         #endregion
-
+        
         #region Update Appointment
         public async Task UpdateAppointment(Appointment appointment)
         {

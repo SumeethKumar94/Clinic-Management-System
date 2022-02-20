@@ -54,6 +54,7 @@ namespace ClinicManagementSystem.Repository.StaffRepo
                                   DateOfBirth = s.DateOfBirth,
                                   QualificationsId = s.QualificationsId,
                                   Qualification = q.Qualification,
+                                  Status = s.Status,
                                   RoleId = r.RoleId,
                                   Role1 = r.Role1
                               }

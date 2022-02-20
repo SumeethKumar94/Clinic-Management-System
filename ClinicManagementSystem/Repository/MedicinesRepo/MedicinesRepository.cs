@@ -123,10 +123,17 @@ namespace ClinicManagementSystem.Repository
                                   Stock = a.Stock
                               }
 
-                ).FirstOrDefaultAsync();
+
+                ).FirstOrDefaultAsync();                            
             };
             return null;
         }
+
+
+
+
+          
+
         #endregion
 
     }

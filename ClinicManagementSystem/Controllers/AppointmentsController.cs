@@ -57,6 +57,7 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+        
         #region View Todays Appointment
         [HttpGet]
         [Route("Today")]
@@ -74,6 +75,7 @@ namespace ClinicManagementSystem.Controllers
             return await _appointment.GetAppointmentsByDate(date);
         }
         #endregion
+        
         #region  Get Appointments By Status
         [HttpGet]
         [Route("Status/{status}")]

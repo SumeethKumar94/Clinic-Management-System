@@ -9,6 +9,7 @@ namespace ClinicManagementSystem.Repository.Bills
 {
     public interface IConsultancyBill
     {
+
         //view consultation bills
         public Task<List<SubBillView>> GetConsultancyAllBills();
 

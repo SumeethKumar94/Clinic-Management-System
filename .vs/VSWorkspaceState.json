@@ -2,8 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\ClinicManagementSystem",
-    "\\ClinicManagementSystem\\Controllers",
     "\\ClinicManagementSystem\\Repository",
+<<<<<<< HEAD
+    "\\ClinicManagementSystem\\Repository\\StaffRepo"
+  ],
+<<<<<<< HEAD
+  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+=======
+  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
+>>>>>>> c2ff281bcf192522d51c0110b5bd2c085b633f7a
+=======
     "\\ClinicManagementSystem\\Repository\\Appointments",
     "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo"

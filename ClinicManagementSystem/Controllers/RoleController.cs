@@ -36,6 +36,7 @@ namespace ClinicManagementSystem.Controllers
         }
 
         #endregion
+
         #region get everyone in Role
         [HttpGet]
         [Route("Staff/{id}")]
@@ -44,6 +45,7 @@ namespace ClinicManagementSystem.Controllers
             return await _roleRepo.GetRolesStaff(id);
         }
             #endregion
+
             #region get role by id
             [HttpGet("{id}")]
         public async Task<ActionResult<Role>> GetROle(int? id)

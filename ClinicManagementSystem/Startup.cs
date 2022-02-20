@@ -69,6 +69,7 @@ namespace ClinicManagementSystem
             services.AddScoped<ILabTestsRepository, LabTestsRepository>();
             services.AddScoped<ITestAdviceRepository, TestAdviceRepository>();
             services.AddScoped<IMedicineDetailsRepository,MedicineDetailsRepository>();
+            //services.AddScoped<>(ITestDetailsRepository, TestDetailsRepository);
 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

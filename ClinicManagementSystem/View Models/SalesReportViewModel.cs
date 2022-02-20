@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.View_Models
 {
-    public class MedicineStock
+    public class SalesReportViewModel
     {
-
         
-        public int? Stock { get; set; }
+        public string MonthOfSale { get; set;  }
+        public int SumAmount { get; set; }
     }
-
-
 }

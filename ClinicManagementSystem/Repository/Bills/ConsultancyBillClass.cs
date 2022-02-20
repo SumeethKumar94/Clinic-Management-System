@@ -46,7 +46,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              on a.PatientId equals p.PatientId
                              select new  SubBillView
                              {
-                              ConsultationBillId=c.ConsultationBillId,
+                              ConsultationBillId=c.ConsultancyBillId,
                               DateOfBill=c.DateOfBill,
                               AppointmentDate=a.AppointmentDate,
                               ReceptionistName= "" + (from dc in _contextone.Staff
@@ -80,10 +80,10 @@ namespace ClinicManagementSystem.Repository.Bills
                               join
                               p in _contextone.Patient
                               on a.PatientId equals p.PatientId
-                              where c.ConsultationBillId==id
+                              where c.ConsultancyBillId==id
                               select new SubBillView
                               {
-                                  ConsultationBillId = c.ConsultationBillId,
+                                  ConsultationBillId = c.ConsultancyBillId,
                                   DateOfBill = c.DateOfBill,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff
@@ -121,7 +121,7 @@ namespace ClinicManagementSystem.Repository.Bills
                               where p.Phone == phone
                               select new SubBillView
                               {
-                                  ConsultationBillId = c.ConsultationBillId,
+                                  ConsultationBillId = c.ConsultancyBillId,
                                   DateOfBill = c.DateOfBill,
                                   AppointmentDate = a.AppointmentDate,
                                   ReceptionistName = "" + (from dc in _contextone.Staff

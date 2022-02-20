@@ -23,6 +23,6 @@ namespace ClinicManagementSystem.Repository.Bills
         Task<int> AddBill(Bill bill);
         //Task<FinalBillView> GetBillByAppointment(int id);
         Task<List<FinalBillView>> GetBillByAppointment();
-        Task<BillIds> GetBillByAppointmentID(int id);
+        //Task<BillIds> GetBillByAppointmentID(int id);
     }
 }

@@ -36,8 +36,8 @@ namespace ClinicManagementSystem.Repository.Bills
             {
                 return await(from b in _contextone.Bill
                             join c in _contextone.ConsultationBill
-                            on b.ConsultancyBillId equals c.ConsultationBillId
-                            join a in _contextone.Appointment 
+                            on b.ConsultancyBillId equals c.ConsultancyBillId
+                             join a in _contextone.Appointment 
                             on c.AppointmentId equals a.AppointmentId
                             join  p in _contextone.Patient 
                             on a.PatientId equals p.PatientId
@@ -62,7 +62,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                where m.MedicineBillId == b.MedicineBillId
                                                 select m.TotalAmount).FirstOrDefault(),
                                  LabTestsFee = (from l in _contextone.LabBill
-                                                where l.LabBillId == b.LabTestBillId
+                                                where l.LabTestBillId == b.LabTestBillId
                                                 select l.TotalAmount).FirstOrDefault(),
                                  TotalAmount= b.TotalAmount
 
@@ -80,8 +80,8 @@ namespace ClinicManagementSystem.Repository.Bills
             {
                 return await (from b in _contextone.Bill
                              join c in _contextone.ConsultationBill
-                             on b.ConsultancyBillId equals c.ConsultationBillId
-                             join a in _contextone.Appointment 
+                             on b.ConsultancyBillId equals c.ConsultancyBillId
+                              join a in _contextone.Appointment 
                              on c.AppointmentId equals a.AppointmentId
                              join p in _contextone.Patient
                              on a.PatientId equals p.PatientId
@@ -107,7 +107,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                 where m.MedicineBillId == b.MedicineBillId
                                                  select m.TotalAmount).FirstOrDefault(),
                                  LabTestsFee = (from l in _contextone.LabBill
-                                               where l.LabBillId == b.LabTestBillId
+                                               where l.LabTestBillId == b.LabTestBillId
                                                 select l.TotalAmount).FirstOrDefault(),
                                  TotalAmount = b.TotalAmount
 
@@ -125,8 +125,8 @@ namespace ClinicManagementSystem.Repository.Bills
             {
                 return await (from b in _contextone.Bill
                               join c in _contextone.ConsultationBill
-                              on b.ConsultancyBillId equals c.ConsultationBillId
-                             join a in _contextone.Appointment 
+                              on b.ConsultancyBillId equals c.ConsultancyBillId
+                              join a in _contextone.Appointment 
                              on c.AppointmentId equals a.AppointmentId
                              join p in _contextone.Patient
                               on a.PatientId equals p.PatientId
@@ -152,7 +152,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                   where m.MedicineBillId == b.MedicineBillId
                                                   select m.TotalAmount).FirstOrDefault(),
                                   LabTestsFee = (from l in _contextone.LabBill
-                                                 where l.LabBillId == b.LabTestBillId
+                                                 where l.LabTestBillId == b.LabTestBillId
                                                  select l.TotalAmount).FirstOrDefault(),
                                   TotalAmount = b.TotalAmount
                               
@@ -219,7 +219,7 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
-
+        /*
         public async Task<BillIds> GetBillByAppointmentID(int id)
         {
             if (_contextone != null)
@@ -235,7 +235,7 @@ namespace ClinicManagementSystem.Repository.Bills
                               {
                                   AppointmentId = c.AppointmentId,
                                   
-                                  ConsultancyBillId= c.ConsultationBillId,
+                                  ConsultancyBillId= c.ConsultatncyBillId,
 
                                   MedicineBillId = (from m in _contextone.MedicineBill
                                                   join medadv in _contextone.MedicineAdvice
@@ -262,6 +262,7 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-
+        */
         }
+        
 }

@@ -63,11 +63,15 @@ namespace ClinicManagementSystem.Controllers
             return await _bill.GetBillByAppointment();
 
         }
+
+
+        /*
         [HttpGet]
         [Route("UserBill/{id}")]
         public async Task<BillIds> GetBillByAppointmentID(int id)
         {
             return await _bill.GetBillByAppointmentID(id);
         }
+        */
     }
 }

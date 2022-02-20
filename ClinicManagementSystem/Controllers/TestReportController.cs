@@ -74,6 +74,7 @@ namespace ClinicManagementSystem.Controllers
             //throw new NotImplementedException();
         }
         #endregion
+
         #region View  All Test Report by Test Report ID
         [HttpGet("{id}")]
         public async Task<TestReportView> GetTestReportsById(int id)
@@ -131,6 +132,7 @@ namespace ClinicManagementSystem.Controllers
             //throw new NotImplementedException();
         }
         #endregion
+
         #region View Test Report By name
         [HttpGet]
         [Route("Name/{name}")]
@@ -187,6 +189,7 @@ namespace ClinicManagementSystem.Controllers
             //throw new NotImplementedException();
         }
         #endregion
+
         #region View Test Report by Phone
         [Route("Phone/{phone}")]
         [HttpGet]
@@ -245,7 +248,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region add a test report
         [HttpPost]
-        public async Task<IActionResult> AddTestReport([FromBody] TestReport testReport)
+        public async Task<IActionResult> AddTestReport([FromBody] TestDetails testDetails)
         {
             var adviceID = 0;
             //since it is frombody we need to check the validation of body
@@ -255,9 +258,9 @@ namespace ClinicManagementSystem.Controllers
                 {
                     if (context != null)
                     {
-                        await context.TestReport.AddAsync(testReport);
+                        await context.TestDetails.AddAsync(testDetails);
                         await context.SaveChangesAsync();
-                         adviceID= testReport.TestReportId;
+                        adviceID = testDetails.TestDetailId;
                     }
 
                     if (adviceID > 0)
@@ -277,7 +280,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region Update Test Report
         [HttpPut]
-        public async Task<ActionResult>UpdateTestReport([FromBody] TestReport testReport)
+        public async Task<ActionResult>UpdateTestReport([FromBody] TestDetails testDetails)
             {
             if (ModelState.IsValid)
             {
@@ -285,8 +288,8 @@ namespace ClinicManagementSystem.Controllers
                 {
                       if (context != null)
                     {
-                        context.Entry(testReport).State = EntityState.Modified;
-                        context.TestReport.Update(testReport);
+                        context.Entry(testDetails).State = EntityState.Modified;
+                        context.TestDetails.Update(testDetails);
                         await context.SaveChangesAsync();
                     }
                     return Ok();
