@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ClinicManagementSystem.Repository.DoctorsNotes;
+using ClinicManagementSystem.View_Models;
 
 namespace ClinicManagementSystem.Controllers
 {
@@ -53,7 +54,7 @@ namespace ClinicManagementSystem.Controllers
         #endregion
 
         #region get doctor note by id
-        [HttpGet("patient/{id}")]
+        /*[HttpGet("patient/{id}")]
         public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
         {
             try
@@ -64,7 +65,7 @@ namespace ClinicManagementSystem.Controllers
             {
                 return null;
             }
-        }
+        }*/
         #endregion
 
         #region Add a  note
@@ -95,9 +96,9 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
 
-        
+
         #endregion
-        
+
         #region delete note by id
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNote(int? id)
@@ -144,5 +145,21 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+        #region get doctor note by id
+        [HttpGet("patient/{id}")]
+        public async Task<ActionResult<List<NotesView>>> GetNoteForPatients(int? id)
+        {
+            try
+            {
+                return await _notes.GetNoteForPatients(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        #endregion
+
     }
+
 }

@@ -20,7 +20,7 @@ namespace ClinicManagementSystem.Controllers
         private readonly ClinicManagementSystemDBContext _context;
 
         //constructor injection
-        public AppointmentsController(IAppointment appoint,ClinicManagementSystemDBContext cont)
+        public AppointmentsController(IAppointment appoint, ClinicManagementSystemDBContext cont)
         {
             _appointment = appoint;
             _context = cont;
@@ -66,10 +66,9 @@ namespace ClinicManagementSystem.Controllers
             return await _appointment.GetAppointmentsToday();
         }
         #endregion
-        
 
-            #region View Appointment By Date
-            [HttpGet]
+        #region View Appointment By Date
+        [HttpGet]
         [Route("Date/{date}")]
         public async Task<List<Appointmentview>> GetAppointmentsByDate(DateTime date)
         {
@@ -85,9 +84,9 @@ namespace ClinicManagementSystem.Controllers
             return await _appointment.GetAppointmentsByStatus(status);
         }
         #endregion
-        
-            #region view appointment by patient mobile
-            [HttpGet]
+
+        #region view appointment by patient mobile
+        [HttpGet]
         // [Authorize]
         [Route("ViewAppointmentByPhone/{phone}")]
         public async Task<Appointmentview> GetAppointmentsByPhone(Int64 phone)
@@ -106,7 +105,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region update appointment
         [HttpPut]
-       public async Task<IActionResult> UpdateAppointment(Appointment appointment)
+        public async Task<IActionResult> UpdateAppointment(Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -123,12 +122,12 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
-//--------------------Dont Touch---------------------
+        //--------------------Dont Touch---------------------
         #region Patch  appointment
         [HttpPatch("{id}")]
         public async Task<IActionResult> PatchAppointment(int id, [FromBody] JsonPatchDocument<Appointment> patchEntity)
         {
-            if (id> 0)
+            if (id > 0)
             {
 
                 var appointment = await _context.Appointment.FirstOrDefaultAsync(u => u.AppointmentId == id);
@@ -145,32 +144,32 @@ namespace ClinicManagementSystem.Controllers
             }
             return BadRequest();
         }
-       
+
         #endregion
         //------------------------------------------------------
-      
+
         //[Route]
         #region Delete Appointment
-          [HttpDelete("{id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAppointment(int id)
         {
-                int result = 0;
-                if (id == 0)
-                {
-                    return BadRequest();
-                }
-                try
-                {
+            int result = 0;
+            if (id == 0)
+            {
+                return BadRequest();
+            }
+            try
+            {
                 result = await _appointment.DeleteAppointment(id);
-                    return Ok();
-                }
-                catch (Exception)
-                {
-                    return BadRequest();
-                }
-            
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
         }
-            #endregion
+        #endregion
 
 
         #region view appointments by  doctorsid and date (today)
@@ -183,16 +182,22 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
-        
-
-              #region view appointments by  doctorsid and date 
+        #region view appointments by  doctorsid and date 
         [HttpGet]
         // [Authorize]
         [Route("ViewAppointmentsondate/{id}/{date}")]
         public async Task<List<Appointmentview>> getAppointmentsOnDate(int id, DateTime date)
         {
-            return await _appointment.getAppointmentsOnDate(id,date);
+            return await _appointment.getAppointmentsOnDate(id, date);
         }
         #endregion
+
+
+        [HttpGet]
+        [Route("CountAppointments")]
+        public async Task<int> GetAppointmentCount()
+        {
+            return await _appointment.GetAppointmentCount();
+        }
     }
 }

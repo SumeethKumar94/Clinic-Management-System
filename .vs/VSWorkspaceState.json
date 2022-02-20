@@ -3,6 +3,7 @@
     "",
     "\\ClinicManagementSystem",
     "\\ClinicManagementSystem\\Repository",
+<<<<<<< HEAD
     "\\ClinicManagementSystem\\Repository\\StaffRepo"
   ],
 <<<<<<< HEAD
@@ -10,5 +11,12 @@
 =======
   "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
 >>>>>>> c2ff281bcf192522d51c0110b5bd2c085b633f7a
+=======
+    "\\ClinicManagementSystem\\Repository\\Appointments",
+    "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
+    "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
+  ],
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo\\DoctorsNotesRepository.cs",
+>>>>>>> 81fd8e703ec6322b567857ce122fd1852a7dbb15
   "PreviewInSolutionExplorer": false
 }

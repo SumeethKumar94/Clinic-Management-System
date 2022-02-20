@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -100,7 +101,7 @@ namespace ClinicManagementSystem.Controllers
                               group b by b.BillDate.Month into g
                               select new SalesReportViewModel
                               {
-                                  MonthOfSale = g.Key,
+                                  MonthOfSale = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(g.Key),
                                   SumAmount = g.Sum(p => p.TotalAmount)
                               }
 
