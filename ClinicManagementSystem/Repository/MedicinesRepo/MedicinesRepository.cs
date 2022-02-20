@@ -123,15 +123,21 @@ namespace ClinicManagementSystem.Repository
                                   Stock = a.Stock
                               }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
                 ).FirstOrDefaultAsync();                            
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
                 ).FirstOrDefaultAsync();
 =======
                               ).FirstOrDefaultAsync();
 >>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
+<<<<<<< HEAD
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
+=======
 >>>>>>> parent of 81fd8e7 (Added New Controllers)
             };
             return null;
@@ -140,6 +146,7 @@ namespace ClinicManagementSystem.Repository
 <<<<<<< HEAD
 
 
+<<<<<<< HEAD
 
           
 
@@ -147,6 +154,10 @@ namespace ClinicManagementSystem.Repository
 <<<<<<< HEAD
 
 
+=======
+>>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
+=======
 =======
 >>>>>>> 1b84a9430858ac0692b18d24a72b9aeddf7a6f29
 >>>>>>> parent of 81fd8e7 (Added New Controllers)

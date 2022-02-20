@@ -16,7 +16,11 @@
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
   ],
 <<<<<<< HEAD
+<<<<<<< HEAD
   "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\IMedicinesRepository.cs",
+=======
+  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
+>>>>>>> parent of 81fd8e7 (Added New Controllers)
 =======
   "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
 >>>>>>> parent of 81fd8e7 (Added New Controllers)
