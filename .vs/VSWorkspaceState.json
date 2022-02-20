@@ -8,6 +8,6 @@
     "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo\\DoctorsNotesRepository.cs",
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\IMedicinesRepository.cs",
   "PreviewInSolutionExplorer": false
 }
