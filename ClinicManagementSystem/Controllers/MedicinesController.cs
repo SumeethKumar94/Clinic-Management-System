@@ -2,7 +2,7 @@
 using ClinicManagementSystem.Repository;
 using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,10 +18,12 @@ namespace ClinicManagementSystem.Controllers
     {
         //data fields
         private readonly IMedicinesRepository _medicinesRepository;
+        private readonly ClinicManagementSystemDBContext _context;
 
-        public MedicinesController(IMedicinesRepository medicinesRepository)
+        public MedicinesController(IMedicinesRepository medicinesRepository,ClinicManagementSystemDBContext cont)
         {
             _medicinesRepository = medicinesRepository;
+            _context = cont;
         }
 
         #region get medicines
@@ -175,6 +177,26 @@ namespace ClinicManagementSystem.Controllers
             return null;
         }
         #endregion
+   
+        #region Patch the Stock
+        [HttpPatch("{medname}")]
+        public async Task<IActionResult> PatchMedicine(string medname, [FromBody] JsonPatchDocument<Medicines> patchEntity)
+        {
+            if (medname != "")
+            {
+                var medicines = await _context.Medicines.FirstOrDefaultAsync(u => u.MedicineName == medname);
+                if (medicines == null)
+                {
+                    return BadRequest();
+                }
+                patchEntity.ApplyTo(medicines, ModelState); _context.Medicines.Update(medicines);
+                await _context.SaveChangesAsync();
+                return Ok(medicines);
+            }
+            return BadRequest();
+        }
+        #endregion
+
 
 
 

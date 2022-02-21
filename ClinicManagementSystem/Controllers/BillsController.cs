@@ -64,6 +64,14 @@ namespace ClinicManagementSystem.Controllers
 
         }
 
+        #region get user bill by id
+        [HttpGet]
+        [Route("UserBill/{id}")]
+        public async Task<BillIds> GetBillByAppointmentID(int id)
+        {
+            return await _bill.GetBillByAppointmentID(id);
+        }
+        #endregion
 
         /*
         [HttpGet]

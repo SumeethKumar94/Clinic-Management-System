@@ -38,7 +38,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                               where tr.Status==1
                               select  new TestAdviceViewModel
                               {
-                                  TestAdviceId = tr.TestReportId,
+                                  TestReportId = tr.TestReportId,
 
                                   DoctorName = " " + (from st in _contextThree.Staff
                                                       where st.StaffId == a.DoctorId
@@ -79,7 +79,6 @@ namespace ClinicManagementSystem.Repository.LabTests
                              join
                              a in _contextThree.Appointment
                              on tr.AppointmentId equals a.AppointmentId
-
                              join
                              s in _contextThree.Staff
                              on a.DoctorId equals s.StaffId
@@ -88,7 +87,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                              where tr.TestReportId == id
                              select new TestAdviceViewModel
                              {
-                                 TestAdviceId = tr.TestReportId,
+                                 TestReportId = tr.TestReportId,
 
                                  DoctorName = " " + (from st in _contextThree.Staff
                                                      where st.StaffId == a.DoctorId
@@ -138,7 +137,7 @@ namespace ClinicManagementSystem.Repository.LabTests
                               where p.Phone == phone
                               select new TestAdviceViewModel
                               {
-                                  TestAdviceId = tr.TestReportId,
+                                  TestReportId = tr.TestReportId,
 
                                   DoctorName = " " + (from st in _contextThree.Staff
                                                       where st.StaffId == a.DoctorId
@@ -168,13 +167,13 @@ namespace ClinicManagementSystem.Repository.LabTests
         #endregion
 
         #region add a test advice
-        public async Task<int> AddTestAdvice(TestReport testReport)
+        public async Task<int> AddTestAdvice(TestDetails testReport)
         {
             if (_contextThree != null)
             {
-                await _contextThree.TestReport.AddAsync(testReport);
+                await _contextThree.TestDetails.AddAsync(testReport);
                 await _contextThree.SaveChangesAsync();
-                return testReport.TestReportId;
+                return testReport.TestDetailId;
             }
             return 0;
             //throw new NotImplementedException();
@@ -182,12 +181,12 @@ namespace ClinicManagementSystem.Repository.LabTests
         #endregion
 
         #region update the test advice
-        public async Task UpdateTestAdvice(TestReport testReport)
+        public async Task UpdateTestAdvice(TestDetails testReport)
         {
             if (_contextThree != null)
             {
                 _contextThree.Entry(testReport).State = EntityState.Modified;
-                _contextThree.TestReport.Update(testReport);
+                _contextThree.TestDetails.Update(testReport);
                 await _contextThree.SaveChangesAsync();
             }
             //throw new NotImplementedException();

@@ -19,10 +19,10 @@ namespace ClinicManagementSystem.Repository.LabTests
         Task<TestAdviceViewModel> GetTestAdviceByPhone(Int64 phone);
 
         //add a test advice
-        Task<int> AddTestAdvice(TestReport testReport);
+        Task<int> AddTestAdvice(TestDetails testDetails);
 
         //update a test advice
-        Task UpdateTestAdvice(TestReport testReport);
+        Task UpdateTestAdvice(TestDetails testDetails);
 
     }
 }

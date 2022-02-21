@@ -7,7 +7,7 @@ namespace ClinicManagementSystem.View_Models.LabTests
 {
     public class TestAdviceViewModel
     {
-        public int TestAdviceId { get; set; }
+        public int TestReportId { get; set; }
         public string PatientName { get; set; }
         public Int64 Mobile { get; set; }
         public string DoctorName { get; set; }

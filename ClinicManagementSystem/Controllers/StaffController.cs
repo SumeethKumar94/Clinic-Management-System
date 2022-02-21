@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinicManagementSystem.View_Models;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManagementSystem.Controllers
 {
@@ -16,10 +18,12 @@ namespace ClinicManagementSystem.Controllers
     {
         //data fields
         private readonly IStaffRepository _staffRepository;
+        private readonly ClinicManagementSystemDBContext _context;
 
-        public StaffController(IStaffRepository staffRepository)
+        public StaffController(IStaffRepository staffRepository,ClinicManagementSystemDBContext cont)
         {
             _staffRepository = staffRepository;
+            _context = cont;
         }
 
         #region view all staffs
@@ -43,24 +47,31 @@ namespace ClinicManagementSystem.Controllers
             return await _staffRepository.GetStaff(staffId);
         }
         #endregion
-
+        [HttpGet]
+        [Route("Employees")]
+        #region Get Staff by Except me
+        public async Task<List<StaffViewModel>> GetAllStaffsExpectme()
+        {
+            return await _staffRepository.GetAllStaffsExpectme();
+        }
+        #endregion
         #region add a staff
         [HttpPost]
-        public async  Task<IActionResult> AddStaff([FromBody] Staff staff)
+        public async  Task<int> AddStaff([FromBody] Staff staff)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     await _staffRepository.AddStaff(staff);
-                    return Ok(staff);
+                    return staff.StaffId;
                 }
                 catch (Exception)
                 {
-                    return BadRequest();
+                    return 0;
                 }
             }
-            return BadRequest();
+            return 0;
         }
         #endregion
 
@@ -110,5 +121,27 @@ namespace ClinicManagementSystem.Controllers
         }
         #endregion
 
+        #region Patch Staff
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchAppointment(int id, [FromBody] JsonPatchDocument<Staff> patchEntity)
+        {
+            if (id > 0)
+            {
+
+                var appointment = await _context.Staff.FirstOrDefaultAsync(u => u.StaffId == id);
+                if (appointment == null)
+                {
+                    return BadRequest();
+                }
+
+                patchEntity.ApplyTo(appointment, ModelState);
+
+                _context.Staff.Update(appointment);
+                await _context.SaveChangesAsync();
+                return Ok(appointment);
+            }
+            return BadRequest();
+        }
+        #endregion
     }
 }

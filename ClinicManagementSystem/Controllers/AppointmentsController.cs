@@ -193,5 +193,22 @@ namespace ClinicManagementSystem.Controllers
             return await _appointment.getAppointmentsOnDate(id,date);
         }
         #endregion
+
+        #region Get Appointment Count
+        [HttpGet]
+        [Route("CountAppointments")]
+        public async Task<int> GetAppointmentCount()
+        {
+            if (_context != null)
+            {
+                return await (
+                from a in _context.Appointment
+                where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month == DateTime.Today.Month && a.AppointmentDate.Year == DateTime.Today.Year
+                group a by 1 into ct
+                select ct.Count()).FirstOrDefaultAsync();
+            }
+            return 0;
+        }
+        #endregion
     }
 }

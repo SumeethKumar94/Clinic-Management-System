@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.Repository.StaffRepo
 
         //get staff by id
         Task<ActionResult<StaffViewModel>> GetStaff(int? staffId);
+        Task<List<StaffViewModel>> GetAllStaffsExpectme();
 
         //add a staff
         Task<ActionResult<Staff>> AddStaff(Staff staff);

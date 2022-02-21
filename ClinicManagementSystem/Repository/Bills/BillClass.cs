@@ -219,7 +219,6 @@ namespace ClinicManagementSystem.Repository.Bills
             return null;
         }
         #endregion
-        /*
         public async Task<BillIds> GetBillByAppointmentID(int id)
         {
             if (_contextone != null)
@@ -235,7 +234,7 @@ namespace ClinicManagementSystem.Repository.Bills
                               {
                                   AppointmentId = c.AppointmentId,
                                   
-                                  ConsultancyBillId= c.ConsultatncyBillId,
+                                  ConsultancyBillId= c.ConsultationBillId,
 
                                   MedicineBillId = (from m in _contextone.MedicineBill
                                                   join medadv in _contextone.MedicineAdvice
@@ -262,7 +261,7 @@ namespace ClinicManagementSystem.Repository.Bills
             }
             return null;
         }
-        */
+        
         }
         
 }

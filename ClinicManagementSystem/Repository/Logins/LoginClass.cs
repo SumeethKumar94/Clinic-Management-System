@@ -45,7 +45,7 @@ namespace ClinicManagementSystem.Repository.Logins
                              StaffId=(int)login.StaffId,
                              LoginId=login.LoginId,
                              RoleId=(int)staff.RoleId,
-                             
+                             Status=staff.Status
                              }
                               ).FirstOrDefaultAsync();
             }

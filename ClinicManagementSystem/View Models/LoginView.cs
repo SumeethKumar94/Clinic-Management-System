@@ -11,5 +11,6 @@ namespace ClinicManagementSystem.View_Models
         public int StaffId { get; set; }
         public int RoleId { get; set; }
         public string LoginId { get; set; }
+        public string Status { get; set; }
     }
 }

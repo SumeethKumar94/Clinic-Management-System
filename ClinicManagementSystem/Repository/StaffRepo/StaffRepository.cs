@@ -43,7 +43,6 @@ namespace ClinicManagementSystem.Repository.StaffRepo
                               join
                               q in _contextOne.Qualifications
                               on s.QualificationsId equals q.QualificationsId
-
                               select new StaffViewModel
                               {
                                   StaffId = s.StaffId,
@@ -63,6 +62,46 @@ namespace ClinicManagementSystem.Repository.StaffRepo
             return null;
         }
         #endregion
+        #region Get all staffs
+
+        public async Task<List<StaffViewModel>> GetAllStaffsExpectme()
+        {
+            //LINQ
+            if (_contextOne != null)
+            {
+                //return await _contextOne.Staff.ToListAsync();
+
+                //return await _contextOne.StaffViewModel.ToListAsync();
+                return await (
+                              from s in _contextOne.Staff
+                              join
+                               r in _contextOne.Role
+                              on s.RoleId equals r.RoleId
+                              join
+                              q in _contextOne.Qualifications
+                              on s.QualificationsId equals q.QualificationsId
+                              where s.RoleId != 2
+                              select new StaffViewModel
+                              {
+                                  StaffId = s.StaffId,
+                                  FirstName = s.FirstName,
+                                  LastName = s.LastName,
+                                  Phone = s.Phone,
+                                  Address = s.Address,
+                                  DateOfBirth = s.DateOfBirth,
+                                  QualificationsId = s.QualificationsId,
+                                  Qualification = q.Qualification,
+                                  Status = s.Status,
+                                  RoleId = r.RoleId,
+                                  Role1 = r.Role1
+                              }
+                              ).ToListAsync();
+            }
+            return null;
+        }
+        #endregion
+
+
 
         #region get staff by id
         public async Task<ActionResult<StaffViewModel>> GetStaff(int? staffId)

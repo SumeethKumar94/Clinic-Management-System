@@ -2,27 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\ClinicManagementSystem",
+    "\\ClinicManagementSystem\\Controllers",
     "\\ClinicManagementSystem\\Repository",
-<<<<<<< HEAD
-    "\\ClinicManagementSystem\\Repository\\StaffRepo"
-  ],
-<<<<<<< HEAD
-  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
-=======
-  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
->>>>>>> c2ff281bcf192522d51c0110b5bd2c085b633f7a
-=======
     "\\ClinicManagementSystem\\Repository\\Appointments",
-    "\\ClinicManagementSystem\\Repository\\MedicinesRepo"
+    "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
+    "\\ClinicManagementSystem\\Repository\\LabTests",
+    "\\ClinicManagementSystem\\Repository\\MedicinesRepo",
+    "\\ClinicManagementSystem\\View Models"
   ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "SelectedNode": "\\ClinicManagementSystem\\Repository\\MedicinesRepo\\IMedicinesRepository.cs",
-=======
-  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
->>>>>>> parent of 81fd8e7 (Added New Controllers)
-=======
-  "SelectedNode": "\\ClinicManagementSystem\\ClinicManagementSystem.sln",
->>>>>>> parent of 81fd8e7 (Added New Controllers)
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\LabTests\\TestAdviceRepository.cs",
   "PreviewInSolutionExplorer": false
 }
