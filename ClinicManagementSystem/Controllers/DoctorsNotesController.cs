@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ClinicManagementSystem.Repository.DoctorsNotes;
+using ClinicManagementSystem.View_Models;
 
 namespace ClinicManagementSystem.Controllers
 {
@@ -54,7 +55,7 @@ namespace ClinicManagementSystem.Controllers
 
         #region get doctor note by id
         [HttpGet("patient/{id}")]
-        public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
+        public async Task<ActionResult<List<NotesView>>> GetNoteForPatient(int? id)
         {
             try
             {

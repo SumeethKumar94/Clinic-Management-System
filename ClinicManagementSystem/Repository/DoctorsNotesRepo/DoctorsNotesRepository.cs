@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -59,23 +60,24 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
         #endregion
 
         #region get Notes by appointment id
-        public async Task<ActionResult<List<DoctorNotes>>> GetNoteForPatient(int? id)
+        public async Task<ActionResult<List<NotesView>>> GetNoteForPatient(int? id)
         {
-            if (_context != null)
-            {
-                return await (from c in _context.DoctorNotes
-                                  where c.AppointmentId == id
-                                  select new DoctorNotes
-                                  {
-                                      NoteId = c.NoteId,
-                                      Note = c.Note,
-                                      PatientId = c.PatientId,
-                                      DoctorId = c.DoctorId,
-                                      AppointmentId = c.AppointmentId
-                                  }
-                                  ).ToListAsync();
-                
-            }
+            return await (from c in _context.DoctorNotes
+                          join a in _context.Appointment on c.AppointmentId equals a.AppointmentId
+                          where c.PatientId == id
+                          select new NotesView
+                          {
+                              NoteId = c.NoteId,
+                              Note = c.Note,
+                              PatientId = c.PatientId,
+                              DoctorId = c.DoctorId,
+                              AppointmentId = c.AppointmentId,
+                              Date = a.AppointmentDate
+
+                          }
+                            ).ToListAsync();
+
+        }
             return null;
             //throw new NotImplementedException();
         }

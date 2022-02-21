@@ -177,7 +177,22 @@ namespace ClinicManagementSystem.Controllers
             return null;
         }
         #endregion
-   
+
+        #region Get Med Stock by Id
+        [HttpGet]
+        [Route("stocks/{id}")]
+        public async Task<int> GetMedicineStockById(int id)
+        {
+            if (_context != null)
+            {
+                return await (from a in _context.Medicines
+                              where a.MedicineId == id
+                              select (int)a.Stock).FirstOrDefaultAsync();
+
+            };
+            return 100;
+        }
+        #endregion
         #region Patch the Stock
         [HttpPatch("{medname}")]
         public async Task<IActionResult> PatchMedicine(string medname, [FromBody] JsonPatchDocument<Medicines> patchEntity)
