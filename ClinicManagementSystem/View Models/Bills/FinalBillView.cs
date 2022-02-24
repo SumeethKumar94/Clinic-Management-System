@@ -15,6 +15,7 @@ namespace ClinicManagementSystem.ViewModels.Bills
         public string ReceptionistName { get; set; }
         public string DoctorName { get; set; }
         public string PatientName { get; set; }
+        public string Email { get; set; }
         public long Phone { get; set; }
         public string Address { get; set; }
         public int MedDone { get; set; }

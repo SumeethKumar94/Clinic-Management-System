@@ -39,7 +39,7 @@ namespace ClinicManagementSystem.Repository
                               join p in _context.Appointment 
                               on m.AppointmentId equals p.AppointmentId
                               join a in _context.Patient on p.PatientId equals a.PatientId
-                              where m.Status==1
+                              where m.Status==1 
                               select new MedicineAdviceView
                               {
                                   MedicineAdviceId=m.MedicineAdviceId,
@@ -59,6 +59,44 @@ namespace ClinicManagementSystem.Repository
                                                       Dose=mde.Dose,
                                                       Quantity=ml.Quantity
                                                   }
+                                  ).ToList()
+                              }
+                              ).ToListAsync();
+            }
+            return null;
+        }
+        #endregion
+
+        #region Get all medicine advices
+        public async Task<List<MedicineAdviceView>> GetAllMedicineAdvicesbyPharmID(int id)
+        {
+            if (_context != null)
+            {
+                return await (from m in _context.MedicineAdvice
+                              join p in _context.Appointment
+                              on m.AppointmentId equals p.AppointmentId
+                              join a in _context.Patient on p.PatientId equals a.PatientId
+                              join s in _context.Staff on  m.PharmacistId equals s.StaffId
+                              where m.Status == 1 && m.PharmacistId==id
+                              select new MedicineAdviceView
+                              {
+                                  MedicineAdviceId = m.MedicineAdviceId,
+                                  AppointmentId = p.AppointmentId,
+                                  PatientId = p.PatientId,
+                                  Patient = a.PatientName,
+                                  DoctorsId = p.DoctorId,
+                                  medicineList = (
+                                                   from ml in _context.MedicineDetails
+                                                   join mde in _context.Medicines on ml.MedicineId equals mde.MedicineId
+                                                   where ml.MedicineAdviceId == m.MedicineAdviceId
+                                                   select new MedicinesView
+                                                   {
+                                                       Medicine = mde.MedicineName,
+                                                       MedicineDescription = mde.MedicineDescription,
+                                                       MedicinePrice = mde.MedicinePrice,
+                                                       Dose = mde.Dose,
+                                                       Quantity = ml.Quantity
+                                                   }
                                   ).ToList()
                               }
                               ).ToListAsync();

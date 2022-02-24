@@ -93,6 +93,14 @@ namespace ClinicManagementSystem.Controllers
         }
 
         #endregion
+        #region Get Medicine Advice by Pharmacist
+        [HttpGet]
+        [Route("Pharmid/{id}")]
+        public async Task<List<MedicineAdviceView>> GetAllMedicineAdvicesbyPharmID(int id)
+        {
+            return await _medcineAdviceRepository.GetAllMedicineAdvicesbyPharmID(id);
+        }
+#endregion 
 
         #region Get Medicine Advice by patient ID
         [HttpGet]

@@ -41,6 +41,7 @@ namespace ClinicManagementSystem.Repository.Bills
                             on c.AppointmentId equals a.AppointmentId
                             join  p in _contextone.Patient 
                             on a.PatientId equals p.PatientId
+                            orderby b.BillId descending
                             select new FinalBillView
                              {
                                  BillId = b.BillId,
@@ -53,6 +54,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                     where dc.StaffId == a.DoctorId
                                                     select dc.FirstName).FirstOrDefault(),
                                  PatientName = p.PatientName,
+                                 Email=p.Email,
                                  Phone = p.Phone,
                                  Address = p.Address,
                                  DateOfBirth = p.DateOfBirth,
@@ -98,6 +100,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                     where dc.StaffId == a.DoctorId
                                                     select dc.FirstName).FirstOrDefault(),
                                  PatientName = p.PatientName,
+                                 Email = p.Email,
                                  Phone = p.Phone,
                                  Address = p.Address,
                                  DateOfBirth = p.DateOfBirth,
@@ -143,6 +146,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                      where dc.StaffId == a.DoctorId
                                                      select dc.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
+                                  Email = p.Email,
                                   Phone = p.Phone,
                                   Address = p.Address,
                                   DateOfBirth = p.DateOfBirth,
@@ -188,6 +192,7 @@ namespace ClinicManagementSystem.Repository.Bills
                                                      where dc.StaffId == a.DoctorId
                                                      select dc.FirstName).FirstOrDefault(),
                                   PatientName = p.PatientName,
+                                  Email = p.Email,
                                   Phone = p.Phone,
                                   Address = p.Address,
                                   DateOfBirth = p.DateOfBirth,

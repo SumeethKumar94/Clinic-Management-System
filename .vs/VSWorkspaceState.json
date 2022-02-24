@@ -5,11 +5,12 @@
     "\\ClinicManagementSystem\\Controllers",
     "\\ClinicManagementSystem\\Repository",
     "\\ClinicManagementSystem\\Repository\\Appointments",
+    "\\ClinicManagementSystem\\Repository\\Bills",
     "\\ClinicManagementSystem\\Repository\\DoctorsNotesRepo",
     "\\ClinicManagementSystem\\Repository\\LabTests",
     "\\ClinicManagementSystem\\Repository\\MedicinesRepo",
     "\\ClinicManagementSystem\\View Models"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Repository\\LabTests\\TestAdviceRepository.cs",
+  "SelectedNode": "\\ClinicManagementSystem\\Repository\\Bills\\BillClass.cs",
   "PreviewInSolutionExplorer": false
 }

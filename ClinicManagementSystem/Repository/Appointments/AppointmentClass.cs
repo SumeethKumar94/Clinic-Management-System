@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-
+using ClinicManagementSystem.View_Models;
 
 namespace ClinicManagementSystem.Repository.Appointments
 {
@@ -82,7 +82,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               join
                               s in _contextone.Staff
                               on a.DoctorId equals s.StaffId
-                              where a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year ==date.Day
+                              where a.AppointmentDate.Day == date.Day && a.AppointmentDate.Month==date.Month && a.AppointmentDate.Year ==date.Year && a.Status==1
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -226,6 +226,7 @@ namespace ClinicManagementSystem.Repository.Appointments
                               on a.DoctorId equals s.StaffId
                               where a.AppointmentDate.Day == DateTime.Today.Day && a.AppointmentDate.Month== DateTime.Today.Month && a.AppointmentDate.Year== DateTime.Today.Year && a.Status==1
                               orderby a.AppointmentDate ascending
+                              orderby a.TokenNo ascending
                               select new Appointmentview
                               {
                                   AppointmentId = a.AppointmentId,
@@ -392,6 +393,33 @@ namespace ClinicManagementSystem.Repository.Appointments
             return null;
         }
         #endregion
+
+        #region GET PATIENT ID FOR APPOINTMENT
+        public async Task<PatientIdView> GetPatientId(int id)
+        {
+            if (_contextone != null)
+            {
+                return await (
+                              from a in _contextone.Appointment
+                              join
+                              p in _contextone.Patient
+                              on a.PatientId equals p.PatientId
+                              join
+                              s in _contextone.Staff
+                              on a.DoctorId equals s.StaffId
+                              where a.AppointmentId == id
+                              select new PatientIdView
+                              {
+
+                                  PatientId = a.PatientId,
+
+                              }).FirstOrDefaultAsync();  //FirstorDefaultAsync();
+            }
+            return null;
+        }
+
+        #endregion
+
 
 
 

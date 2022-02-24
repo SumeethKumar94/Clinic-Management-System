@@ -45,6 +45,7 @@ namespace ClinicManagementSystem.Repository.Bills
                              join
                              p in _contextone.Patient
                              on a.PatientId equals p.PatientId
+                             orderby m.MedicineBillId descending
                              select new MedicineBillView
                              {
                                  MedicineBillId = m.MedicineBillId,

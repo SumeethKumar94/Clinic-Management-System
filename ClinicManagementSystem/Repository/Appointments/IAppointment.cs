@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinicManagementSystem.Models;
+using ClinicManagementSystem.View_Models;
 using ClinicManagementSystem.View_Models.Appointments;
 
 namespace ClinicManagementSystem.Repository.Appointments
@@ -35,6 +36,8 @@ namespace ClinicManagementSystem.Repository.Appointments
         Task<List<Appointmentview>> GetAppointmentsByDoctorIdandDate(int id);
 
         Task<List<Appointmentview>> getAppointmentsOnDate(int id, DateTime date);
+
+        Task<PatientIdView> GetPatientId(int id);
 
 
     }

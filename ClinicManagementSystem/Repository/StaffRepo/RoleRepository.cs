@@ -51,7 +51,7 @@ namespace ClinicManagementSystem.Repository
                 var role = await (from r in _context.Role
                                   join s in _context.Staff
                                  on r.RoleId equals s.RoleId
-                                  where r.RoleId == id
+                                  where r.RoleId == id && s.Status=="Active"
                                   select new RoleView
                                   {
                                       StaffId = s.StaffId,

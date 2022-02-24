@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.Models;
 using ClinicManagementSystem.Repository.Appointments;
+using ClinicManagementSystem.View_Models;
 using ClinicManagementSystem.View_Models.Appointments;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
@@ -122,7 +123,7 @@ namespace ClinicManagementSystem.Controllers
             return BadRequest();
         }
         #endregion
-//--------------------Dont Touch---------------------
+
         #region Patch  appointment
         [HttpPatch("{id}")]
         public async Task<IActionResult> PatchAppointment(int id, [FromBody] JsonPatchDocument<Appointment> patchEntity)
@@ -146,9 +147,8 @@ namespace ClinicManagementSystem.Controllers
         }
        
         #endregion
-        //------------------------------------------------------
-      
-        //[Route]
+ 
+     
         #region Delete Appointment
           [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAppointment(int id)
@@ -210,5 +210,22 @@ namespace ClinicManagementSystem.Controllers
             return 0;
         }
         #endregion
+
+
+ 
+
+        #region view patient id by appointment id
+        [HttpGet]
+       // [Authorize]
+          [Route("GetPatient/{id}")]
+        public async Task<PatientIdView> GetPatientId(int id)
+        {
+            return await _appointment.GetPatientId(id);
+        }
+        #endregion
+
+
+
+
     }
 }
