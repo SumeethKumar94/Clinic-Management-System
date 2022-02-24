@@ -76,8 +76,6 @@ namespace ClinicManagementSystem.Repository.DoctorsNotes
 
                           }
                             ).ToListAsync();
-
-            return null;
         }
            
             //throw new NotImplementedException();

@@ -5739,11 +5739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+      "projectUniqueName": "E:\\Experion-Tridents-API\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
       "projectName": "ClinicManagementSystem",
-      "projectPath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+      "projectPath": "E:\\Experion-Tridents-API\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
       "packagesPath": "C:\\Users\\sumeeth.s\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\obj\\",
+      "outputPath": "E:\\Experion-Tridents-API\\ClinicManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sumeeth.s\\AppData\\Roaming\\NuGet\\NuGet.Config",

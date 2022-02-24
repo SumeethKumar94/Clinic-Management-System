@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sz1ASm4q1qImGSvwOz14fERDGqdRphxC5aI2Ib7+o8bqgpd5qhLvUkqw9wFzSY5baEQUuaV1ggZ8L1RMf6IHHQ==",
+  "dgSpecHash": "i/fkGnd09ZBqhiE/bLSy0dIRmIr6yWXV/MCC+VbhCU730xPpFBSGR5rzE9hK4EuCYm30dQZAe1iKjRsFsU591w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sumeeth.s\\Source\\Repos\\Experion-Net-TRIDENT-RESTAPI\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
+  "projectFilePath": "E:\\Experion-Tridents-API\\ClinicManagementSystem\\ClinicManagementSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sumeeth.s\\.nuget\\packages\\microsoft.aspnet.cors\\5.0.0\\microsoft.aspnet.cors.5.0.0.nupkg.sha512",
     "C:\\Users\\sumeeth.s\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.0.0\\microsoft.aspnet.webapi.client.5.0.0.nupkg.sha512",
